@@ -1,0 +1,58 @@
+.info {
+    &--left {
+        left: -1.5rem;
+    }
+
+    &--right {
+        right: -1.5rem;
+    }
+
+    &__header {
+        display: block;
+        text-align: center;
+        margin: 0 1rem;
+    }
+
+    &__container {
+        text-align: center;
+        padding-bottom: 1rem;
+    }
+
+    &__group {
+        display: inline-block;
+        width: 63rem;
+        height: 20rem;
+        transform: skewX(-7.5deg);
+    }
+
+    &__content {
+        transform: skewX(7.5deg);
+        display: block;
+        height: 18rem;
+        padding: 1rem 3.5rem;
+        text-align: left;
+        width: 39rem;
+        position: absolute;
+        top: 0;
+        
+        -webkit-clip-path: polygon(4rem 0, 100% 0, 100% 100%, 0 100%);
+        clip-path: polygon(4rem 0, 100% 0, 100% 100%, 0 100%);
+
+        @include clearfix;
+    }
+
+    &__image {
+        transform: skewX(7.5deg);
+        display: inline-flex;
+        height: 18rem;
+        width: 20.5rem;
+        padding: 1rem;
+        position: absolute;
+        top: 0;
+        
+        -webkit-clip-path: polygon(0 0, 100% 0, calc(100% - 4rem) 100%, 0 100%);
+        clip-path: polygon(0 0, 100% 0, calc(100% - 4rem) 100%, 0 100%);
+
+        @include clearfix;
+    }
+}

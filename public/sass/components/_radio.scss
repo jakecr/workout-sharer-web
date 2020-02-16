@@ -1,0 +1,51 @@
+.radio {
+    &-group {
+        width: 50%;
+        display: inline-block;
+    }
+
+    &-input {
+        display: none;
+    }
+
+    &-label {
+        font-size: 2rem;
+        cursor: pointer;
+        position: relative;
+        padding-left: 4.5rem;
+    }
+
+    &-button {
+        height: 2rem;
+        width: 2rem;
+        border-radius: 50%;
+        display: inline-block;
+        position: absolute;
+        left: -.1rem;
+        top: -.3rem;
+
+        &::after {
+            content: "";
+            display: block;
+            height: 1.3rem;
+            width: 1.3rem;
+            border-radius: 50%;
+            @include absCenter;
+            top: 50%;
+            opacity: 0;
+            transition: opacity .2s;
+        }
+
+        &--dark::after {
+            background-color: #16181b;
+        }
+
+        &--light::after {
+            background-color: #cdd1d4;
+        }
+    }
+
+    &-input:checked + &-label &-button::after {
+        opacity: 1;
+    }
+}

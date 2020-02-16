@@ -1,0 +1,126 @@
+.header {
+    display: inline-block;
+    text-align: center;
+    margin-top: 1.5rem;
+    margin-bottom: 4rem;
+
+    &--active {
+        -webkit-filter: brightness(150%);
+        filter: brightness(150%);
+    }
+
+    &__anker {
+        text-decoration: none;
+
+        &:not(:last-child) {
+            margin-right: .5rem;
+        }
+    }
+
+    &__logo {
+        position: absolute;
+        width: 10.5rem;
+        transition: all .3s;
+        transform: translate(-50%, -5%);
+        -webkit-filter: brightness(85%);
+        filter: brightness(85%);
+
+        @include respond(small-phone) {
+            width: 28.5rem;
+        }
+
+        &:hover {
+            -webkit-filter: blur(3px);
+            filter: blur(3px);
+            opacity: .4;
+        }
+    }
+    
+    &__img {
+        position: absolute;
+        width: 9rem;
+        transition: all .3s;
+        transform: translateX(-50%);
+        -webkit-filter: brightness(85%);
+        filter: brightness(85%);
+
+        @include respond(small-phone) {
+            width: 24rem;
+        }
+
+        &:hover {
+            -webkit-filter: blur(3px);
+            filter: blur(3px);
+            opacity: .4;
+        }
+    }
+
+    &__label {
+        position: absolute;
+        visibility: hidden;
+        width: 9rem;
+        transform: translate(-4.5rem, 2rem);
+        line-height: 2.25rem;
+        font-weight: 700;
+        font-size: 1.8rem;
+
+        @include respond(small-phone) {
+            width: 24rem;
+            transform: translate(-9.25rem, 4rem);
+            line-height: 4.5rem;
+            font-size: 3.6rem;
+        }
+    }
+
+    &__label--logo {
+        position: absolute;
+        visibility: hidden;
+        width: 10.5rem;
+        transform: translate(-5rem, 3rem);
+        line-height: 2.25rem;
+        font-weight: 700;
+        font-size: 2.5rem;
+
+        @include respond(small-phone) {
+            width: 28.5rem;
+            transform: translate(-9.5rem, 8rem);
+            line-height: 4.5rem;
+            font-size: 4rem;
+        }
+    }
+
+    &__box--img:hover > &__label {
+        transition: all 1.5s;
+        visibility: visible;
+    }
+
+    &__box--logo:hover > &__label--logo {
+        transition: all 1.5s;
+        visibility: visible;
+    }
+
+    &__box{
+        &--img {
+            display: inline-block;
+            margin-left: 2rem;
+            width: 9rem;
+            height: 9rem;
+    
+            @include respond(small-phone) {
+                width: 24rem;
+                height: 24rem;
+            }
+        }
+
+        &--logo {
+            display: inline-block;
+            width: 10.35rem;
+            height: 8.25rem;
+    
+            @include respond(small-phone) {
+                width: 28rem;
+                height: 21.8rem;
+            }
+        }
+    }
+}

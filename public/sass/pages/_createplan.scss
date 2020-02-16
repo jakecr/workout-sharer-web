@@ -1,0 +1,25 @@
+.create-plan__set--inputs {
+    margin-top: 2.5rem;
+
+    & div:nth-child(even) {
+        float: right !important;
+    }
+}
+
+.help {
+    &--heading {
+        text-align: center;
+        margin: 1rem 0;
+        font-weight: 550;
+    }
+
+    &--info {
+        text-indent: 3rem;
+        margin: 1rem 0;
+    }
+
+    &--conclusion {
+        text-align: center;
+        font-weight: 550;
+    }
+}

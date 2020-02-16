@@ -1,0 +1,25 @@
+body {
+    font-family: 'Brawler', serif;
+    font-weight: 400;
+    font-size: $default-font-size;
+    line-height: 1.7;
+}
+
+a {
+    text-decoration: none;
+    color: $color-grey-light-2;
+    cursor: pointer;
+}
+
+.error-message {
+    color: $color-orange;
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 0;
+}
+
+.helpful-message {
+    font-size: 1.4rem;
+    text-align: center;
+    margin: 0 0 2.5rem;
+}

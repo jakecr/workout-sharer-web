@@ -1,0 +1,63 @@
+.input {
+    font-size: $default-font-size;
+    font-family: inherit;
+    color: $color-grey-dark-4;
+    font-weight: 400;
+    padding: 1.5rem 2rem;
+    border-radius: .2rem;
+    background-color: $color-grey-light-3;
+    border: none;
+    border-bottom: .3rem solid transparent;
+    width: 24rem;
+    display: inline-block;
+
+    &--small {
+        padding: .5rem 1rem;
+        margin: .5rem 1rem;
+        width: 11rem;
+    }
+
+    &:focus {
+        outline: none;
+        box-shadow: 0 1.5rem 2rem rgba($color-black, .1);
+        border-bottom: .3rem solid $color-green;
+    }
+
+    &:focus:invalid {
+        border-bottom: .3rem solid $color-red;
+    }
+
+    &::-webkit-input-placeholder {
+        font-size: $default-font-size;
+        font-weight: 400;
+        color: $color-grey-dark-4;
+    }
+
+    &:placeholder-shown + &--label {
+        opacity: 0;
+        visibility: hidden;
+        display: block;
+        float: left;
+        transform: translateY(-4rem);
+    }
+
+    &--group {
+        position: relative;
+        display: inline-block;
+        height: 5.8rem;
+        margin-bottom: 3rem;
+    }
+
+    &--label {
+        font-size: $default-font-size;
+        font-weight: 400;
+        position: absolute;
+        left: 2rem;
+        top: 6rem;
+        display: block !important;
+        transition: all .3s;
+        transform: translateY(-.65rem);
+        float: left;
+        color: $color-grey-light-2;
+    }
+}

@@ -1,0 +1,33 @@
+.confirm {
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    border-bottom: 6px solid rgba($color-black, 0.2);
+    box-shadow: 0 1.5rem 3rem rgba($color-black, 0.1);
+    position: absolute;
+    margin-left: 2rem;
+
+    &--question {
+        margin: 0 0 1rem;
+        line-height: 2.5rem;
+        color: #cdd1d4;
+    }
+
+    &__options {
+        display: flex;
+        justify-content: space-around;
+
+        &--yes {
+            background-color: $color-green;
+            border-radius: 2rem;
+            padding: .5rem 1rem;
+            color: #cdd1d4;
+        }
+
+        &--no {
+            background-color: $color-red;
+            border-radius: 2rem;
+            padding: .5rem 1rem;
+            color: #cdd1d4;
+        }
+    }
+}

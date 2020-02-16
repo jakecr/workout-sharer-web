@@ -1,0 +1,77 @@
+.footer {
+    height: 4vh;
+    background-color: $color-grey-dark-3;
+    background-size: cover;
+    padding: 10rem 0;
+    position: relative;
+    margin-top: -1.5rem;
+    z-index: 0;
+    -webkit-clip-path: polygon(0 3rem, 100% 0, 100% 100%, 0 100%);
+    clip-path: polygon(0 3rem, 100% 0, 100% 100%, 0 100%);
+
+    &__group {
+        @include clearfix;
+        display: flex;
+        width: 125%;
+        justify-content: space-evenly;
+
+        @include respond(tab-land) {
+            width: 120%;
+        }
+        @include respond(phone) {
+            width: 115%;
+        }
+    }
+
+    &__heading {
+        font-size: 4rem;
+        text-align: center;
+        letter-spacing: .2rem;
+        margin-top: -3.5rem;
+        margin-bottom: 4rem;
+        transform: rotate(0) scale(1);
+        transition: all .3s;
+    }
+
+    &__copyright {
+        &:link,
+        &:visited {
+            text-decoration: none;
+            transform: scale(1);
+            transition: all .3s;
+            font-size: $default-font-size;
+            padding-top: 1.5rem;
+            color: #2a2b2e; 
+            border-top: 1px solid #2a2b2e;
+
+            @include respond(phone) {
+                font-size: 2.4rem;
+            }
+        }
+
+        &:hover {
+            transform: scale(1.04);
+        }
+    }
+
+    &__credit {
+        &:link,
+        &:visited {
+            text-decoration: none;
+            transform: scale(1);
+            transition: all .3s;
+            padding-top: 1.5rem;
+            font-size: $default-font-size;
+            color: #2a2b2e; 
+            border-top: 1px solid #2a2b2e;
+            
+            @include respond(phone) {
+                font-size: 2.4rem;
+            }
+        }
+
+        &:hover {
+            transform: scale(1.04);
+        }
+    }
+}

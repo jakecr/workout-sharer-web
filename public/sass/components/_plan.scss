@@ -1,0 +1,53 @@
+.plan {
+    &__container {
+        position: relative;
+        @include clearfix;
+        height: 10.678rem;
+        width: 27.5rem;
+        text-align: center;
+        display: inline-block;
+    }
+    
+    &__box {
+        width: 13.5rem;
+        border-radius: 1rem;
+        padding: 1rem 7rem;
+        border-bottom: .6rem solid rgba($color-black, 0.2);
+        display: inline-block;
+        justify-content: center;
+        align-self: center;
+        -webkit-clip-path: polygon(5% 0, 100% 0, 95% 20%, 100% 40%, 95% 60%, 100% 80%, 95% 100%, 0 100%, 5% 80%, 0 60%, 5% 40%, 0 20%);
+        clip-path: polygon(5% 0, 100% 0, 95% 20%, 100% 40%, 95% 60%, 100% 80%, 95% 100%, 0 100%, 5% 80%, 0 60%, 5% 40%, 0 20%);
+    }
+
+    &__info {
+        padding: .25rem 0;
+        margin: 0;
+
+        &:not(:last-child) {
+            border-bottom: 1px solid darken($color-grey-light-2, 20%);
+        }
+    }
+
+    &__group {
+        text-align: center;
+        padding: 1rem 0;
+        border-top-width: 1px;
+    }
+
+    &--set {
+        display: inline-block;
+        max-width: 50rem;
+    }
+
+    &--exercise {
+        text-align: left;
+        margin: .5rem 0 0;
+    }
+
+    &--comment {
+        margin: 0;
+        line-height: 2.25rem;
+        display: inline-block;
+    }
+}
