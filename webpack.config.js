@@ -32,8 +32,8 @@ module.exports = (env) => {
         },
         performance: {
             hints: "warning",
-            maxAssetSize: 200000,
-            maxEntrypointSize: 400000
+            maxAssetSize: 15000000,
+            maxEntrypointSize: 15000000
         },
         devtool: isProduction ? 'source-map' : 'eval-cheap-source-map',
         devServer: {

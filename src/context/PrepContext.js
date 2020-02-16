@@ -88,7 +88,7 @@ const checkIfNotLoggedIn = dispatch => async () => {
     }
 }
 
-const changeTheme = dispatch => (theme) => {
+const changeTheme = dispatch => ({ theme }) => {
     localStorage.setItem('theme', theme)
     
     const acccentColorName = localStorage.getItem('accentColor')
@@ -109,7 +109,7 @@ const changeTheme = dispatch => (theme) => {
     }
 }
 
-const changeAccentColor = dispatch => (color) => {
+const changeAccentColor = dispatch => ({ color }) => {
     localStorage.setItem('accentColor', color)
 
     const theme = localStorage.getItem('theme')
