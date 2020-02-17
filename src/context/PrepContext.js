@@ -62,6 +62,7 @@ const checkIfNotLoggedIn = dispatch => async () => {
         const theme = localStorage.getItem('theme')
 
         const acccentColorName = localStorage.getItem('accentColor')
+        
         const accentColor = tertiaryColors.find((item) => item.color == acccentColorName)[theme]
 
         if(theme == 'light') {
@@ -72,10 +73,10 @@ const checkIfNotLoggedIn = dispatch => async () => {
         }
         
         const link = document.querySelector("link[rel*='icon']")
-        if(theme == 'dark') {
-            link.href = '/assets/light-logo.png'
-        }else {
+        if(theme == 'light') {
             link.href = '/assets/dark-logo.png'
+        }else {
+            link.href = '/assets/light-logo.png'
         }
 
         const response = await workoutSharerApi.post('/validate-user', { token })
@@ -84,7 +85,9 @@ const checkIfNotLoggedIn = dispatch => async () => {
             window.location.href = '/signin'
         }
     }catch(err) {
-        console.log(err.message)
+        if(err.message == 'Network Error') {
+            window.location.href = '/signin'
+        }
     }
 }
 
