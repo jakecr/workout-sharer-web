@@ -31,13 +31,13 @@
     "react-router-dom": "^5.1.2",
     "react-switch": "^5.0.1",
     "validator": "^12.1.0",
-    "webpack": "^4.41.6",
-    "webpack-dev-server": "^3.10.3"
+    "webpack": "^4.41.6"
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",
     "babel-cli": "^6.26.0",
     "node-sass": "^4.13.1",
-    "webpack-cli": "^3.3.10"
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.10.3"
   }
 }
