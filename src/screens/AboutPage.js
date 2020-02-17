@@ -61,7 +61,7 @@ const AboutPage = () => {
                         <div className='info__content info__content--right'>
                             <h2 className='info__header' style={{ color: color.contrast }}>Why use this website?</h2>
                         
-                            <p style={{ color: color.contrast }}>As someone sharing your workout plan with others it can be difficult to post your plan in a way that other people can find it. With Workout Sharer, you can easily make and share a plan for free. As an athlete, Workout Sharer will adapt your plan to your fitness level so as you get stronger your plan will continue to work for you.</p>
+                            <p style={{ color: color.contrast }}>As someone sharing workout plans with others, it's difficult to post your plan in an organized way where other people can find and use it easily. With Workout Sharer, you can easily make and share plans for free. For athletes, Workout Sharer adapts plans to your fitness level so as you get stronger your plan will continue to work for you.</p>
                         </div>
                         
                         <div 
@@ -84,7 +84,7 @@ const AboutPage = () => {
                         <div className='info__content info__content--left'>
                             <h2 className='info__header' style={{ color: color.contrast }}>How to get started creating plans?</h2>
                         
-                            <p style={{ color: color.contrast }}>If you are looking to make a plan, you will find a link at the bottom of your <Link className='link' style={{ color: color.tertiary }} to='/account'>"ACCOUNT"</Link> page to a <Link className='link' style={{ color: color.tertiary }} to='/create-plan'>plan creation page.</Link> After you make a plan you can find it on your <Link className='link' style={{ color: color.tertiary }} to='/account'>"ACCOUNT"</Link> page or you can find its page through the <Link className='link' style={{ color: color.tertiary }} to='/search'>"PLANS SEARCH"</Link> page.</p>
+                            <p style={{ color: color.contrast }}>If you are looking to make a plan, you will find a link at the bottom of your <Link className='link' style={{ color: color.tertiary }} to='/account'>"ACCOUNT"</Link> page to a <Link className='link' style={{ color: color.tertiary }} to='/create-plan'>plan creation page.</Link> After you make a plan, you can find it on your <Link className='link' style={{ color: color.tertiary }} to='/account'>"ACCOUNT"</Link> page or you can find its page through the <Link className='link' style={{ color: color.tertiary }} to='/search'>"PLANS SEARCH"</Link> page.</p>
                         </div>
                         
                         <div 
@@ -107,7 +107,7 @@ const AboutPage = () => {
                         <div className='info__content info__content--right'>
                             <h2 className='info__header' style={{ color: color.contrast }}>How to get started following a plan?</h2>
                         
-                            <p style={{ color: color.contrast }}>First, you will have to find a plan through the <Link className='link' style={{ color: color.tertiary }} to='/search'>"PLANS SEARCH"</Link> page. Once you find the plan you want to follow, subscribe to it and go to your <Link className='link' style={{ color: color.tertiary }} to='/subbed-plan'>"SUBBED PLAN"</Link> page and enter your records to get your plan adapted to your fitness level.</p>
+                            <p style={{ color: color.contrast }}>First, find a plan through the <Link className='link' style={{ color: color.tertiary }} to='/search'>"PLANS SEARCH"</Link> page. Once you find the plan you want to follow, subscribe to it and go to your <Link className='link' style={{ color: color.tertiary }} to='/subbed-plan'>"SUBBED PLAN"</Link> page and enter your records to get your plan adapted to your fitness level.</p>
                         </div>
                         
                         <div 
