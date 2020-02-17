@@ -346,7 +346,8 @@ a {
   display: inline-block;
   width: 63rem;
   height: 20rem;
-  transform: skewX(-7.5deg); }
+  transform: skewX(-7.5deg);
+  border-radius: .5rem; }
 
 .info__content {
   transform: skewX(7.5deg);
@@ -382,11 +383,11 @@ a {
     display: table;
     clear: both; }
   .info__image--right {
-    right: -.7rem;
+    right: -.6rem;
     -webkit-clip-path: polygon(0 0, 100% 0, calc(100% - 2.5rem) 100%, 0 100%);
     clip-path: polygon(0 0, 100% 0, calc(100% - 2.5rem) 100%, 0 100%); }
   .info__image--left {
-    left: -.7rem;
+    left: -.6rem;
     -webkit-clip-path: polygon(2.5rem 0, 100% 0, 100% 100%, 0 100%);
     clip-path: polygon(2.5rem 0, 100% 0, 100% 100%, 0 100%); }
 

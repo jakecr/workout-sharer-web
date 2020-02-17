@@ -54,12 +54,12 @@
         @include clearfix;
 
         &--right {
-            right: -.7rem;
+            right: -.6rem;
             -webkit-clip-path: polygon(0 0, 100% 0, calc(100% - 2.5rem) 100%, 0 100%);
             clip-path: polygon(0 0, 100% 0, calc(100% - 2.5rem) 100%, 0 100%);
         }
         &--left {
-            left: -.7rem;
+            left: -.6rem;
             -webkit-clip-path: polygon(2.5rem 0, 100% 0, 100% 100%, 0 100%);
             clip-path: polygon(2.5rem 0, 100% 0, 100% 100%, 0 100%);
         }

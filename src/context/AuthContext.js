@@ -137,7 +137,7 @@ const signin = dispatch => async ({ email, password }) => {
         Cookies.remove('token')
         Cookies.set('token', token)
 
-        window.location.href = '/'
+        window.location.href = '/about'
     }catch(err) {
         dispatch({ type: 'ADD_ERROR_MESSAGE', payload: 'Failed to make request, try again later.' })
     }
@@ -224,7 +224,7 @@ const verifyCreateAccount = dispatch => async ({ code }) => {
         Cookies.remove('token')
         Cookies.set('token', token)
 
-        window.location.href = '/'
+        window.location.href = '/about'
     }catch(err) {
         dispatch({ type: 'ADD_ERROR_MESSAGE', payload: 'Failed to make request, try again later.' })
     }

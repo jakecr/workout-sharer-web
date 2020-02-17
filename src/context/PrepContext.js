@@ -2,10 +2,10 @@ import createDataContext from './createDataContext'
 import workoutSharerApi from '../api/workoutSharer'
 import Cookies from 'js-cookie'
 const tertiaryColors = [
-    { color: 'blue', light: '#155eb0', dark: '#043166' },
+    { color: 'blue', light: '#155eb0', dark: '#063770' },
     { color: 'green', light: '#539c49', dark: '#3b7534' },
     { color: 'pink', light: '#cf7a9c', dark: '#a15f79' },
-    { color: 'purple', light: '#751cbd', dark: '#6617a6' },
+    { color: 'purple', light: '#58138f', dark: '#480f75' },
     { color: 'red', light: '#cf4015', dark: '#8f3114' },
     { color: 'orange', light: '#cc7e1f', dark: '#a36315' },
     { color: 'teal', light: '#10b09c', dark: '#0e8071' }
@@ -55,7 +55,7 @@ const checkIfLoggedIn = dispatch => async () => {
         const response = await workoutSharerApi.post('/validate-user', { token })
 
         if(response.data.isLoggedIn) {
-            window.location.href = '/'
+            window.location.href = '/about'
         }
 
         dispatch({ type: 'ADD_IS_LOGGED_IN', payload: response.data.isLoggedIn })
