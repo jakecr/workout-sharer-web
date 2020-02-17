@@ -16,7 +16,9 @@ const SubbedPlanPage = () => {
     const [ selectedSection, setSelectedSection ] = useState('general')
 
     useEffect(() => {
-        checkIfNotLoggedIn()
+        if(!color.isLoggedIn) {
+            checkIfNotLoggedIn()
+        }
         getSubscribedPlan()
         clearErrorMessage()
         window.scrollTo(0, 0)
@@ -177,6 +179,7 @@ const SubbedPlanPage = () => {
                                                 
     
                                                 <Input 
+                                                    background='transparent'
                                                     type='text' 
                                                     value={
                                                         record[setIndex]
@@ -231,12 +234,6 @@ const SubbedPlanPage = () => {
                                             {state.generalPlan.name}
                                         </h1>
                                     </Link>
-                                    <h3 
-                                        className='form__header u-margin-bottom-small u-align-left' 
-                                        style={{ color: '#777' }}
-                                    >
-                                        Description: {state.generalPlan.description}
-                                    </h3>
                                 </div>
         
                                 {state.specificPlan.workouts.map((setItem, setIndex, setsArray) => {

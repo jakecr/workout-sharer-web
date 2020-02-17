@@ -14,7 +14,9 @@ const SearchPage = () => {
     const [ searchTerms, setSearchTerms ] = useState('')
 
     useEffect(() => {
-        checkIfNotLoggedIn()
+        if(!color.isLoggedIn) {
+            checkIfNotLoggedIn()
+        }
         clearSearchedPlans()
         clearErrorMessage()
     }, [])

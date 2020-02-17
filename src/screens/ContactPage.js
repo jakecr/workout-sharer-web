@@ -17,7 +17,9 @@ const ContactPage = () => {
     const [ subject, setSubject ] = useState('')
 
     useEffect(() => {
-        checkIfNotLoggedIn()
+        if(!color.isLoggedIn) {
+            checkIfNotLoggedIn()
+        }
         clearErrorMessage()
         clearHasEmailed()
     }, [])

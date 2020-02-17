@@ -5,7 +5,6 @@
 @import './base/typography';
 @import './base/utilities';
 
-@import './components/background';
 @import './components/button';
 @import './components/confirm';
 @import './components/form';
@@ -17,6 +16,7 @@
 @import './components/section';
 @import './components/select';
 
+@import './layout/background';
 @import './layout/footer';
 @import './layout/header';
 

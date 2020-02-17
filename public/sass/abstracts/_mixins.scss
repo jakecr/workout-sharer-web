@@ -14,22 +14,6 @@
     transform: translate(-50%, -50%);
 }
 
-@mixin bottomCenter {
-    position: absolute;
-    left: 50%;
-    top: 55%;
-    
-    @include respond(tab-port) {
-        top: 60%;
-    }
-
-    @include respond(small-phone) {
-        top: 67.5%;
-    }
-
-    transform: translate(-50%, -50%);
-}
-
 @mixin respond($breakpoint) {
     @if $breakpoint == small-phone {
         @media (max-width: 28.125em) { @content };

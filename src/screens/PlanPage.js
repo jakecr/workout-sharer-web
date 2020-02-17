@@ -17,7 +17,9 @@ const PlanPage = () => {
     const [ selectedSection, setSelectedSection ] = useState('plan')
 
     useEffect(() => {
-        checkIfNotLoggedIn()
+        if(!color.isLoggedIn) {
+            checkIfNotLoggedIn()
+        }
         getSubscribedPlan()
         clearErrorMessage()
         getPagePlan()
@@ -159,12 +161,14 @@ const PlanPage = () => {
                                             Creator: {state.pagePlan.creator}
                                         </h2>
                                     </Link>
-                                    <p 
-                                        className='form__header u-align-left' 
-                                        style={{ color: '#777' }}
-                                    >
-                                        Description: {state.pagePlan.description}
-                                    </p>
+                                    <div className='u-center'>
+                                        <p 
+                                            className='form__header u-align-left u-inline-block' 
+                                            style={{ color: '#777' }}
+                                        >
+                                            Description: {state.pagePlan.description}
+                                        </p>
+                                    </div>
                                 </div>
 
                                 {state.pagePlan.workouts

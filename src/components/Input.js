@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Input = ({ name, type, value, onChange, autoFocus = false, list = null }) => (
+const Input = ({ name, type, value, onChange, autoFocus = false, list = null, background }) => (
     <div className='input--group'>
         {
             list
@@ -9,7 +9,7 @@ const Input = ({ name, type, value, onChange, autoFocus = false, list = null }) 
                     autoFocus={autoFocus} 
                     type={type} 
                     name={name.toLowerCase()}
-                    className='input'
+                    className={background == 'transparent' ? 'input input--transparent' : 'input'}
                     placeholder={name} 
                     required 
                     onChange={onChange} 
@@ -19,7 +19,7 @@ const Input = ({ name, type, value, onChange, autoFocus = false, list = null }) 
                     autoFocus={autoFocus} 
                     type={type} 
                     name={name.toLowerCase()}
-                    className='input'
+                    className={background == 'transparent' ? 'input input--transparent' : 'input'}
                     placeholder={name} 
                     required 
                     onChange={onChange} 

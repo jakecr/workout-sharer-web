@@ -12,12 +12,14 @@ const AccountPage = () => {
     const { deletePlan } = useContext(PlanContext)
     const { state: color, changeAccentColor, changeTheme, checkIfNotLoggedIn } = useContext(PrepContext)
 
-    const [ accentColor, setAccentColor ] = useState(localStorage.getItem('accentColor'))
+    const [ accentColor, setAccentColor ] = useState(localStorage.getItem('accentColor') || 'blue')
     const [ theme, setTheme ] = useState(color.theme)
     const [ showConfirm, setShowConfirm ] = useState(null)
 
     useEffect(() => {
-        checkIfNotLoggedIn()
+        if(!color.isLoggedIn) {
+            checkIfNotLoggedIn()
+        }
         getAccount()
         clearErrorMessage()
         window.scrollTo(0, 0)

@@ -13,8 +13,10 @@ const tertiaryColors = [
 
 const planReducer = (state, action) => {
     switch(action.type) {
+        case 'ADD_IS_LOGGED_IN':
+            return { ...state, isLoggedIn: action.payload}
         case 'SET_THEME':
-            return action.payload
+            return { isLoggedIn: true, ...action.payload }
         case 'SET_ACCENT_COLOR':
             return { ...state, tertiary: action.payload }
         default:
@@ -32,10 +34,10 @@ const checkIfLoggedIn = dispatch => async () => {
         const accentColor = tertiaryColors.find((item) => item.color == acccentColorName)
 
         if(theme == 'light') {
-            dispatch({ type: 'SET_THEME', payload: { theme: 'light', primary: '#dfdee3', secondary: '#ffffff', tertiary: !!accentColor ? accentColor : '#155eb0', contrast: '#16181b' } })
+            dispatch({ type: 'SET_THEME', payload: { theme: 'light', primary: '#dfdee3', secondary: '#ffffff', tertiary: accentColor ? accentColor : '#155eb0', contrast: '#16181b' } })
         }
         else {
-            dispatch({ type: 'SET_THEME', payload: { theme: 'dark', primary: '#000000', secondary: '#1c1c1e', tertiary: !!accentColor ? accentColor : '#043166', contrast: '#cdd1d4' } })
+            dispatch({ type: 'SET_THEME', payload: { theme: 'dark', primary: '#000000', secondary: '#1c1c1e', tertiary: accentColor ? accentColor : '#043166', contrast: '#cdd1d4' } })
         }
         
         const link = document.querySelector("link[rel*='icon']")
@@ -45,11 +47,18 @@ const checkIfLoggedIn = dispatch => async () => {
             link.href = '/assets/dark-logo.png'
         }
 
+        if(!token) {
+            dispatch({ type: 'ADD_IS_LOGGED_IN', payload: false })
+            return 
+        }
+
         const response = await workoutSharerApi.post('/validate-user', { token })
 
         if(response.data.isLoggedIn) {
             window.location.href = '/'
         }
+
+        dispatch({ type: 'ADD_IS_LOGGED_IN', payload: response.data.isLoggedIn })
     }catch(err) {
         console.log(err.message)
     }
@@ -66,10 +75,10 @@ const checkIfNotLoggedIn = dispatch => async () => {
         const accentColor = tertiaryColors.find((item) => item.color == acccentColorName)
 
         if(theme == 'light') {
-            dispatch({ type: 'SET_THEME', payload: { theme: 'light', primary: '#dfdee3', secondary: '#ffffff', tertiary: !!accentColor ? accentColor[theme] : '#155eb0', contrast: '#16181b' } })
+            dispatch({ type: 'SET_THEME', payload: { theme: 'light', primary: '#dfdee3', secondary: '#ffffff', tertiary: accentColor ? accentColor[theme] : '#155eb0', contrast: '#16181b' } })
         }
         else {
-            dispatch({ type: 'SET_THEME', payload: { theme: 'dark', primary: '#000000', secondary: '#1c1c1e', tertiary: !!accentColor ? accentColor[theme] : '#043166', contrast: '#cdd1d4' } })
+            dispatch({ type: 'SET_THEME', payload: { theme: 'dark', primary: '#000000', secondary: '#1c1c1e', tertiary: accentColor ? accentColor[theme] : '#043166', contrast: '#cdd1d4' } })
         }
         
         const link = document.querySelector("link[rel*='icon']")
@@ -89,6 +98,8 @@ const checkIfNotLoggedIn = dispatch => async () => {
         if(!response.data.isLoggedIn) {
             window.location.href = '/signin'
         }
+
+        dispatch({ type: 'ADD_IS_LOGGED_IN', payload: response.data.isLoggedIn })
     }catch(err) {
         if(err.message == 'Network Error') {
             window.location.href = '/signin'
@@ -105,10 +116,10 @@ const changeTheme = dispatch => ({ theme }) => {
     const accentColor = tertiaryColors.find((item) => item.color == acccentColorName)
 
     if(theme == 'light') {
-        dispatch({ type: 'SET_THEME', payload: { theme: 'light', primary: '#dfdee3', secondary: '#ffffff', tertiary: !!accentColor ? accentColor[theme] : '#155eb0', contrast: '#16181b' } })
+        dispatch({ type: 'SET_THEME', payload: { theme: 'light', primary: '#dfdee3', secondary: '#ffffff', tertiary: accentColor ? accentColor[theme] : '#155eb0', contrast: '#16181b' } })
     }
     else {
-        dispatch({ type: 'SET_THEME', payload: { theme: 'dark', primary: '#000000', secondary: '#1c1c1e', tertiary: !!accentColor ? accentColor[theme] : '#155eb0', contrast: '#cdd1d4' } })
+        dispatch({ type: 'SET_THEME', payload: { theme: 'dark', primary: '#000000', secondary: '#1c1c1e', tertiary: accentColor ? accentColor[theme] : '#155eb0', contrast: '#cdd1d4' } })
     }
         
     const link = document.querySelector("link[rel*='icon']")
@@ -123,7 +134,7 @@ const changeAccentColor = dispatch => ({ color }) => {
     localStorage.setItem('accentColor', color)
 
     const theme = localStorage.getItem('theme')
-    const accentColor = tertiaryColors.find((item) => item.color == color)[theme]
+    const accentColor = tertiaryColors.find((item) => item.color == color)[theme ? theme : 'dark']
 
     dispatch({ type: 'SET_ACCENT_COLOR', payload: accentColor })
 }
@@ -131,5 +142,5 @@ const changeAccentColor = dispatch => ({ color }) => {
 export const { Provider, Context } = createDataContext(
     planReducer,
     { checkIfNotLoggedIn, checkIfLoggedIn, changeTheme, changeAccentColor },
-    { theme: 'dark', primary: '#000000', secondary: '#1c1c1e', tertiary: '#043166', contrast: '#cdd1d4' }
+    { isLoggedIn: false, theme: 'dark', primary: '#000000', secondary: '#1c1c1e', tertiary: '#043166', contrast: '#cdd1d4' }
 )

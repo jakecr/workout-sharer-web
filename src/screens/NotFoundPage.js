@@ -7,7 +7,9 @@ const NotFoundPage = () => {
     const { state: color, checkIfNotLoggedIn } = useContext(PrepContext)
 
     useEffect(() => {
-        checkIfNotLoggedIn()
+        if(!color.isLoggedIn) {
+            checkIfNotLoggedIn()
+        }
     }, [])
 
     return (

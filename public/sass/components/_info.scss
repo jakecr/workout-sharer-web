@@ -1,12 +1,4 @@
 .info {
-    &--left {
-        left: -1.3rem;
-    }
-
-    &--right {
-        right: -1.3rem;
-    }
-
     &__header {
         display: block;
         text-align: center;
@@ -39,6 +31,13 @@
         clip-path: polygon(4rem 0, 100% 0, 100% 100%, 0 100%);
 
         @include clearfix;
+
+        &--left {
+            left: -1.3rem;
+        }
+        &--right {
+            right: -1.3rem;
+        }
     }
 
     &__image {

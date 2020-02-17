@@ -22,7 +22,9 @@ const CreatePlanPage = () => {
     const [ workouts, setWorkouts ] = useState([[], [], [], [], [], [], []])
 
     useEffect(() => {
-        checkIfNotLoggedIn()
+        if(!color.isLoggedIn) {
+            checkIfNotLoggedIn()
+        }
         checkIfMadePlan()
         clearErrorMessage()
         window.scrollTo(0, 0)
