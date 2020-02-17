@@ -78,7 +78,7 @@ const checkIfNotLoggedIn = dispatch => async () => {
         }else {
             link.href = '/assets/light-logo.png'
         }
-        
+
         if(!token) {
             window.location.href = '/signin'
             return 
@@ -90,9 +90,7 @@ const checkIfNotLoggedIn = dispatch => async () => {
             window.location.href = '/signin'
         }
     }catch(err) {
-        if(err.message == 'Network Error') {
-            window.location.href = '/signin'
-        }
+        window.location.href = '/signin'
     }
 }
 
