@@ -1,4 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import { IoMdKey } from 'react-icons/io'
 import { Context as AuthContext } from '../context/AuthContext'
 import { Context as PrepContext } from '../context/PrepContext'
@@ -61,6 +62,19 @@ const VerifyAccountPage = () => {
                             >
                                 Create account
                             </button>
+                        </div>
+
+                        <div className='u-center'>
+                            <Link 
+                                className='link' 
+                                to='/signin' 
+                                style={{ 
+                                    color: color.tertiary, 
+                                    borderBottom: '1px solid ' + color.tertiary 
+                                }}
+                            >
+                                Signin
+                            </Link>
                         </div>
                     </form>
                 </div>

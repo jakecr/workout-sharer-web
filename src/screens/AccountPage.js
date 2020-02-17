@@ -206,6 +206,7 @@ const AccountPage = () => {
                                                         e.preventDefault()
                                                         deletePlan({ id: planItem._id })
                                                         getAccount()
+                                                        setShowConfirm(null)
                                                     }}>
                                                         <button type="submit" className='clear-defaults'>
                                                             <div className='confirm__options--yes'>
@@ -231,7 +232,7 @@ const AccountPage = () => {
                                                     style={{ backgroundColor: color.tertiary }}
                                                 >
                                                     <Link to={'/plan?id=' + planItem._id}>
-                                                        <h3 className='plan__info'>Name: {planItem.name}</h3>
+                                                        <h3 className='plan__info'>{planItem.name}</h3>
                                                         <h4 className='plan__info'>Subscribers: {planItem.subscribers}</h4>
                                                     </Link>
                                                 </div>

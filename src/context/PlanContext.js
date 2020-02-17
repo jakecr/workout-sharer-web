@@ -71,7 +71,7 @@ const createPlan = dispatch => async ({ name, description, keyterms, workouts, t
         if(type == 'basic') {
             compiledWorkouts = compileBasicWorkouts(workouts)
         }
-        else if(type == 'advanced') {
+        else if(type == 'complex') {
             compiledWorkouts = compileAdvancedWorkouts(workouts)
         }
         else {

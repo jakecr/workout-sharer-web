@@ -63,7 +63,7 @@ const SubbedPlanPage = () => {
 
                 <div className='form__container u-margin-top-medium'>
                     <div 
-                        className='form u-width-huge' 
+                        className='form u-width-huge u-height-large' 
                         style={{ 
                             backgroundColor: color.secondary, 
                             border: color.theme == 'dark' ? '1px solid rgb(52,53,54)' : '1px solid rgb(204,204,204)' 
@@ -97,7 +97,7 @@ const SubbedPlanPage = () => {
                                     <button 
                                         className='section--button' 
                                         style={{ 
-                                            backgroundColor: selectedSection == 'specific' 
+                                            backgroundColor: selectedSection == 'adapted' 
                                                 ? color.secondary 
                                                 : (color.theme == 'dark' 
                                                     ? 'rgba(255, 255, 255, .15)' 
@@ -108,10 +108,10 @@ const SubbedPlanPage = () => {
                                             setActiveDay(null)
                                             setActiveWorkout(null)
                                             clearErrorMessage()
-                                            setSelectedSection('specific')
+                                            setSelectedSection('adapted')
                                         }}
                                     >
-                                        Specific
+                                        Adapted
                                     </button>
                                 </div>
                             </div>
@@ -134,7 +134,7 @@ const SubbedPlanPage = () => {
                                     onSubmit={(e) => {
                                         e.preventDefault()
                                         postRecord({ record, plan: state.generalPlan })
-                                        setSelectedSection('specific')
+                                        setSelectedSection('adapted')
                                     }}
                                 >
                                     {state.generalPlan.workouts.map((setItem, setIndex, setsArray) => {
@@ -208,7 +208,7 @@ const SubbedPlanPage = () => {
                                                 borderBottom: '.4rem solid rgba(0, 0, 0, 0.3)' 
                                             }}
                                         >
-                                            Get specific plan
+                                            Get adapted plan
                                         </button>
                                     </div>
                                 </form>
@@ -217,9 +217,9 @@ const SubbedPlanPage = () => {
                                 className='helpful-message' 
                                 style={{ color: color.contrast }}
                             >
-                                You are not subscribed to a plan. Visit the <Link to='/search'>'PLANS SEARCH'</Link> page to search for a plan.
+                                You are not subscribed to a plan. Visit the <Link className='link' to='/search' style={{ color: color.tertiary }}>"PLANS SEARCH"</Link> page to search for a plan.
                             </p>
-                        : selectedSection == 'specific'
+                        : selectedSection == 'adapted'
                         && state.specificPlan
                             ? <div>
                                 <div>
@@ -228,14 +228,14 @@ const SubbedPlanPage = () => {
                                             className='form__header' 
                                             style={{ color: color.contrast }}
                                         >
-                                            Name: {state.generalPlan.name}
+                                            {state.generalPlan.name}
                                         </h1>
                                     </Link>
                                     <h3 
                                         className='form__header u-margin-bottom-small u-align-left' 
-                                        style={{ color: color.contrast }}
+                                        style={{ color: '#777' }}
                                     >
-                                        {state.generalPlan.description}
+                                        Description: {state.generalPlan.description}
                                     </h3>
                                 </div>
         
@@ -258,7 +258,7 @@ const SubbedPlanPage = () => {
                                             </a>
                                             : null}
                                             
-                                            {setIndex == 0 || setsArray[setIndex - 1].workout !== setItem.workout
+                                            {setIndex == 0 || setsArray[setIndex - 1].day !== setItem.day || setsArray[setIndex - 1].workout !== setItem.workout
                                             ? setItem.day == activeDay 
                                             && <a onClick={() => setActiveWorkout(setItem.workout == activeWorkout ? null : setItem.workout)}>
                                                 <h3 
@@ -366,7 +366,7 @@ const SubbedPlanPage = () => {
                                 className='helpful-message' 
                                 style={{ color: color.contrast }}
                             >
-                                You dont yet have a plan specific to you. Visit the <a onClick={() => setSelectedSection('general')}>'GENERAL PLAN'</a> section to specify a plan to your fitness level.
+                                Visit the <a className='link' onClick={() => setSelectedSection('general')} style={{ color: color.tertiary }}>"GENERAL PLAN"</a> section to adapt a plan to your fitness level.
                             </p>}
                     </div>
                 </div>
@@ -388,15 +388,9 @@ const SubbedPlanPage = () => {
                                     className='form__header' 
                                     style={{ color: color.contrast }}
                                 >
-                                    Name: {state.generalPlan.name}
+                                    {state.generalPlan.name}
                                 </h1>
                             </Link>
-                            <h2 
-                                className='form__header' 
-                                style={{ color: color.contrast }}
-                            >
-                                Subscribers: {state.generalPlan.subscribers}
-                            </h2>
                             <Link to={'/user-page?username=' + state.generalPlan.creator}>
                                 <h2 
                                     className='form__header u-margin-bottom-small' 
@@ -427,7 +421,7 @@ const SubbedPlanPage = () => {
                                     </a>
                                     : null}
                                     
-                                    {setIndex == 0 || setsArray[setIndex - 1].workout !== setItem.workout
+                                    {setIndex == 0 || setsArray[setIndex - 1].day !== setItem.day || setsArray[setIndex - 1].workout !== setItem.workout
                                     ? setItem.day == activeDay 
                                     && <a onClick={() => setActiveWorkout(setItem.workout == activeWorkout ? null : setItem.workout)}>
                                         <h3 

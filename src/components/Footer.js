@@ -6,7 +6,7 @@ const Footer = ({ colorContrast, colorPrimary, colorTertiary, theme }) => (
 
         <div className='footer__group'>
             <a 
-                href='https://unsplash.com/photos/cl7zEjr7-gk' 
+                href='www.linkedin.com/in/jacob-rothschild-93578a192' 
                 target='_blank' 
                 className='footer__credit' 
                 style={{ 
@@ -14,7 +14,7 @@ const Footer = ({ colorContrast, colorPrimary, colorTertiary, theme }) => (
                     borderTop: '1px solid ' + colorContrast
                 }}
             >
-                <strong>Photo by Ian Flores on Unsplash</strong>
+                <strong>-- Website creators Linkedin --</strong>
             </a>
             <a 
                 href='https://www.instagram.com/jacob.c.r/?hl=en' 
@@ -25,7 +25,7 @@ const Footer = ({ colorContrast, colorPrimary, colorTertiary, theme }) => (
                     borderTop: '1px solid ' + colorContrast
                 }}
             >
-                <strong>Made by Jacob Rothschild &copy; 2020</strong>
+                <strong>-- Website creators Instagram --</strong>
             </a>
         </div>
     </div>

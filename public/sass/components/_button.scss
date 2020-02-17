@@ -79,6 +79,8 @@
 .link {
     &:link,
     &:visited {
+        font-family: 'Roboto Slab', serif;
+        font-family: 'Noto Sans KR', sans-serif;
         text-decoration: none;
         transition: all .2s;
     }

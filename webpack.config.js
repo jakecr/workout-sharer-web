@@ -16,24 +16,12 @@ module.exports = (env) => {
                 loader: 'babel-loader',
                 test: /\.js$/,
                 exclude: /node_modules/
-            }, {
-            test: /\.(gif|png|jpe?g|svg)$/i,
-                use: [
-                    'file-loader',
-                    {
-                        loader: 'image-webpack-loader',
-                        options: {
-                        bypassOnDebug: true,
-                        disable: true,
-                        },
-                    },
-                ],
             }]
         },
         performance: {
             hints: "warning",
-            maxAssetSize: 15000000,
-            maxEntrypointSize: 15000000
+            maxAssetSize: isProduction ? 350000 : 13500000,
+            maxEntrypointSize: isProduction ? 350000 : 13500000
         },
         devtool: isProduction ? 'source-map' : 'eval-cheap-source-map',
         devServer: {

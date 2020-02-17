@@ -38,12 +38,12 @@ const changePassword = dispatch => async ({ email }) => {
 
     try {
         const response = await workoutSharerApi.post('/change-password', { email })
-        const { error, correctCode, email: responseEmail } = response.data
+        const { error, encodedCorrectCode, email: responseEmail } = response.data
         if(error) {
             return dispatch({ type: 'ADD_ERROR_MESSAGE', payload: error})
         }
 
-        const passwordData = { correctCode: correctCode, email: responseEmail }
+        const passwordData = { encodedCorrectCode, email: responseEmail }
         
         Cookies.remove('passwordData')
         Cookies.set('passwordData', JSON.stringify(passwordData))
@@ -59,13 +59,13 @@ const deleteAccount = dispatch => async () => {
 
     try {
         const response = await workoutSharerApi.post('/delete-user', { token })
-        const { error, correctCode } = response.data
+        const { error, encodedCorrectCode } = response.data
         if(error) {
             return dispatch({ type: 'ADD_ERROR_MESSAGE', payload: error})
         }
         
-        Cookies.remove('correctCode')
-        Cookies.set('correctCode', correctCode)
+        Cookies.remove('encodedCorrectCode')
+        Cookies.set('encodedCorrectCode', encodedCorrectCode)
     }catch(err) {
         dispatch({ type: 'ADD_ERROR_MESSAGE', payload: 'Failed to make request, try again later.' })
     }
@@ -166,12 +166,12 @@ const signup = dispatch => async ({ username, email, password, verifyPassword })
 
     try {
         const response = await workoutSharerApi.post('/signup', { username, email })
-        const { error, correctCode } = response.data
+        const { error, encodedCorrectCode } = response.data
         if(error) {
             return dispatch({ type: 'ADD_ERROR_MESSAGE', payload: error})
         }
 
-        const user = { username, email, password, correctCode: correctCode }
+        const user = { username, email, password, encodedCorrectCode }
         Cookies.remove('user')
         Cookies.set('user', JSON.stringify(user))
 
@@ -234,17 +234,17 @@ const verifydeleteAccount = dispatch => async ({ code }) => {
     if(!code) {
         return dispatch({ type: 'ADD_ERROR_MESSAGE', payload: 'Please provide a code.'})
     }
-    const correctCode = Cookies.get('correctCode')
+    const encodedCorrectCode = Cookies.get('encodedCorrectCode')
     const token = Cookies.get('token')
 
     try {
-        const response = await workoutSharerApi.post('/verify-delete-user', { token, code, correctCode })
+        const response = await workoutSharerApi.post('/verify-delete-user', { token, code, encodedCorrectCode })
         const { error } = response.data
         if(error) {
             return dispatch({ type: 'ADD_ERROR_MESSAGE', payload: error})
         }
 
-        Cookies.remove('correctCode')
+        Cookies.remove('encodedCorrectCode')
         Cookies.remove('token')
 
         window.location.href = '/signin'

@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useContext } from 'react'
-import exercises from '../staticData/exercises.json'
 import { IoMdPricetag } from 'react-icons/io'
 import { MdDescription } from 'react-icons/md'
 import { Context as PlanContext } from '../context/PlanContext'
@@ -159,7 +158,7 @@ const CreatePlanPage = () => {
             <title>Create Plan - Workout Dealer</title>
         
             <datalist id='exercises'>
-                {exercises.map((exercise) => <option key={exercise} value={exercise}/>)}
+                {require('../staticData/exercises.json').map((exercise) => <option key={exercise} value={exercise}/>)}
             </datalist>
 
             <div 
@@ -246,7 +245,7 @@ const CreatePlanPage = () => {
 
                         {!state.ifMadePlan && selectedSection !== 'help'
                         && <p className='error-message'>
-                            Making a plan may take longer than you think. Make sure that you have the available time. You wont be able to save rough drafts. If you havent made a plan before you should read through the "HELP" section.
+                            Making a plan may take longer than you think. Make sure that you have the available time. You wont be able to save rough drafts. If you havent made a plan before you should read through the <a className='link' onClick={() => setSelectedSection('help')}>"HELP"</a> section.
                         </p>}
 
                         {
@@ -265,7 +264,7 @@ const CreatePlanPage = () => {
                                         name='Name' 
                                         type='text' 
                                         value={name} 
-                                        onChange={(e) => setName(e.target.value)} 
+                                        onChange={(e) => e.target.value.length < 26 && setName(e.target.value)} 
                                     />
                                     <IconInput 
                                         Icon={MdDescription} 
@@ -501,7 +500,7 @@ const CreatePlanPage = () => {
                                         name='Name' 
                                         type='text' 
                                         value={name} 
-                                        onChange={(e) => setName(e.target.value)} 
+                                        onChange={(e) => e.target.value.length < 26 && setName(e.target.value)} 
                                     />
                                     <IconInput 
                                         Icon={MdDescription} 

@@ -1,11 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import AppImg from '../../public/assets/light-logo.png'
-import AboutImg from '../../public/assets/about.png'
-import ContactImg from '../../public/assets/contact.png'
-import SearchImg from '../../public/assets/search.png'
-import WorkoutsImg from '../../public/assets/workouts.png'
-import AccountImg from '../../public/assets/account.png'
 
 const Header = ({ theme, currentRoute, contrastColor }) => (
     <div className='u-center'>
@@ -18,7 +12,7 @@ const Header = ({ theme, currentRoute, contrastColor }) => (
                 >
                     <img 
                         className='header__logo' 
-                        src={AppImg} 
+                        src='/assets/light-logo.png'
                         style={{
                             filter: 
                             theme == 'dark'
@@ -49,7 +43,7 @@ const Header = ({ theme, currentRoute, contrastColor }) => (
                 >
                     <img 
                         className='header__img' 
-                        src={AboutImg} 
+                        src='/assets/about.png' 
                         style={{
                             filter: 
                             theme == 'dark'
@@ -80,7 +74,7 @@ const Header = ({ theme, currentRoute, contrastColor }) => (
                 >
                     <img 
                         className='header__img' 
-                        src={ContactImg} 
+                        src='/assets/contact.png' 
                         style={{
                             filter: 
                             theme == 'dark'
@@ -111,7 +105,7 @@ const Header = ({ theme, currentRoute, contrastColor }) => (
                 >
                     <img 
                         className='header__img' 
-                        src={SearchImg} 
+                        src='/assets/search.png' 
                         style={{
                             filter: 
                             theme == 'dark'
@@ -142,7 +136,7 @@ const Header = ({ theme, currentRoute, contrastColor }) => (
                 >
                     <img 
                         className='header__img' 
-                        src={WorkoutsImg} 
+                        src='/assets/workouts.png' 
                         style={{
                             filter: 
                             theme == 'dark'
@@ -173,7 +167,7 @@ const Header = ({ theme, currentRoute, contrastColor }) => (
                 >
                     <img 
                         className='header__img' 
-                        src={AccountImg} 
+                        src='/assets/account.png' 
                         style={{
                             filter: 
                             theme == 'dark'

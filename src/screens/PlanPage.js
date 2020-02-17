@@ -143,7 +143,7 @@ const PlanPage = () => {
                                         className='form__header' 
                                         style={{ color: color.contrast }}
                                     >
-                                        Name: {state.pagePlan.name}
+                                        {state.pagePlan.name}
                                     </h1>
                                     <h2 
                                         className='form__header' 
@@ -159,14 +159,12 @@ const PlanPage = () => {
                                             Creator: {state.pagePlan.creator}
                                         </h2>
                                     </Link>
-                                    <div className='plan--set'>
-                                        <p 
-                                            className='plan--exercise' 
-                                            style={{ color: color.contrast }}
-                                        >
-                                            Description: {state.pagePlan.description}
-                                        </p>
-                                    </div>
+                                    <p 
+                                        className='form__header u-align-left' 
+                                        style={{ color: '#777' }}
+                                    >
+                                        Description: {state.pagePlan.description}
+                                    </p>
                                 </div>
 
                                 {state.pagePlan.workouts
@@ -189,7 +187,7 @@ const PlanPage = () => {
                                             </a>
                                             : null}
                                             
-                                            {setIndex == 0 || setsArray[setIndex - 1].workout !== setItem.workout
+                                            {setIndex == 0 || setsArray[setIndex - 1].day !== setItem.day || setsArray[setIndex - 1].workout !== setItem.workout
                                             ? setItem.day == activeDay 
                                             && <a onClick={() => setActiveWorkout(setItem.workout == activeWorkout ? null : setItem.workout)}>
                                                 <h3 

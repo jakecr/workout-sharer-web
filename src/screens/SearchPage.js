@@ -126,7 +126,7 @@ const SearchPage = () => {
                                             style={{ backgroundColor: color.tertiary }}
                                         >
                                             <Link to={'/plan?id=' + planItem._id}>
-                                                <h3 className='plan__info'>Name: {planItem.name}</h3>
+                                                <h3 className='plan__info'>{planItem.name}</h3>
                                                 <h4 className='plan__info'>Creator: {planItem.creator}</h4>
                                                 <h4 className='plan__info'>Subscribers: {planItem.subscribers}</h4>
                                             </Link>
