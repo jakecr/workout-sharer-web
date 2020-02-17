@@ -75,11 +75,6 @@ const getAccount = dispatch => async () => {
     const token = Cookies.get('token')
 
     try {
-        if(!token) {
-            window.location.href = '/signin'
-            return 
-        }
-        
         const response = await workoutSharerApi.post('/get-user', { token })
         const { error, user, plans } = response.data
         if(error) {

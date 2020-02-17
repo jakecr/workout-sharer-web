@@ -43,7 +43,7 @@ const AboutPage = () => {
                         <div 
                             className='info__image info--right info__image--right'
                             style={{
-                                backgroundImage: 'url(/assets/create-demo.png)'
+                                backgroundImage: 'url(/assets/create-demo.PNG)'
                             }}
                         >
                         </div>
@@ -67,7 +67,7 @@ const AboutPage = () => {
                         <div 
                             className='info__image info--left info__image--left'
                             style={{
-                                backgroundImage: 'url(/assets/adapted-demo.png)'
+                                backgroundImage: 'url(/assets/adapted-demo.PNG)'
                             }}
                         >
                         </div>
@@ -91,7 +91,7 @@ const AboutPage = () => {
                         <div 
                             className='info__image info--right info__image--right'
                             style={{
-                                backgroundImage: 'url(/assets/create-link-demo.png)'
+                                backgroundImage: 'url(/assets/create-link-demo.PNG)'
                             }}
                         >
                         </div>
@@ -115,7 +115,7 @@ const AboutPage = () => {
                         <div 
                             className='info__image info--left info__image--left'
                             style={{
-                                backgroundImage: 'url(/assets/search-demo.png)'
+                                backgroundImage: 'url(/assets/search-demo.PNG)'
                             }}
                         >
                         </div>

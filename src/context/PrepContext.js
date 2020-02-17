@@ -78,6 +78,11 @@ const checkIfNotLoggedIn = dispatch => async () => {
         }else {
             link.href = '/assets/light-logo.png'
         }
+        
+        if(!token) {
+            window.location.href = '/signin'
+            return 
+        }
 
         const response = await workoutSharerApi.post('/validate-user', { token })
 
