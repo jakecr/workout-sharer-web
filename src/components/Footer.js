@@ -2,7 +2,7 @@ import React from 'react'
 
 const Footer = ({ colorContrast, colorPrimary, colorTertiary, theme }) => (
     <div className='footer' style={{ backgroundImage: 'linear-gradient(178deg, ' + colorPrimary + ' 0%, ' + colorPrimary + 'B3 50%, ' + colorPrimary + '33 100%), url(/assets/background-' + theme + '.jpg)' }}>
-        <h1 className='footer__heading' style={{ color: colorTertiary }}>Workout Manager</h1>
+        <h1 className='footer__heading' style={{ color: colorTertiary }}>Workout Sharer</h1>
 
         <div className='footer__group'>
             <a 
