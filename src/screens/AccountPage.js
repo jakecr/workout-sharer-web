@@ -244,7 +244,7 @@ const AccountPage = () => {
                                                     className='clear-defaults u-color-red' 
                                                     onClick={() => setShowConfirm(planIndex)}
                                                 >
-                                                    <strong>Delete plan</strong>
+                                                    Delete plan
                                                 </button>
                                             </div>
                                         }

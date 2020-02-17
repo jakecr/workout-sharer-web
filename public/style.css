@@ -68,6 +68,7 @@ p {
   border: none;
   text-align: left;
   padding: 0;
+  font-weight: 400;
   font-size: 1.6rem; }
   .clear-defaults:focus {
     outline: 0; }

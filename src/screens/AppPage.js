@@ -32,7 +32,6 @@ const AppPage = () => {
                         className='info__group'
                         style={{ 
                             backgroundColor: color.secondary, 
-                            border: color.theme == 'dark' ? '1px solid rgb(52,53,54)' : '1px solid rgb(204,204,204)' 
                         }}
                     >
                         <div className='info__content info__content--left'>
@@ -56,7 +55,6 @@ const AppPage = () => {
                         className='info__group'
                         style={{ 
                             backgroundColor: color.secondary, 
-                            border: color.theme == 'dark' ? '1px solid rgb(52,53,54)' : '1px solid rgb(204,204,204)' 
                         }}
                     >
                         <div className='info__content info__content--right'>
@@ -80,7 +78,6 @@ const AppPage = () => {
                         className='info__group'
                         style={{ 
                             backgroundColor: color.secondary, 
-                            border: color.theme == 'dark' ? '1px solid rgb(52,53,54)' : '1px solid rgb(204,204,204)' 
                         }}
                     >
                         <div className='info__content info__content--left'>
