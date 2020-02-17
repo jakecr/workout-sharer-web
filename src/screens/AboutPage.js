@@ -1,18 +1,16 @@
-import React, { useEffect, useContext, useState } from 'react'
+import React, { useEffect, useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { Context as PrepContext } from '../context/PrepContext'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
 
 const AboutPage = () => {
-    const [ hasCheckedIfLoggedIn, setHasCheckedIfLoggedIn ] = useState(false)
     const { state: color, checkIfNotLoggedIn } = useContext(PrepContext)
 
     useEffect(() => {
-        setHasCheckedIfLoggedIn(true)
         checkIfNotLoggedIn()
         window.scrollTo(0, 0)
-    }, [!hasCheckedIfLoggedIn])
+    }, [])
 
     return (
         <div>
