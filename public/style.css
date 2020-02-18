@@ -363,7 +363,7 @@ a {
     display: table;
     clear: both; }
   .info__content--outset {
-    width: 2.2rem;
+    width: 2.5rem;
     height: 18rem;
     float: left;
     shape-outside: polygon(100% 0, 0 100%, 0 0); }
