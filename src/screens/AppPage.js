@@ -35,6 +35,8 @@ const AppPage = () => {
                         }}
                     >
                         <div className='info__content info__content--left'>
+                            <div className='info__content--outset'></div>
+
                             <h2 className='info__header' style={{ color: color.contrast }}>Whats the difference between this website and the app?</h2>
                         
                             <p style={{ color: color.contrast }}>This website is meant for creating plans, and interpreting plans. The app has features like an interval timer and calendar that help you to not just interpret plans, but also follow them.</p>
@@ -81,6 +83,8 @@ const AppPage = () => {
                         }}
                     >
                         <div className='info__content info__content--left'>
+                            <div className='info__content--outset'></div>
+
                             <h2 className='info__header' style={{ color: color.contrast }}>How can you get the app?</h2>
                         
                             <p style={{ color: color.contrast }}>The app is available on the app store and google play store, so if you have a smart phone than you are in luck, because you can get it today! At a one time price of $5, there's no reason you shouldn't try the app!!!</p>

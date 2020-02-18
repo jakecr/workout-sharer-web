@@ -36,6 +36,8 @@ const AboutPage = () => {
                         }}
                     >
                         <div className='info__content info__content--left'>
+                            <div className='info__content--outset'></div>
+
                             <h2 className='info__header' style={{ color: color.contrast }}>What do you use this website for?</h2>
                         
                             <p style={{ color: color.contrast }}>With this website, you can make a plan for anyone to follow, or follow a plan that anyone made. You can enter your records for the assessments the plan creator set and get any plan you want adapted to your fitness level.</p>
@@ -82,6 +84,8 @@ const AboutPage = () => {
                         }}
                     >
                         <div className='info__content info__content--left'>
+                            <div className='info__content--outset'></div>
+                        
                             <h2 className='info__header' style={{ color: color.contrast }}>How to get started creating plans?</h2>
                         
                             <p style={{ color: color.contrast }}>If you are looking to make a plan, you will find a link at the bottom of your <Link className='link' style={{ color: color.tertiary }} to='/account'>"ACCOUNT"</Link> page to a <Link className='link' style={{ color: color.tertiary }} to='/create-plan'>plan creation page.</Link> After you make a plan, you can find it on your <Link className='link' style={{ color: color.tertiary }} to='/account'>"ACCOUNT"</Link> page or you can find its page through the <Link className='link' style={{ color: color.tertiary }} to='/search'>"PLANS SEARCH"</Link> page.</p>

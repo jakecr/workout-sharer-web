@@ -22,22 +22,29 @@
         transform: skewX(7.5deg);
         display: block;
         height: 18rem;
-        padding: 1rem 3.5rem;
+        padding: 1rem 1.3rem;
         text-align: left;
         width: 38.5rem;
         position: absolute;
         top: 0;
-        
-        -webkit-clip-path: polygon(4rem 0, 100% 0, 100% 100%, 0 100%);
-        clip-path: polygon(4rem 0, 100% 0, 100% 100%, 0 100%);
 
         @include clearfix;
 
+        
+        &--outset {
+            width: 2.2rem;
+            height: 18rem;
+            float: left;
+            shape-outside: polygon(100% 0, 0 100%, 0 0);
+        }
+
         &--left {
             left: -1.3rem;
+            width: 41rem;
         }
         &--right {
             right: -1.3rem;
+            padding-right: 3.4rem;
         }
     }
 
