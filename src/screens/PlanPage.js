@@ -28,7 +28,7 @@ const PlanPage = () => {
 
     return (
         <div>
-            {state.pagePlan.name ? <title>{state.pagePlan.name} - Workout Dealer</title> : <title>Plan Page - Workout Dealer</title>}
+            {state.pagePlan.name ? <title>{state.pagePlan.name} - Workout Sharer</title> : <title>Plan Page - Workout Sharer</title>}
         
             <div className='background' style={{ backgroundColor: color.primary }}>
                 <Header 
@@ -96,7 +96,7 @@ const PlanPage = () => {
                             ? state.pagePlan && <div>
                                 {!state.generalPlan 
                                 && <p style={{ color: color.contrast }}>
-                                    If you want to follow this plan you should subscribe to it and go to your "SUBSCRIBED PLAN" page to enter your records that are relavant to the plan. You will then get a plan specific to you. After that, if you get the Workout Dealer app then you will get a timer with all of your workouts set up for you.
+                                    If you want to follow this plan you should subscribe to it and go to your "SUBSCRIBED PLAN" page to enter your records that are relavant to the plan. You will then get a plan specific to you. After that, if you get the Workout Sharer app then you will get a timer with all of your workouts set up for you.
                                 </p>}
                                 
                                 <div className='plan__group plan__group--top'>

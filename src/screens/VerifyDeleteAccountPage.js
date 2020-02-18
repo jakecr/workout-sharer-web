@@ -13,14 +13,16 @@ const VerifyDeleteAccountPage = () => {
     const [ code, setCode ] = useState('')
 
     useEffect(() => {
-        checkIfNotLoggedIn()
+        if(color.isLoggedIn !== false) {
+            checkIfLoggedIn()
+        }
         clearErrorMessage()
         deleteAccount()
     }, [])
 
     return (
         <div>
-            <title>Verify Delete Account - Workout Dealer</title>
+            <title>Verify Delete Account - Workout Sharer</title>
 
             <div 
                 className='background' 

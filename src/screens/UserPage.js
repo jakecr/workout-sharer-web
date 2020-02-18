@@ -20,7 +20,7 @@ const UserPage = () => {
 
     return (
         <div>
-            {state.user ? <title>{state.user.username} - Workout Dealer</title> : <title>User Page - Workout Dealer</title>}
+            {state.user ? <title>{state.user.username} - Workout Sharer</title> : <title>User Page - Workout Sharer</title>}
         
             <div 
                 className='background' 

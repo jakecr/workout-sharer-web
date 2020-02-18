@@ -16,13 +16,15 @@ const VerifyPasswordPage = () => {
     const [ verifyPassword, setVerifyPassword ] = useState('')
 
     useEffect(() => {
-        checkIfLoggedIn()
+        if(color.isLoggedIn !== false) {
+            checkIfLoggedIn()
+        }
         clearErrorMessage()
     }, [])
 
     return (
         <div>
-            <title>Verify Change Password - Workout Dealer</title>
+            <title>Verify Change Password - Workout Sharer</title>
 
             <div 
                 className='background' 

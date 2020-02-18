@@ -26,7 +26,7 @@ const ContactPage = () => {
 
     return (
         <div>
-            <title>Contact - Workout Dealer</title>
+            <title>Contact - Workout Sharer</title>
         
             <datalist id='subject-options'>
                 <option value='Site issue' />

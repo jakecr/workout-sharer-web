@@ -142,5 +142,5 @@ const changeAccentColor = dispatch => ({ color }) => {
 export const { Provider, Context } = createDataContext(
     planReducer,
     { checkIfNotLoggedIn, checkIfLoggedIn, changeTheme, changeAccentColor },
-    { isLoggedIn: false, theme: 'dark', primary: '#000000', secondary: '#1c1c1e', tertiary: '#043166', contrast: '#cdd1d4' }
+    { isLoggedIn: null, theme: 'dark', primary: '#000000', secondary: '#1c1c1e', tertiary: '#043166', contrast: '#cdd1d4' }
 )

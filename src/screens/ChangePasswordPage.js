@@ -13,13 +13,15 @@ const ChangePasswordPage = () => {
     const [ email, setEmail ] = useState('')
 
     useEffect(() => {
-        checkIfLoggedIn()
+        if(color.isLoggedIn !== false) {
+            checkIfLoggedIn()
+        }
         clearErrorMessage()
     }, [])
 
     return (
         <div>
-            <title>Change Password - Workout Dealer</title>
+            <title>Change Password - Workout Sharer</title>
         
             <div 
                 className='background' 

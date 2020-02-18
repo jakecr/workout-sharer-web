@@ -14,7 +14,7 @@ const NotFoundPage = () => {
 
     return (
         <div>
-            <title>404 - Workout Dealer</title>
+            <title>404 - Workout Sharer</title>
         
             <div 
                 className='background' 

@@ -15,7 +15,7 @@ const AppPage = () => {
 
     return (
         <div>
-            <title>Home - Workout Dealer</title>
+            <title>Home - Workout Sharer</title>
         
             <div 
                 className='background' 

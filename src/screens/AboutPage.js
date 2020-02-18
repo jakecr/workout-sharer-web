@@ -16,7 +16,7 @@ const AboutPage = () => {
 
     return (
         <div>
-            <title>About - Workout Dealer</title>
+            <title>About - Workout Sharer</title>
             
             <div 
                 className='background' 

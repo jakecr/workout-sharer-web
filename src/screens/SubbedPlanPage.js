@@ -51,7 +51,7 @@ const SubbedPlanPage = () => {
 
     return (
         <div>
-            <title>Your Plans - Workout Dealer</title>
+            <title>Your Plans - Workout Sharer</title>
     
             <div 
                 className='background' 

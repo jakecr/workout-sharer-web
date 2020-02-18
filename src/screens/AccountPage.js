@@ -31,7 +31,7 @@ const AccountPage = () => {
 
     return ( 
         <div>
-            {state.username ? <title>{state.username}'s Account - Workout Dealer</title> : <title>Account - Workout Dealer</title>}
+            {state.username ? <title>{state.username}'s Account - Workout Sharer</title> : <title>Account - Workout Sharer</title>}
         
             <div 
                 className='background' 

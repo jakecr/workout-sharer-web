@@ -157,7 +157,7 @@ const CreatePlanPage = () => {
 
     return (
         <div>
-            <title>Create Plan - Workout Dealer</title>
+            <title>Create Plan - Workout Sharer</title>
         
             <datalist id='exercises'>
                 {require('../staticData/exercises.json').map((exercise) => <option key={exercise} value={exercise}/>)}

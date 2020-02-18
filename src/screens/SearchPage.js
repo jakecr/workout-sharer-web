@@ -23,7 +23,7 @@ const SearchPage = () => {
 
     return (
         <div>
-            <title>Search Plans - Workout Dealer</title>
+            <title>Search Plans - Workout Sharer</title>
             
             <div 
                 className='background' 
