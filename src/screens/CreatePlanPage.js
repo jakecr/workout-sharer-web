@@ -441,38 +441,36 @@ const CreatePlanPage = () => {
                                                 )
                                             })}
                                             
-                                            {
-                                            dayItem.length > 0 
-                                                ? (
-                                                    <div className='u-center'>
-                                                        <button 
-                                                            className='button button--green' 
-                                                            type='button' 
-                                                            onClick={() => onAddBasicWorkout({ day: dayIndex })}
-                                                        >
-                                                            Add workout
-                                                        </button>
-                                                        <button 
-                                                            className='button button--red u-margin-left' 
-                                                            type='button' 
-                                                            onClick={() => onRemoveBasicWorkout({ day: dayIndex })}
-                                                        >
-                                                            Remove workout
-                                                        </button>
-                                                    </div>
-                                                )
-                                                : (
-                                                    <div className='u-center u-margin-top-medium'>
-                                                        <button 
-                                                            className='button button--green' 
-                                                            type='button' 
-                                                            onClick={() => onAddBasicWorkout({ day: dayIndex })}
-                                                        >
-                                                            Add workout
-                                                        </button>
-                                                    </div>
-                                                )
-                                            }
+                                            {dayItem.length > 0 
+                                            ? (
+                                                <div className='u-center'>
+                                                    <button 
+                                                        className='button button--green' 
+                                                        type='button' 
+                                                        onClick={() => onAddBasicWorkout({ day: dayIndex })}
+                                                    >
+                                                        Add workout
+                                                    </button>
+                                                    <button 
+                                                        className='button button--red u-margin-left' 
+                                                        type='button' 
+                                                        onClick={() => onRemoveBasicWorkout({ day: dayIndex })}
+                                                    >
+                                                        Remove workout
+                                                    </button>
+                                                </div>
+                                            )
+                                            : (
+                                                <div className='u-center u-margin-top-medium'>
+                                                    <button 
+                                                        className='button button--green' 
+                                                        type='button' 
+                                                        onClick={() => onAddBasicWorkout({ day: dayIndex })}
+                                                    >
+                                                        Add workout
+                                                    </button>
+                                                </div>
+                                            )}
                                         </div>
                                     )
                                 })}
@@ -737,30 +735,30 @@ const CreatePlanPage = () => {
                             </form>
                             : selectedSection == 'help'
                             && <div>
-                                <h3 
+                                <h2 
                                     className='help--heading' 
                                     style={{ color: color.contrast }}
                                 >
                                     Name and search terms
-                                </h3>
-                                <h4 
+                                </h2>
+                                <p 
                                     className='help--info' 
                                     style={{ color: color.contrast }}
                                 >
                                     Plans can be searched for by there name and/or search terms. If you want to make it easier for someone to find your plan give it a unique search term.
-                                </h4>
-                                <h3 
+                                </p>
+                                <h2 
                                     className='help--heading' 
                                     style={{ color: color.contrast }}
                                 >
                                     Set inputs
-                                </h3>
-                                <h4 
+                                </h2>
+                                <p 
                                     className='help--info' 
                                     style={{ color: color.contrast }}
                                 >
                                     Workout plans are not meant to include injury prevention, overcoming isometrics, or stretching. I recommend you include those in your plans description or exercises additional information. There are three types of workouts that are meant to be used in workout plans.
-                                </h4>
+                                </p>
                                 <ol>
                                     <li style={{ color: color.contrast }}>
                                         Ones based on one rep maxes or multiple rep maxes where you use a certain weight for a given amount of reps. With these plans you specify the weight with a percentage of the weight that a subscriber can use for a number of reps that you specify. This option is best used for bodybuilding, powerlifting or strength training. You can use this option by selecting "Max weight for one rep" or "Max weight for multiple reps" in the “Assessment type” field.
@@ -772,36 +770,36 @@ const CreatePlanPage = () => {
                                         Lastly, ones where you do an exercise for a certain amount of time. With this option, you specify the amount of time as a percentage of the max time a user can do that exercise for. This option is best used for isometric exercises and cardio. The set inputs are meant for users to adapt their plan to their fitness level, so if you want a user to do an isometric exercise for a set amount of time I recommend you add it to your plans description or the “Additional information” section of a set you want to superset the exercise with. You can use this option by selecting the “Max time” option in the “Assessment type” field.
                                     </li>
                                 </ol>
-                                <h3 
+                                <h2 
                                     className='help--heading' 
                                     style={{ color: color.contrast }}
                                 >
                                     Basic plan
-                                </h3>
-                                <h4 
+                                </h2>
+                                <p 
                                     className='help--info' 
                                     style={{ color: color.contrast }}
                                 >
                                     Basic plans have workouts with every set being the same as the last. If you would like to include a warmup, then add it to the additional information on the sets. If you want workouts where not every set is the same, then you should consider using a complex plan.
-                                </h4>
-                                <h3 
+                                </p>
+                                <h2 
                                     className='help--heading' 
                                     style={{ color: color.contrast }}
                                 >
                                     Complex plan
-                                </h3>
-                                <h4 
+                                </h2>
+                                <p 
                                     className='help--info' 
                                     style={{ color: color.contrast }}
                                 >
                                     Advanced plans allow you to make each set of a workout different from the last. Advanced plans are tedious to make, but there are some tricks you can use to make it less tedious. Every time you make a set in a workout, it copies the information from the last set. To speed up the process, you should only click “ADD SET” when you are done filling out the previous set. This way you only have to change the information that is different from the previous set.
-                                </h4>
-                                <h3 
-                                    className='help--conclusion' 
+                                </p>
+                                <h2 
+                                    className='help--heading' 
                                     style={{ color: color.contrast }}
                                 >
                                     If you have any feedback or questions, please send it to me through the "CONTACT" page and I will get back to you as soon as possible!
-                                </h3>
+                                </h2>
                             </div>
                         }
                         
