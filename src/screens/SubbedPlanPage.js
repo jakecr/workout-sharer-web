@@ -68,7 +68,7 @@ const SubbedPlanPage = () => {
                         className='form u-width-huge u-height-large' 
                         style={{ 
                             backgroundColor: color.secondary, 
-                            border: color.theme == 'dark' ? '1px solid rgb(52,53,54)' : '1px solid rgb(204,204,204)' 
+                            border: color.theme == 'dark' ? '2px solid rgb(52,53,54)' : '2px solid rgb(204,204,204)' 
                         }}
                     >
                         <div className='section-form__group u-width-huge'>
@@ -376,7 +376,7 @@ const SubbedPlanPage = () => {
                         className='form u-width-huge' 
                         style={{ 
                             backgroundColor: color.secondary, 
-                            border: color.theme == 'dark' ? '1px solid rgb(52,53,54)' : '1px solid rgb(204,204,204)' 
+                            border: color.theme == 'dark' ? '2px solid rgb(52,53,54)' : '2px solid rgb(204,204,204)' 
                         }}
                     >
                         <div>
