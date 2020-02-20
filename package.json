@@ -6,7 +6,7 @@
   "author": "",
   "license": "ISC",
   "scripts": {
-    "start": "node server.js",
+    "start": "node server/index.js",
     "build:dev": "webpack",
     "build:prod": "webpack -p --env production",
     "compile:sass": "node-sass public/sass/main.scss public/style.css -w",
@@ -31,7 +31,16 @@
     "react-router-dom": "^5.1.2",
     "react-switch": "^5.0.1",
     "validator": "^12.1.0",
-    "webpack": "^4.41.6"
+    "webpack": "^4.41.6",
+    "@sendgrid/mail": "^6.4.0",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongodb": "^3.3.5",
+    "mongoose": "^5.7.13",
+    "path": "^0.12.7"
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",
