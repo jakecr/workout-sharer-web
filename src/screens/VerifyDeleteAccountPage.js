@@ -13,8 +13,8 @@ const VerifyDeleteAccountPage = () => {
     const [ code, setCode ] = useState('')
 
     useEffect(() => {
-        if(color.isLoggedIn !== false) {
-            checkIfLoggedIn()
+        if(color.isLoggedIn !== true) {
+            checkIfNotLoggedIn()
         }
         clearErrorMessage()
         deleteAccount()

@@ -623,6 +623,10 @@ a {
   -webkit-clip-path: polygon(0 0, 100% 0, 100% calc(100% - 3rem), 0 100%);
   clip-path: polygon(0 0, 100% 0, 100% calc(100% - 3rem), 0 100%); }
 
+.main__container {
+  position: relative;
+  height: calc(100vh - 15.3rem); }
+
 .footer {
   height: 4vh;
   background-color: #16181b;
