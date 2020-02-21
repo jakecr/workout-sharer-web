@@ -16,7 +16,7 @@ const planReducer = (state, action) => {
         case 'ADD_IS_LOGGED_IN':
             return { ...state, isLoggedIn: action.payload}
         case 'SET_THEME':
-            return { ...state, isLoggedIn: true }
+            return { ...state, ...action.payload }
         case 'SET_ACCENT_COLOR':
             return { ...state, tertiary: action.payload }
         default:
