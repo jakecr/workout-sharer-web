@@ -45,9 +45,9 @@ const ContactPage = () => {
                     contrastColor={color.contrast}
                 />
 
-                <div className='main__container'>
+                <div className='form__container'>
                     <div 
-                        className='form form--skinny' 
+                        className='form u-width-tiny' 
                         style={{ 
                             backgroundColor: color.secondary, 
                             border: color.theme == 'dark' ? '2px solid rgb(52,53,54)' : '2px solid rgb(204,204,204)' 
