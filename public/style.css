@@ -396,11 +396,11 @@ a {
     display: table;
     clear: both; }
   .info__image--right {
-    right: -1.1rem;
+    right: -1.2rem;
     -webkit-clip-path: polygon(0 0, 100% 0, calc(100% - 2.5rem) 100%, 0 100%);
     clip-path: polygon(0 0, 100% 0, calc(100% - 2.5rem) 100%, 0 100%); }
   .info__image--left {
-    left: -1.1rem;
+    left: -1.2rem;
     -webkit-clip-path: polygon(2.5rem 0, 100% 0, 100% 100%, 0 100%);
     clip-path: polygon(2.5rem 0, 100% 0, 100% 100%, 0 100%); }
 

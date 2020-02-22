@@ -220,7 +220,7 @@ const SubbedPlanPage = () => {
                                 className='helpful-message' 
                                 style={{ color: color.contrast }}
                             >
-                                You are not subscribed to a plan. Visit the <Link className='link' to='/search' style={{ color: color.tertiary }}>"PLANS SEARCH"</Link> page to search for a plan.
+                                You are not subscribed to a plan. Visit the <Link className='link' to='/search'>"PLANS SEARCH"</Link> page to search for a plan.
                             </p>
                         : selectedSection == 'adapted'
                         && state.specificPlan
@@ -363,7 +363,7 @@ const SubbedPlanPage = () => {
                                 className='helpful-message' 
                                 style={{ color: color.contrast }}
                             >
-                                Visit the <a className='link' onClick={() => setSelectedSection('general')} style={{ color: color.tertiary }}>"GENERAL PLAN"</a> section to adapt a plan to your fitness level.
+                                Visit the <a className='link' onClick={() => setSelectedSection('general')}>"GENERAL PLAN"</a> section to adapt a plan to your fitness level.
                             </p>}
                     </div>
                 </div>
