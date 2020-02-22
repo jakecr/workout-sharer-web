@@ -53,20 +53,20 @@
         background-position: center center;
         transform: skewX(7.5deg);
         display: inline-flex;
-        height: 19rem;
-        width: 21.5rem;
+        height: 20rem;
+        width: 22rem;
         position: absolute;
-        top: .5rem;
+        top: 0;
 
         @include clearfix;
 
         &--right {
-            right: -.6rem;
+            right: -1.1rem;
             -webkit-clip-path: polygon(0 0, 100% 0, calc(100% - 2.5rem) 100%, 0 100%);
             clip-path: polygon(0 0, 100% 0, calc(100% - 2.5rem) 100%, 0 100%);
         }
         &--left {
-            left: -.6rem;
+            left: -1.1rem;
             -webkit-clip-path: polygon(2.5rem 0, 100% 0, 100% 100%, 0 100%);
             clip-path: polygon(2.5rem 0, 100% 0, 100% 100%, 0 100%);
         }
