@@ -72,6 +72,12 @@ p {
   .clear-defaults:focus {
     outline: 0; }
 
+li {
+  padding-left: 1rem; }
+
+ol {
+  padding-left: 3rem; }
+
 body {
   font-family: 'Gentium Book Basic', serif;
   font-weight: 400;
