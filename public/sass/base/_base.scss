@@ -84,12 +84,12 @@ p {
 
 li {
     padding-left: 1rem;
-}
-
-ol {
-    padding-left: 3rem;
 
     &:not(:last-child) {
         padding-bottom: 2rem;
     }
+}
+
+ol {
+    padding-left: 3rem;
 }

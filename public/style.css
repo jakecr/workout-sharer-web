@@ -74,11 +74,11 @@ p {
 
 li {
   padding-left: 1rem; }
+  li:not(:last-child) {
+    padding-bottom: 2rem; }
 
 ol {
   padding-left: 3rem; }
-  ol:not(:last-child) {
-    padding-bottom: 2rem; }
 
 body {
   font-family: 'Gentium Book Basic', serif;
