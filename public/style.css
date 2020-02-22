@@ -77,6 +77,8 @@ li {
 
 ol {
   padding-left: 3rem; }
+  ol:not(:last-child) {
+    padding-bottom: 2rem; }
 
 body {
   font-family: 'Gentium Book Basic', serif;
