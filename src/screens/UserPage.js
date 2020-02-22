@@ -37,7 +37,7 @@ const UserPage = () => {
                         className='form u-width-large' 
                         style={{ 
                             backgroundColor: color.secondary, 
-                            border: color.theme == 'dark' ? '2px solid rgb(52,53,54)' : '2px solid rgb(204,204,204)' 
+                            border: color.theme == 'dark' ? '2px solid rgb(52,53,54)' : '2px solid rgb(244,244,244)' 
                         }}
                     >
                         {state.errorMessage && <p className='error-message'>{state.errorMessage}</p>}
