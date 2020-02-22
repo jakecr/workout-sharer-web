@@ -34,7 +34,7 @@ const checkIfLoggedIn = dispatch => async () => {
         const accentColor = tertiaryColors.find((item) => item.color == acccentColorName)
 
         if(theme == 'light') {
-            dispatch({ type: 'SET_THEME', payload: { theme: 'light', primary: '#dfdee3', secondary: '#ffffff', tertiary: accentColor ? accentColor : '#155eb0', contrast: '#16181b' } })
+            dispatch({ type: 'SET_THEME', payload: { theme: 'light', primary: '#F9F9F9', secondary: '#ffffff', tertiary: accentColor ? accentColor : '#155eb0', contrast: '#16181b' } })
         }
         else {
             dispatch({ type: 'SET_THEME', payload: { theme: 'dark', primary: '#000000', secondary: '#1c1c1e', tertiary: accentColor ? accentColor : '#043166', contrast: '#cdd1d4' } })
@@ -75,7 +75,7 @@ const checkIfNotLoggedIn = dispatch => async () => {
         const accentColor = tertiaryColors.find((item) => item.color == acccentColorName)
 
         if(theme == 'light') {
-            dispatch({ type: 'SET_THEME', payload: { theme: 'light', primary: '#dfdee3', secondary: '#ffffff', tertiary: accentColor ? accentColor[theme] : '#155eb0', contrast: '#16181b' } })
+            dispatch({ type: 'SET_THEME', payload: { theme: 'light', primary: '#F9F9F9', secondary: '#ffffff', tertiary: accentColor ? accentColor[theme] : '#155eb0', contrast: '#16181b' } })
         }
         else {
             dispatch({ type: 'SET_THEME', payload: { theme: 'dark', primary: '#000000', secondary: '#1c1c1e', tertiary: accentColor ? accentColor[theme] : '#043166', contrast: '#cdd1d4' } })
@@ -116,7 +116,7 @@ const changeTheme = dispatch => ({ theme }) => {
     const accentColor = tertiaryColors.find((item) => item.color == acccentColorName)
 
     if(theme == 'light') {
-        dispatch({ type: 'SET_THEME', payload: { theme: 'light', primary: '#dfdee3', secondary: '#ffffff', tertiary: accentColor ? accentColor[theme] : '#155eb0', contrast: '#16181b' } })
+        dispatch({ type: 'SET_THEME', payload: { theme: 'light', primary: '#F9F9F9', secondary: '#ffffff', tertiary: accentColor ? accentColor[theme] : '#155eb0', contrast: '#16181b' } })
     }
     else {
         dispatch({ type: 'SET_THEME', payload: { theme: 'dark', primary: '#000000', secondary: '#1c1c1e', tertiary: accentColor ? accentColor[theme] : '#155eb0', contrast: '#cdd1d4' } })
