@@ -320,7 +320,7 @@ const CreatePlanPage = () => {
 
                                 {basicWorkouts.map((dayItem, dayIndex) => {
                                     return (
-                                        <div key={dayIndex + 80}>
+                                        <div key={dayIndex + 80} className='day__container'>
                                             <h2 
                                                 className='u-center u-margin-none' 
                                                 style={{ color: color.contrast }}
@@ -554,7 +554,7 @@ const CreatePlanPage = () => {
                                 
                                 {workouts.map((dayItem, dayIndex) => {
                                     return (
-                                        <div key={dayIndex + 50}>
+                                        <div key={dayIndex + 50}  className='day__container'>
                                             <h2 
                                                 className='u-center u-margin-none' 
                                                 style={{ color: color.contrast }}
