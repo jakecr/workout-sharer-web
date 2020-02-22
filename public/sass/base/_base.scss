@@ -88,4 +88,8 @@ li {
 
 ol {
     padding-left: 3rem;
+
+    &:not(:last-child) {
+        padding-bottom: 2rem;
+    }
 }
