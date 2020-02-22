@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { Link } from 'react-router-dom'
-import { AiOutlineMail } from 'react-icons/ai'
+import { FaRegUser } from 'react-icons/fa'
 import { GoLock } from 'react-icons/go'
 import { Context as AuthContext } from '../context/AuthContext'
 import { Context as PrepContext } from '../context/PrepContext'
@@ -11,7 +11,7 @@ const SigninPage = () => {
     const { state, clearErrorMessage, signin } = useContext(AuthContext)
     const { state: color, checkIfLoggedIn } = useContext(PrepContext)
 
-    const [ email, setEmail ] = useState('')
+    const [ account, setAccount ] = useState('')
     const [ password, setPassword ] = useState('')
 
     useEffect(() => {
@@ -42,17 +42,17 @@ const SigninPage = () => {
                         autoComplete="off" 
                         onSubmit={(e) => {
                             e.preventDefault()
-                            signin({ email, password })
+                            signin({ account, password })
                         }}
                     >
                         <div className='u-center'>
                             <IconInput
-                                Icon={AiOutlineMail}
+                                Icon={FaRegUser}
                                 autoFocus={true} 
-                                type='email' 
-                                value={email} 
-                                name='Email' 
-                                onChange={(e) => setEmail(e.target.value)} 
+                                type='text' 
+                                value={account} 
+                                name='Email or username' 
+                                onChange={(e) => setAccount(e.target.value)} 
                             />
                         </div>
 

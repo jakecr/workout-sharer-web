@@ -81,10 +81,21 @@ router.post('/send-email', (req, res) => {
 })
 
 router.post('/signin', async (req, res) => {
-    const { email, password } = req.body
+    const { account, password } = req.body
     
     try {
-        const user = await User.findByCredentials(email, password)
+        let user
+
+        if(account.match(/\S+@\S+\.\S+/)) {
+            user = await User.findByCredentials(account, password)
+        }else {
+            user = await User.findOne({ username: account })
+
+            const ifCorrectPassword = await bcrypt.compare(password, user.password)
+            if(!ifCorrectPassword) {
+                return res.send({ error: 'Make sure you have the correct username and password.' })
+            }
+        }
         const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET)
 
         res.status(202).send({ token })

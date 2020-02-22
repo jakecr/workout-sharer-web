@@ -122,13 +122,13 @@ const sendMeEmail = dispatch => async ({ email, subject, content }) => {
     }
 }
 
-const signin = dispatch => async ({ email, password }) => {
-    if(!email || !password) {
-        return dispatch({ type: 'ADD_ERROR_MESSAGE', payload: 'Must provide an email and password'})
+const signin = dispatch => async ({ account, password }) => {
+    if(!account || !password) {
+        return dispatch({ type: 'ADD_ERROR_MESSAGE', payload: 'Must provide an email or username and a password'})
     }
 
     try {
-        const response = await workoutSharerApi.post('/signin', { email, password })
+        const response = await workoutSharerApi.post('/signin', { account, password })
         const { error, token } = response.data
         if(error) {
             return dispatch({ type: 'ADD_ERROR_MESSAGE', payload: error})
