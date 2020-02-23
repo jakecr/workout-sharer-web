@@ -33,7 +33,7 @@ const AboutPage = () => {
                         className='info__group'
                         style={{ 
                             backgroundColor: color.secondary, 
-                            boxShadow: '0rem 0rem 2rem .6rem' + color.tertiary + '80'
+                            boxShadow: '0rem 0rem 2rem .6rem' + color.tertiary + '66'
                         }}
                     >
                         <div className='info__content info__content--left'>
@@ -59,7 +59,7 @@ const AboutPage = () => {
                         className='info__group'
                         style={{ 
                             backgroundColor: color.secondary,
-                            boxShadow: '0rem 0rem 2rem .6rem' + color.tertiary + '80'
+                            boxShadow: '0rem 0rem 2rem .6rem' + color.tertiary + '66'
                         }}
                     >
                         <div className='info__content info__content--right'>
@@ -83,7 +83,7 @@ const AboutPage = () => {
                         className='info__group'
                         style={{ 
                             backgroundColor: color.secondary, 
-                            boxShadow: '0rem 0rem 2rem .6rem' + color.tertiary + '80'
+                            boxShadow: '0rem 0rem 2rem .6rem' + color.tertiary + '66'
                         }}
                     >
                         <div className='info__content info__content--left'>
@@ -109,7 +109,7 @@ const AboutPage = () => {
                         className='info__group'
                         style={{ 
                             backgroundColor: color.secondary, 
-                            boxShadow: '0rem 0rem 2rem .6rem' + color.tertiary + '80'
+                            boxShadow: '0rem 0rem 2rem .6rem' + color.tertiary + '66'
                         }}
                     >
                         <div className='info__content info__content--right'>
