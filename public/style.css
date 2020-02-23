@@ -505,6 +505,19 @@ a {
   line-height: 2.25rem;
   display: inline-block; }
 
+.plan__heading {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  justify-content: space-between; }
+  .plan__heading--left {
+    display: inline-block; }
+  .plan__heading--right {
+    display: inline-block; }
+
+.plan--header {
+  margin: 0; }
+
 .radio-group {
   width: 50%;
   display: inline-block; }

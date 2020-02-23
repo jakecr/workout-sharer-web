@@ -87,20 +87,24 @@ router.post('/signin', async (req, res) => {
         let user
 
         if(account.match(/\S+@\S+\.\S+/)) {
-            user = await User.findByCredentials(account, password)
+            user = await User.findOne({ email: account })
         }else {
             user = await User.findOne({ username: account })
-
-            const ifCorrectPassword = await bcrypt.compare(password, user.password)
-            if(!ifCorrectPassword) {
-                return res.send({ error: 'Make sure you have the correct username and password.' })
-            }
         }
-        const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET)
 
+        if(!user) {
+            return res.send({ error: 'Make sure you have the correct email or username and password.' })
+        }
+
+        const ifCorrectPassword = await bcrypt.compare(password, user.password)
+        if(!ifCorrectPassword) {
+            return res.send({ error: 'Make sure you have the correct email or username and password.' })
+        }
+
+        const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET)
         res.status(202).send({ token })
     }catch(err) {
-        res.status(203).send({ error: 'Make sure you have the correct email and password.' })
+        res.status(500).send()
     }
 })
 

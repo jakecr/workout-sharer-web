@@ -98,10 +98,39 @@ const PlanPage = () => {
                                 && <p style={{ color: color.contrast }}>
                                     If you want to follow this plan you should subscribe to it and go to your "SUBSCRIBED PLAN" page to enter your records that are relavant to the plan. You will then get a plan specific to you. After that, if you get the Workout Sharer app then you will get a timer with all of your workouts set up for you.
                                 </p>}
-                                
-                                <div className='plan__group plan__group--top'>
-                                    {
-                                        state.isSubscribed
+
+                                <div className='plan__heading'>
+                                    <div className='plan__heading--left'>
+                                        <h1 
+                                            className='plan--header' 
+                                            style={{ color: color.contrast }}
+                                        >
+                                            {state.pagePlan.name}
+                                        </h1>
+                                        <h2 
+                                            className='plan--header' 
+                                            style={{ color: color.contrast }}
+                                        >
+                                            Subscribers: {state.pagePlan.subscribers}
+                                        </h2>
+                                        <Link to={'/user-page?username=' + state.pagePlan.creator}>
+                                            <h2 
+                                                className='plan--header' 
+                                                style={{ color: color.contrast }}
+                                            >
+                                                Creator: {state.pagePlan.creator}
+                                            </h2>
+                                        </Link>
+                                        <p 
+                                            className='plan--header u-inline-block' 
+                                            style={{ color: '#777' }}
+                                        >
+                                            Description: {state.pagePlan.description}
+                                        </p>
+                                    </div>
+
+                                    <div className='plan__heading--right'>
+                                        {state.isSubscribed
                                         ? <form autoComplete="off" onSubmit={(e) => {
                                             e.preventDefault()
                                             unsubscribe()
@@ -136,38 +165,7 @@ const PlanPage = () => {
                                                     Subscribe
                                                 </button>
                                             </div>
-                                        </form>
-                                    }
-                                </div>
-
-                                <div className='plan__group'>
-                                    <h1 
-                                        className='form__header' 
-                                        style={{ color: color.contrast }}
-                                    >
-                                        {state.pagePlan.name}
-                                    </h1>
-                                    <h2 
-                                        className='form__header' 
-                                        style={{ color: color.contrast }}
-                                    >
-                                        Subscribers: {state.pagePlan.subscribers}
-                                    </h2>
-                                    <Link to={'/user-page?username=' + state.pagePlan.creator}>
-                                        <h2 
-                                            className='form__header' 
-                                            style={{ color: color.contrast }}
-                                        >
-                                            Creator: {state.pagePlan.creator}
-                                        </h2>
-                                    </Link>
-                                    <div className='u-center'>
-                                        <p 
-                                            className='form__header u-align-left u-inline-block' 
-                                            style={{ color: '#777' }}
-                                        >
-                                            Description: {state.pagePlan.description}
-                                        </p>
+                                        </form>}
                                     </div>
                                 </div>
 

@@ -51,4 +51,22 @@
         line-height: 2.25rem;
         display: inline-block;
     }
+
+    &__heading {
+        display: flex;
+        flex-direction: row;
+        flex: 1;
+        justify-content: space-between;
+
+        &--left {
+            display: inline-block;
+        }
+        &--right {
+            display: inline-block;
+        }
+    }
+
+    &--header {
+        margin: 0;
+    }
 }
