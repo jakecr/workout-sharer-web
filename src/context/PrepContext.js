@@ -37,7 +37,7 @@ const checkIfLoggedIn = dispatch => async () => {
             dispatch({ type: 'SET_THEME', payload: { theme: 'light', primary: '#F9F9F9', secondary: '#ffffff', tertiary: accentColor ? accentColor[theme] : '#155eb0', contrast: '#16181b' } })
         }
         else {
-            dispatch({ type: 'SET_THEME', payload: { theme: 'dark', primary: '#000000', secondary: '#1c1c1e', tertiary: accentColor ? accentColor[theme] : '#043166', contrast: '#cdd1d4' } })
+            dispatch({ type: 'SET_THEME', payload: { theme: 'dark', primary: '#000000', secondary: '#161618', tertiary: accentColor ? accentColor[theme] : '#043166', contrast: '#cdd1d4' } })
         }
         
         const link = document.querySelector("link[rel*='icon']")
@@ -78,7 +78,7 @@ const checkIfNotLoggedIn = dispatch => async () => {
             dispatch({ type: 'SET_THEME', payload: { theme: 'light', primary: '#F9F9F9', secondary: '#ffffff', tertiary: accentColor ? accentColor[theme] : '#155eb0', contrast: '#16181b' } })
         }
         else {
-            dispatch({ type: 'SET_THEME', payload: { theme: 'dark', primary: '#000000', secondary: '#1c1c1e', tertiary: accentColor ? accentColor[theme] : '#043166', contrast: '#cdd1d4' } })
+            dispatch({ type: 'SET_THEME', payload: { theme: 'dark', primary: '#000000', secondary: '#161618', tertiary: accentColor ? accentColor[theme] : '#043166', contrast: '#cdd1d4' } })
         }
         
         const link = document.querySelector("link[rel*='icon']")
@@ -119,14 +119,17 @@ const changeTheme = dispatch => ({ theme }) => {
         dispatch({ type: 'SET_THEME', payload: { theme: 'light', primary: '#F9F9F9', secondary: '#ffffff', tertiary: accentColor ? accentColor[theme] : '#155eb0', contrast: '#16181b' } })
     }
     else {
-        dispatch({ type: 'SET_THEME', payload: { theme: 'dark', primary: '#000000', secondary: '#1c1c1e', tertiary: accentColor ? accentColor[theme] : '#155eb0', contrast: '#cdd1d4' } })
+        dispatch({ type: 'SET_THEME', payload: { theme: 'dark', primary: '#000000', secondary: '#161618', tertiary: accentColor ? accentColor[theme] : '#155eb0', contrast: '#cdd1d4' } })
     }
         
     const link = document.querySelector("link[rel*='icon']")
+    const body = document.getElementById('the_body')
     if(theme == 'light') {
         link.href = '/assets/dark-logo.png'
+        body.style.background = '#ffffff'
     }else {
         link.href = '/assets/light-logo.png'
+        body.style.background = '#f7f7f7'
     }
 }
 
@@ -142,5 +145,5 @@ const changeAccentColor = dispatch => ({ color }) => {
 export const { Provider, Context } = createDataContext(
     planReducer,
     { checkIfNotLoggedIn, checkIfLoggedIn, changeTheme, changeAccentColor },
-    { isLoggedIn: null, theme: 'dark', primary: '#000000', secondary: '#1c1c1e', tertiary: '#043166', contrast: '#cdd1d4' }
+    { isLoggedIn: null, theme: 'dark', primary: '#000000', secondary: '#161618', tertiary: '#043166', contrast: '#cdd1d4' }
 )

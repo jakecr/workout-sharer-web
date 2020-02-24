@@ -42,7 +42,7 @@ const PlanPage = () => {
                         className='form u-width-huge' 
                         style={{ 
                             backgroundColor: color.secondary, 
-                            border: color.theme == 'dark' ? '2px solid rgb(52,53,54)' : '2px solid rgb(244,244,244)' 
+                            border: color.theme == 'dark' ? '2px solid #28282a' : '2px solid rgb(244,244,244)' 
                         }}
                     >
                         <div className='section-form__group u-width-huge'>
