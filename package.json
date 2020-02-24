@@ -9,7 +9,7 @@
     "start": "node server/index.js",
     "build:dev": "webpack",
     "build:prod": "webpack -p --env production",
-    "compile:sass": "node-sass public/sass/main.scss public/style.css -w",
+    "compile:sass": "node-sass public/sass/main.scss public/style.css",
     "dev-server": "webpack-dev-server",
     "heroku-postbuild": "npm run build:prod",
     "heroku-prebuild": "npm run compile:sass"
