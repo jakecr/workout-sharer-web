@@ -208,7 +208,6 @@ const AccountPage = () => {
                                                     <form autoComplete="off" onSubmit={(e) => {
                                                         e.preventDefault()
                                                         deletePlan({ id: planItem._id })
-                                                        getAccount()
                                                         setShowConfirm(null)
                                                     }}>
                                                         <button type="submit" className='clear-defaults'>

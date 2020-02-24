@@ -41,10 +41,10 @@ const checkIfLoggedIn = dispatch => async () => {
         }
         
         const link = document.querySelector("link[rel*='icon']")
-        if(theme == 'dark') {
-            link.href = '/assets/light-logo.png'
-        }else {
+        if(theme == 'light') {
             link.href = '/assets/dark-logo.png'
+        }else {
+            link.href = '/assets/light-logo.png'
         }
 
         if(!token) {
@@ -123,10 +123,10 @@ const changeTheme = dispatch => ({ theme }) => {
     }
         
     const link = document.querySelector("link[rel*='icon']")
-    if(theme == 'dark') {
-        link.href = '/assets/light-logo.png'
-    }else {
+    if(theme == 'light') {
         link.href = '/assets/dark-logo.png'
+    }else {
+        link.href = '/assets/light-logo.png'
     }
 }
 
