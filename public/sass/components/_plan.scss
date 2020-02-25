@@ -57,9 +57,11 @@
         flex-direction: row;
         flex: 1;
         justify-content: space-between;
+        margin-bottom: 2rem;
 
         &--left {
             display: inline-block;
+            max-width: 45rem;
         }
         &--right {
             display: inline-block;

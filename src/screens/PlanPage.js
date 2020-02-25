@@ -282,7 +282,7 @@ const PlanPage = () => {
                                                         className='plan--exercise' 
                                                         style={{ color: color.contrast }}
                                                     >
-                                                        Set rest: {setItem.setRest}
+                                                        Set rest: {setItem.setRest}s
                                                     </p>
                                                     <p 
                                                         className='plan--exercise' 

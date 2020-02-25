@@ -158,10 +158,6 @@ const CreatePlanPage = () => {
     return (
         <div>
             <title>Create Plan - Workout Sharer</title>
-        
-            <datalist id='exercises'>
-                {require('../staticData/exercises.json').map((exercise) => <option key={exercise} value={exercise}/>)}
-            </datalist>
 
             <div 
                 className='background' 
@@ -340,7 +336,6 @@ const CreatePlanPage = () => {
 
                                                         <div className='create-plan__set--inputs'>
                                                             <Input 
-                                                                list='exercises' 
                                                                 name='Exercise' 
                                                                 type='text' 
                                                                 value={workoutItem.exercise} 

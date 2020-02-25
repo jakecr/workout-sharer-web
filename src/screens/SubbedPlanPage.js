@@ -144,7 +144,6 @@ const SubbedPlanPage = () => {
                                             setIndex == 0
                                             || setsArray[setIndex - 1].exercise !== setItem.exercise 
                                             || setsArray[setIndex - 1].maxType !== setItem.maxType 
-                                            || setsArray[setIndex - 1].percentMax !== setItem.percentMax 
                                             ? <div key={setIndex} className='u-center'>
                                                 {
                                                     setItem.maxType == 'Max weight for one rep'
@@ -152,28 +151,28 @@ const SubbedPlanPage = () => {
                                                         className='u-margin-top-none' 
                                                         style={{ color: '#777' }}
                                                     >
-                                                        What is the max weight you can use for 1 {setItem.exercise[setItem.exercise.length - 1] == 's' ? setItem.exercise.slice(0, setItem.exercise.length - 1) : setItem.exercise}?
+                                                        What is the max weight you can use for 1{setItem.exercise}?
                                                     </p>
                                                     : setItem.maxType == 'Max weight for multiple reps'
                                                     ? <p 
                                                         className='u-margin-top-none' 
                                                         style={{ color: '#777' }}
                                                     >
-                                                        What is the max weight you can use for {setItem.repsForAssessment} {setItem.exercise[setItem.exercise.length - 1] !== 's' ? setItem.exercise + 's' : setItem.exercise}?
+                                                        What is the max weight you can use for {setItem.repsForAssessment} {setItem.exercise}?
                                                     </p>
                                                     : setItem.maxType == 'Max reps'
                                                     ? <p 
                                                         className='u-margin-top-none' 
                                                         style={{ color: '#777' }}
                                                     >
-                                                        What is the max reps you can do of {setItem.exercise[setItem.exercise.length - 1] !== 's' ? setItem.exercise + 's' : setItem.exercise}?
+                                                        What is the max reps you can do of {setItem.exercise}?
                                                     </p>
                                                     : setItem.maxType == 'Max time'
                                                     && <p 
                                                         className='u-margin-top-none' 
                                                         style={{ color: '#777' }}
                                                     >
-                                                        What is the max time you can {setItem.exercise[setItem.exercise.length - 1] == 's' ? setItem.exercise.slice(0, setItem.exercise.length - 1) : setItem.exercise}?
+                                                        What is the max time you can {setItem.exercise}?
                                                     </p>
                                                 }
                                                 
@@ -302,7 +301,7 @@ const SubbedPlanPage = () => {
                                                             className='plan--exercise' 
                                                             style={{ color: color.contrast }}
                                                         >
-                                                            Weight: {setItem.weight} (lbs)
+                                                            Weight: {setItem.weight}lbs
                                                         </p>,
                                                         <p 
                                                             key={setIndex - 1000} 
@@ -317,7 +316,7 @@ const SubbedPlanPage = () => {
                                                             className='plan--exercise' 
                                                             style={{ color: color.contrast }}
                                                         >
-                                                            Weight: {setItem.weight} (lbs)
+                                                            Weight: {setItem.weight}lbs
                                                         </p>,
                                                         <p 
                                                             key={setIndex - 10000000} 
@@ -338,14 +337,14 @@ const SubbedPlanPage = () => {
                                                             className='plan--exercise' 
                                                             style={{ color: color.contrast }}
                                                         >
-                                                            Time: {setItem.time} (s)
+                                                            Time: {setItem.time}s
                                                         </p>
                                                     }
                                                     <p 
                                                         className='plan--exercise' 
                                                         style={{ color: color.contrast }}
                                                     >
-                                                        Set rest: {setItem.setRest} (s)
+                                                        Set rest: {setItem.setRest}s
                                                     </p>
                                                     <p 
                                                         className='plan--exercise' 
@@ -510,7 +509,7 @@ const SubbedPlanPage = () => {
                                                 className='plan--exercise' 
                                                 style={{ color: color.contrast }}
                                             >
-                                                Set rest: {setItem.setRest}
+                                                Set rest: {setItem.setRest}s
                                             </p>
                                             <p 
                                                 className='plan--exercise' 
