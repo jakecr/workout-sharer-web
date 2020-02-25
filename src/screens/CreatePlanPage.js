@@ -11,20 +11,47 @@ import Input from '../components/Input'
 import Select from '../components/Select'
 
 const CreatePlanPage = () => {
-    const { state, clearErrorMessage, checkIfMadePlan, createPlan } = useContext(PlanContext)
+    const { state, clearErrorMessage, checkIfMadePlan, createPlan, getSavedPlans, saveBasicPlan, saveComplexPlan } = useContext(PlanContext)
     const { state: color, checkIfNotLoggedIn } = useContext(PrepContext)
 
-    const [ basicWorkouts, setBasicWorkouts ] = useState([[], [], [], [], [], [], []])
-    const [ description, setDescription ] = useState('')
-    const [ keyterms, setKeyterms ] = useState([]) 
-    const [ name, setName ] = useState('')
+    const [ basicWorkouts, setBasicWorkouts ] = useState(
+        state.savedBasicPlan 
+        ? state.savedBasicPlan.workouts 
+        : [[], [], [], [], [], [], []]
+    )
+    const [ description, setDescription ] = useState(
+        state.savedBasicPlan 
+        ? state.savedBasicPlan.description 
+        : state.savedComplexPlan
+            ? state.savedComplexPlan.description
+            : ''
+    )
+    const [ keyterms, setKeyterms ] = useState(
+        state.savedBasicPlan 
+        ? state.savedBasicPlan.keyterms 
+        : state.savedComplexPlan
+            ? state.savedComplexPlan.keyterms
+            : []
+    ) 
+    const [ name, setName ] = useState(
+        state.savedBasicPlan 
+        ? state.savedBasicPlan.name 
+        : state.savedComplexPlan
+            ? state.savedComplexPlan.name
+            : ''
+    )
     const [ selectedSection, setSelectedSection ] = useState('complex')
-    const [ workouts, setWorkouts ] = useState([[], [], [], [], [], [], []])
+    const [ workouts, setWorkouts ] = useState(
+        state.savedComplexPlan
+        ? state.savedComplexPlan.workouts 
+        : [[], [], [], [], [], [], []]
+    )
 
     useEffect(() => {
         if(!color.isLoggedIn) {
             checkIfNotLoggedIn()
         }
+        getSavedPlans()
         checkIfMadePlan()
         clearErrorMessage()
         window.scrollTo(0, 0)
@@ -243,7 +270,7 @@ const CreatePlanPage = () => {
 
                         {!state.ifMadePlan && selectedSection !== 'help'
                         && <p className='error-message'>
-                            Making a plan may take longer than you think. Make sure that you have the available time. You wont be able to save rough drafts. If you havent made a plan before you should read through the <a className='link' onClick={() => setSelectedSection('help')}>"HELP"</a> section.
+                            If you havent made a plan before you should read through the <a className='link' onClick={() => setSelectedSection('help')}>"HELP"</a> section.
                         </p>}
 
                         {
@@ -715,16 +742,32 @@ const CreatePlanPage = () => {
                                     )
                                 })}
 
-                                <div className='u-center u-margin-top-medium u-margin-bottom-small'>
+                                <div className='plan__container--submit'>
                                     <button 
                                         className='button button--tertiary' 
+                                        type='button'
+                                        style={{ 
+                                            backgroundColor: color.tertiary, 
+                                            borderBottom: '.4rem solid rgba(0, 0, 0, 0.3)' 
+                                        }}
+                                        onClick={() => {
+                                            selectedSection == 'basic'
+                                                ? saveBasicPlan({ name, description, keyterms, workouts: basicWorkouts })
+                                                : saveComplexPlan({ name, description, keyterms, workouts: workouts })
+                                        }}
+                                    >
+                                        Save for Later
+                                    </button>
+
+                                    <button 
+                                        className='button button--tertiary u-margin-left' 
                                         type='submit' 
                                         style={{ 
                                             backgroundColor: color.tertiary, 
                                             borderBottom: '.4rem solid rgba(0, 0, 0, 0.3)' 
                                         }}
                                     >
-                                        Create Plan
+                                        Create Plan &rarr;
                                     </button>
                                 </div>
                             </form>

@@ -17,6 +17,10 @@ const planReducer = (state, action) => {
             return { ...state, specificPlan: action.payload }
         case 'CLEAR_ERROR_MESSAGE':
             return { ...state, errorMessage: '' }
+        case 'SET_BASIC_PLAN':
+            return { ...state, savedBasicPlan: action.payload }
+        case 'SET_COMPLEX_PLAN':
+            return { ...state, savedComplexPlan: action.payload }
         case 'SET_COMMENTS':
             return { ...state, comments: action.payload }
         case 'SET_IS_CREATOR':
@@ -144,6 +148,22 @@ const getPagePlan = dispatch => async () => {
     }
 }
 
+const getSavedPlans = dispatch => () => {
+    const jsonBasicPlan = Cookies.get('basicPlan')
+    const jsonComplexPlan = Cookies.get('complexPlan')
+
+    let basicPlan = null, complexPlan = null
+    if(jsonBasicPlan) {
+        basicPlan = JSON.parse(jsonBasicPlan)
+    }
+    if(jsonComplexPlan) {
+        complexPlan = JSON.parse(jsonComplexPlan)
+    }
+
+    dispatch({ type: 'SET_BASIC_PLAN', payload: basicPlan })
+    dispatch({ type: 'SET_COMPLEX_PLAN', payload: complexPlan })
+}
+
 const getSearchedPlans = dispatch => async ({ searchTerms, organization }) => {
     dispatch({ type: 'CLEAR_ERROR_MESSAGE' })
     dispatch({ type: 'SET_SEARCHED_PLANS', payload: [] })
@@ -229,6 +249,14 @@ const postRecord = dispatch => async ({ record, plan }) => {
     }
 }
 
+const saveBasicPlan = dispatch => (basicPlan) => {
+    Cookies.set('basicPlan', JSON.stringify(basicPlan))
+}
+
+const saveComplexPlan = dispatch => (complexPlan) => {
+    Cookies.set('complexPlan', JSON.stringify(complexPlan))
+}
+
 const subscribe = dispatch => async () => {
     dispatch({ type: 'CLEAR_ERROR_MESSAGE' })
     const token = Cookies.get('token')
@@ -271,6 +299,6 @@ const unsubscribe = dispatch => async () => {
 
 export const { Provider, Context } = createDataContext(
     planReducer,
-    { checkIfMadePlan, clearErrorMessage, clearSearchedPlans, createPlan, deleteComment, deletePlan, getPagePlan, getSearchedPlans, getSubscribedPlan, postComment, postRecord, subscribe, unsubscribe },
-    { errorMessage: '', generalPlan: null, isCreator: false, ifMadePlan: false, isSubscribed: false, pagePlan: {}, searchedPlans: [], specificPlan: null }
+    { checkIfMadePlan, clearErrorMessage, clearSearchedPlans, createPlan, deleteComment, deletePlan, getPagePlan, getSearchedPlans, getSubscribedPlan, postComment, postRecord, saveBasicPlan, saveComplexPlan, subscribe, unsubscribe, getSavedPlans },
+    { errorMessage: '', generalPlan: null, isCreator: false, ifMadePlan: false, isSubscribed: false, pagePlan: {}, savedBasicPlan: null, savedComplexPlan: null, searchedPlans: [], specificPlan: null }
 )

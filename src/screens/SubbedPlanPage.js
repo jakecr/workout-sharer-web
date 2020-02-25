@@ -151,7 +151,7 @@ const SubbedPlanPage = () => {
                                                         className='u-margin-top-none' 
                                                         style={{ color: '#777' }}
                                                     >
-                                                        What is the max weight you can use for 1{setItem.exercise}?
+                                                        What is the max weight you can use for 1 {setItem.exercise}?
                                                     </p>
                                                     : setItem.maxType == 'Max weight for multiple reps'
                                                     ? <p 
@@ -215,12 +215,23 @@ const SubbedPlanPage = () => {
                                     </div>
                                 </form>
                             </div>
-                            : <p 
-                                className='helpful-message' 
-                                style={{ color: color.contrast }}
-                            >
-                                You are not subscribed to a plan. Visit the <Link className='link' to='/search'>"PLANS SEARCH"</Link> page to search for a plan.
-                            </p>
+                            : <div>
+                                <p 
+                                    className='helpful-message' 
+                                    style={{ color: color.contrast }}
+                                >
+                                    You are not subscribed to a plan. Visit the <Link className='link' to='/search'>"PLANS SEARCH"</Link> page to search for a plan.
+                                </p>
+
+                                <div style={{
+                                    width: '64rem',
+                                    height: '54.4rem',
+                                    backgroundSize: 'cover',
+                                    backgroundPosition: 'center center',
+                                    backgroundImage: 'url(/assets/subscribe-demo.PNG)'
+                                }}>
+                                </div>
+                            </div>
                         : selectedSection == 'adapted'
                         && state.specificPlan
                             ? <div>
@@ -358,12 +369,23 @@ const SubbedPlanPage = () => {
                                     )
                                 })}
                             </div>
-                            : <p 
-                                className='helpful-message' 
-                                style={{ color: color.contrast }}
-                            >
-                                Visit the <a className='link' onClick={() => setSelectedSection('general')}>"GENERAL PLAN"</a> section to adapt a plan to your fitness level.
-                            </p>}
+                            : <div>
+                                <p 
+                                    className='helpful-message' 
+                                    style={{ color: color.contrast }}
+                                >
+                                    Visit the <a className='link' onClick={() => setSelectedSection('general')}>"GENERAL PLAN"</a> section to adapt a plan to your fitness level.
+                                </p>
+
+                                <div style={{
+                                    width: '64rem',
+                                    height: '50.3rem',
+                                    backgroundSize: 'cover',
+                                    backgroundPosition: 'center center',
+                                    backgroundImage: 'url(/assets/record-demo.PNG)'
+                                }}>
+                                </div>
+                            </div>}
                     </div>
                 </div>
 
