@@ -40,11 +40,6 @@ const SearchPage = () => {
                         className='form u-width-small' 
                         style={{ 
                             backgroundColor: color.secondary, 
-                            border: color.isSimple 
-                                ? color.theme == 'dark' 
-                                    ? '2px solid #28282a' 
-                                    : '2px solid rgb(244,244,244)'
-                                : 'none',
                             borderTop: color.isSimple 
                                 ? color.theme == 'dark' ? '2px solid #28282a' : '2px solid rgb(244,244,244)' 
                                 : '2px solid ' + color.tertiary, 
