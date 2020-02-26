@@ -40,17 +40,17 @@ const AppPage = () => {
                             borderRight: color.isSimple 
                                 ? color.theme == 'dark' 
                                     ? '1.5px solid #28282a' 
-                                    : '1.5px solid rgb(229, 229, 229)' 
+                                    : '1.5px solid rgb(215, 215, 215)' 
                                 : color.theme == 'dark' 
                                     ? '2px solid #28282a' 
-                                    : '2px solid rgb(229, 229, 229)', 
+                                    : '2px solid rgb(215, 215, 215)', 
                             borderLeft: color.isSimple 
                             ? color.theme == 'dark' 
                                 ? '1.5px solid #28282a' 
-                                : '1.5px solid rgb(229, 229, 229)' 
+                                : '1.5px solid rgb(215, 215, 215)' 
                             : color.theme == 'dark' 
                                 ? '2px solid #28282a' 
-                                : '2px solid rgb(229, 229, 229)', 
+                                : '2px solid rgb(215, 215, 215)', 
                         }}
                     >
                         <div className='info__content info__content--left'>
@@ -84,17 +84,17 @@ const AppPage = () => {
                             borderRight: color.isSimple 
                                 ? color.theme == 'dark' 
                                     ? '1.5px solid #28282a' 
-                                    : '1.5px solid rgb(229, 229, 229)' 
+                                    : '1.5px solid rgb(215, 215, 215)' 
                                 : color.theme == 'dark' 
                                     ? '2px solid #28282a' 
-                                    : '2px solid rgb(229, 229, 229)', 
+                                    : '2px solid rgb(215, 215, 215)', 
                             borderLeft: color.isSimple 
                             ? color.theme == 'dark' 
                                 ? '1.5px solid #28282a' 
-                                : '1.5px solid rgb(229, 229, 229)' 
+                                : '1.5px solid rgb(215, 215, 215)' 
                             : color.theme == 'dark' 
                                 ? '2px solid #28282a' 
-                                : '2px solid rgb(229, 229, 229)', 
+                                : '2px solid rgb(215, 215, 215)', 
                         }}
                     >
                         <div className='info__content info__content--right'>
@@ -126,17 +126,17 @@ const AppPage = () => {
                             borderRight: color.isSimple 
                                 ? color.theme == 'dark' 
                                     ? '1.5px solid #28282a' 
-                                    : '1.5px solid rgb(229, 229, 229)' 
+                                    : '1.5px solid rgb(215, 215, 215)' 
                                 : color.theme == 'dark' 
                                     ? '2px solid #28282a' 
-                                    : '2px solid rgb(229, 229, 229)', 
+                                    : '2px solid rgb(215, 215, 215)', 
                             borderLeft: color.isSimple 
                             ? color.theme == 'dark' 
                                 ? '1.5px solid #28282a' 
-                                : '1.5px solid rgb(229, 229, 229)' 
+                                : '1.5px solid rgb(215, 215, 215)' 
                             : color.theme == 'dark' 
                                 ? '2px solid #28282a' 
-                                : '2px solid rgb(229, 229, 229)', 
+                                : '2px solid rgb(215, 215, 215)', 
                         }}
                     >
                         <div className='info__content info__content--left'>
