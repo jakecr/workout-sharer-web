@@ -71,11 +71,6 @@ const createPlan = dispatch => async ({ name, description, keyterms, workouts, t
             return dispatch({ type: 'ADD_ERROR_MESSAGE', payload: checkNameResponse.data.error })
         }
 
-        Cookies.remove('basicPlan')
-        Cookies.remove('complexPlan')
-        dispatch({ type: 'SET_BASIC_PLAN', payload: null })
-        dispatch({ type: 'SET_COMPLEX_PLAN', payload: null })
-
         let compiledWorkouts
         if(type == 'basic') {
             compiledWorkouts = compileBasicWorkouts(workouts)
@@ -93,6 +88,11 @@ const createPlan = dispatch => async ({ name, description, keyterms, workouts, t
         if(createPlanResponse.data.error) {
             return dispatch({ type: 'ADD_ERROR_MESSAGE', payload: createPlanResponse.data.error })
         }
+
+        Cookies.remove('basicPlan')
+        Cookies.remove('complexPlan')
+        dispatch({ type: 'SET_BASIC_PLAN', payload: null })
+        dispatch({ type: 'SET_COMPLEX_PLAN', payload: null })
 
         window.location.href = '/account'
     }catch(err) {
