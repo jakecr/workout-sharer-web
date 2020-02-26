@@ -43,7 +43,7 @@ const checkIfLoggedIn = dispatch => async () => {
         if(theme == 'light') {
             link.href = '/assets/dark-logo.png'
             body.style.background = '#ffffff'
-            dispatch({ type: 'SET_THEME', payload: { theme: 'light', primary: '#F9F9F9', secondary: '#ffffff', tertiary: accentColor ? accentColor[theme] : '#155eb0', contrast: '#16181b' } })
+            dispatch({ type: 'SET_THEME', payload: { theme: 'light', primary: '#efefef', secondary: '#ffffff', tertiary: accentColor ? accentColor[theme] : '#155eb0', contrast: '#16181b' } })
         }else {
             link.href = '/assets/light-logo.png'
             body.style.background = '#f7f7f7'
@@ -84,7 +84,7 @@ const checkIfNotLoggedIn = dispatch => async () => {
         if(theme == 'light') {
             link.href = '/assets/dark-logo.png'
             body.style.background = '#ffffff'
-            dispatch({ type: 'SET_THEME', payload: { theme: 'light', primary: '#F9F9F9', secondary: '#ffffff', tertiary: accentColor ? accentColor[theme] : '#155eb0', contrast: '#16181b' } })
+            dispatch({ type: 'SET_THEME', payload: { theme: 'light', primary: '#efefef', secondary: '#ffffff', tertiary: accentColor ? accentColor[theme] : '#155eb0', contrast: '#16181b' } })
         }else {
             link.href = '/assets/light-logo.png'
             body.style.background = '#f7f7f7'
@@ -137,7 +137,7 @@ const changeTheme = dispatch => ({ theme }) => {
     if(theme == 'light') {
         link.href = '/assets/dark-logo.png'
         body.style.background = '#ffffff'
-        dispatch({ type: 'SET_THEME', payload: { theme: 'light', primary: '#F9F9F9', secondary: '#ffffff', tertiary: accentColor ? accentColor[theme] : '#155eb0', contrast: '#16181b' } })
+        dispatch({ type: 'SET_THEME', payload: { theme: 'light', primary: '#efefef', secondary: '#ffffff', tertiary: accentColor ? accentColor[theme] : '#155eb0', contrast: '#16181b' } })
     }else {
         link.href = '/assets/light-logo.png'
         body.style.background = '#f7f7f7'
