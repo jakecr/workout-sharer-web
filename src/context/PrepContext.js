@@ -19,6 +19,8 @@ const planReducer = (state, action) => {
             return { ...state, ...action.payload }
         case 'SET_ACCENT_COLOR':
             return { ...state, tertiary: action.payload }
+        case 'SET_IS_SIMPLE': 
+            return { ...state, isSimple : action.payload }
         default:
             return state
     }
@@ -28,6 +30,9 @@ const checkIfLoggedIn = dispatch => async () => {
     const token = Cookies.get('token')
 
     try {
+        const isSimple = localStorage.getItem('isSimple') == false ? false : true
+        dispatch({ type: 'SET_IS_SIMPLE', payload: isSimple })
+
         const theme = localStorage.getItem('theme')
         
         const link = document.querySelector("link[rel*='icon']")
@@ -66,6 +71,9 @@ const checkIfNotLoggedIn = dispatch => async () => {
     const token = Cookies.get('token')
     
     try {
+        const isSimple = localStorage.getItem('isSimple') == false ? false : true
+        dispatch({ type: 'SET_IS_SIMPLE', payload: isSimple })
+
         const theme = localStorage.getItem('theme')
         
         const link = document.querySelector("link[rel*='icon']")
@@ -104,6 +112,20 @@ const checkIfNotLoggedIn = dispatch => async () => {
     }
 }
 
+const changeAccentColor = dispatch => ({ color }) => {
+    localStorage.setItem('accentColor', color)
+
+    const theme = localStorage.getItem('theme')
+    const accentColor = tertiaryColors.find((item) => item.color == color)[theme ? theme : 'dark']
+
+    dispatch({ type: 'SET_ACCENT_COLOR', payload: accentColor })
+}
+
+const changeIsSimple = dispatch => ({ isSimple }) => {
+    localStorage.setItem('isSimple', isSimple)
+    dispatch({ type: 'SET_IS_SIMPLE', payload: isSimple })
+}
+
 const changeTheme = dispatch => ({ theme }) => {
     localStorage.setItem('theme', theme)
         
@@ -123,17 +145,8 @@ const changeTheme = dispatch => ({ theme }) => {
     }
 }
 
-const changeAccentColor = dispatch => ({ color }) => {
-    localStorage.setItem('accentColor', color)
-
-    const theme = localStorage.getItem('theme')
-    const accentColor = tertiaryColors.find((item) => item.color == color)[theme ? theme : 'dark']
-
-    dispatch({ type: 'SET_ACCENT_COLOR', payload: accentColor })
-}
-
 export const { Provider, Context } = createDataContext(
     planReducer,
-    { checkIfNotLoggedIn, checkIfLoggedIn, changeTheme, changeAccentColor },
-    { isLoggedIn: null, theme: 'dark', primary: '#030304', secondary: '#161618', tertiary: '#043166', contrast: '#cdd1d4' }
+    { checkIfNotLoggedIn, checkIfLoggedIn, changeTheme, changeAccentColor, changeIsSimple },
+    { isSimple: true, isLoggedIn: null, theme: 'dark', primary: '#030304', secondary: '#161618', tertiary: '#043166', contrast: '#cdd1d4' }
 )

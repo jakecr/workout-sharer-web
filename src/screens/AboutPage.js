@@ -33,7 +33,25 @@ const AboutPage = () => {
                         className='info__group'
                         style={{ 
                             backgroundColor: color.secondary, 
-                            boxShadow: '0rem 0rem 2rem .6rem' + color.tertiary + '59'
+                            boxShadow: !color.isSimple 
+                                ? '0rem 0rem 2rem .6rem' + color.tertiary + '59' 
+                                : 'none',
+                            borderTop: '2px solid ' + color.tertiary, 
+                            borderBottom: '2px solid ' + color.tertiary, 
+                            borderRight: color.isSimple 
+                                ? color.theme == 'dark' 
+                                    ? '1.5px solid #28282a' 
+                                    : '1.5px solid rgb(244,244,244)' 
+                                : color.theme == 'dark' 
+                                    ? '2px solid #28282a' 
+                                    : '2px solid rgb(244,244,244)', 
+                            borderLeft: color.isSimple 
+                            ? color.theme == 'dark' 
+                                ? '1.5px solid #28282a' 
+                                : '1.5px solid rgb(244,244,244)' 
+                            : color.theme == 'dark' 
+                                ? '2px solid #28282a' 
+                                : '2px solid rgb(244,244,244)', 
                         }}
                     >
                         <div className='info__content info__content--left'>
@@ -59,7 +77,25 @@ const AboutPage = () => {
                         className='info__group'
                         style={{ 
                             backgroundColor: color.secondary,
-                            boxShadow: '0rem 0rem 2rem .6rem' + color.tertiary + '59'
+                            boxShadow: !color.isSimple 
+                                ? '0rem 0rem 2rem .6rem' + color.tertiary + '59' 
+                                : 'none',
+                            borderTop: '2px solid ' + color.tertiary, 
+                            borderBottom: '2px solid ' + color.tertiary, 
+                            borderRight: color.isSimple 
+                                ? color.theme == 'dark' 
+                                    ? '1.5px solid #28282a' 
+                                    : '1.5px solid rgb(244,244,244)' 
+                                : color.theme == 'dark' 
+                                    ? '2px solid #28282a' 
+                                    : '2px solid rgb(244,244,244)', 
+                            borderLeft: color.isSimple 
+                            ? color.theme == 'dark' 
+                                ? '1.5px solid #28282a' 
+                                : '1.5px solid rgb(244,244,244)' 
+                            : color.theme == 'dark' 
+                                ? '2px solid #28282a' 
+                                : '2px solid rgb(244,244,244)', 
                         }}
                     >
                         <div className='info__content info__content--right'>
@@ -83,7 +119,25 @@ const AboutPage = () => {
                         className='info__group'
                         style={{ 
                             backgroundColor: color.secondary, 
-                            boxShadow: '0rem 0rem 2rem .6rem' + color.tertiary + '59'
+                            boxShadow: !color.isSimple 
+                                ? '0rem 0rem 2rem .6rem' + color.tertiary + '59' 
+                                : 'none',
+                            borderTop: '2px solid ' + color.tertiary, 
+                            borderBottom: '2px solid ' + color.tertiary, 
+                            borderRight: color.isSimple 
+                                ? color.theme == 'dark' 
+                                    ? '1.5px solid #28282a' 
+                                    : '1.5px solid rgb(244,244,244)' 
+                                : color.theme == 'dark' 
+                                    ? '2px solid #28282a' 
+                                    : '2px solid rgb(244,244,244)', 
+                            borderLeft: color.isSimple 
+                            ? color.theme == 'dark' 
+                                ? '1.5px solid #28282a' 
+                                : '1.5px solid rgb(244,244,244)' 
+                            : color.theme == 'dark' 
+                                ? '2px solid #28282a' 
+                                : '2px solid rgb(244,244,244)', 
                         }}
                     >
                         <div className='info__content info__content--left'>
@@ -109,7 +163,25 @@ const AboutPage = () => {
                         className='info__group'
                         style={{ 
                             backgroundColor: color.secondary, 
-                            boxShadow: '0rem 0rem 2rem .6rem' + color.tertiary + '59'
+                            boxShadow: !color.isSimple 
+                                ? '0rem 0rem 2rem .6rem' + color.tertiary + '59' 
+                                : 'none',
+                            borderTop: '2px solid ' + color.tertiary, 
+                            borderBottom: '2px solid ' + color.tertiary, 
+                            borderRight: color.isSimple 
+                                ? color.theme == 'dark' 
+                                    ? '1.5px solid #28282a' 
+                                    : '1.5px solid rgb(244,244,244)' 
+                                : color.theme == 'dark' 
+                                    ? '2px solid #28282a' 
+                                    : '2px solid rgb(244,244,244)', 
+                            borderLeft: color.isSimple 
+                            ? color.theme == 'dark' 
+                                ? '1.5px solid #28282a' 
+                                : '1.5px solid rgb(244,244,244)' 
+                            : color.theme == 'dark' 
+                                ? '2px solid #28282a' 
+                                : '2px solid rgb(244,244,244)', 
                         }}
                     >
                         <div className='info__content info__content--right'>

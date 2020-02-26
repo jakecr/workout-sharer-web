@@ -201,7 +201,17 @@ const CreatePlanPage = () => {
                         className='form u-width-huge u-margin-top-medium' 
                         style={{ 
                             backgroundColor: color.secondary, 
-                            border: color.theme == 'dark' ? '2px solid #28282a' : '2px solid rgb(244,244,244)' 
+                            border: color.isSimple 
+                                ? color.theme == 'dark' 
+                                    ? '2px solid #28282a' 
+                                    : '2px solid rgb(244,244,244)'
+                                : 'none',
+                            borderTop: color.isSimple 
+                                ? color.theme == 'dark' ? '2px solid #28282a' : '2px solid rgb(244,244,244)' 
+                                : '2px solid ' + color.tertiary, 
+                            borderBottom: color.isSimple 
+                                ? color.theme == 'dark' ? '2px solid #28282a' : '2px solid rgb(244,244,244)' 
+                                : '2px solid ' + color.tertiary 
                         }}
                     >
                         <div className='section-form__group u-width-huge'>

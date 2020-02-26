@@ -10,9 +10,10 @@ import Header from '../components/Header'
 const AccountPage = () => {
     const { state, clearErrorMessage, getAccount, signout } = useContext(AuthContext)
     const { deletePlan } = useContext(PlanContext)
-    const { state: color, changeAccentColor, changeTheme, checkIfNotLoggedIn } = useContext(PrepContext)
+    const { state: color, changeAccentColor, changeIsSimple, changeTheme, checkIfNotLoggedIn } = useContext(PrepContext)
 
     const [ accentColor, setAccentColor ] = useState(localStorage.getItem('accentColor') || 'blue')
+    const [ isSimple, setIsSimple ] = useState(color.isSimple)
     const [ theme, setTheme ] = useState(color.theme)
     const [ showConfirm, setShowConfirm ] = useState(null)
 
@@ -48,8 +49,17 @@ const AccountPage = () => {
                         className='form u-width-large' 
                         style={{ 
                             backgroundColor: color.secondary, 
-                            border: color.theme == 'dark' ? '2px solid #28282a' : '2px solid rgb(244,244,244)' , 
-                            border: color.theme == 'dark' ? '2px solid #28282a' : '2px solid rgb(244,244,244)' 
+                            border: color.isSimple 
+                                ? color.theme == 'dark' 
+                                    ? '2px solid #28282a' 
+                                    : '2px solid rgb(244,244,244)'
+                                : 'none',
+                            borderTop: color.isSimple 
+                                ? color.theme == 'dark' ? '2px solid #28282a' : '2px solid rgb(244,244,244)' 
+                                : '2px solid ' + color.tertiary, 
+                            borderBottom: color.isSimple 
+                                ? color.theme == 'dark' ? '2px solid #28282a' : '2px solid rgb(244,244,244)' 
+                                : '2px solid ' + color.tertiary
                         }}
                     >
                         {state.errorMessage && <p className='error-message'>{state.errorMessage}</p>}
@@ -114,7 +124,17 @@ const AccountPage = () => {
                         className='form u-width-large' 
                         style={{ 
                             backgroundColor: color.secondary, 
-                            border: color.theme == 'dark' ? '2px solid #28282a' : '2px solid rgb(244,244,244)' 
+                            border: color.isSimple 
+                                ? color.theme == 'dark' 
+                                    ? '2px solid #28282a' 
+                                    : '2px solid rgb(244,244,244)'
+                                : 'none',
+                            borderTop: color.isSimple 
+                                ? color.theme == 'dark' ? '2px solid #28282a' : '2px solid rgb(244,244,244)' 
+                                : '2px solid ' + color.tertiary, 
+                            borderBottom: color.isSimple 
+                                ? color.theme == 'dark' ? '2px solid #28282a' : '2px solid rgb(244,244,244)' 
+                                : '2px solid ' + color.tertiary 
                         }}
                     >
                         <div className='u-center'>
@@ -125,7 +145,7 @@ const AccountPage = () => {
                                 Color settings:
                             </h1>
                         </div>
-
+                        
                         <div className='u-center'>
                             <h3 
                                 className='form__header u-margin-bottom-tiny' 
@@ -146,6 +166,24 @@ const AccountPage = () => {
                                     }
                                 }} 
                                 checked={theme == 'dark'} 
+                            />
+                        </div>
+                        
+                        <div className='u-center'>
+                            <h3 
+                                className='form__header u-margin-bottom-tiny' 
+                                style={{ color: '#777' }}
+                            >
+                                Simple mode:
+                            </h3>
+                            <Switch 
+                                onColor={color.tertiary}
+                                offColor='#a01515'
+                                onChange={(value) => {
+                                    setIsSimple(value)
+                                    changeIsSimple({ isSimple: value })
+                                }} 
+                                checked={isSimple} 
                             />
                         </div>
 
@@ -181,7 +219,17 @@ const AccountPage = () => {
                         className='form u-width-large' 
                         style={{ 
                             backgroundColor: color.secondary, 
-                            border: color.theme == 'dark' ? '2px solid #28282a' : '2px solid rgb(244,244,244)' 
+                            border: color.isSimple 
+                                ? color.theme == 'dark' 
+                                    ? '2px solid #28282a' 
+                                    : '2px solid rgb(244,244,244)'
+                                : 'none',
+                            borderTop: color.isSimple 
+                                ? color.theme == 'dark' ? '2px solid #28282a' : '2px solid rgb(244,244,244)' 
+                                : '2px solid ' + color.tertiary, 
+                            borderBottom: color.isSimple 
+                                ? color.theme == 'dark' ? '2px solid #28282a' : '2px solid rgb(244,244,244)' 
+                                : '2px solid ' + color.tertiary
                         }}
                     >
                         {state.madePlans.length !== 0
