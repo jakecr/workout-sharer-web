@@ -68,11 +68,6 @@ const SubbedPlanPage = () => {
                         className='form u-width-huge u-height-large' 
                         style={{ 
                             backgroundColor: color.secondary, 
-                            border: color.isSimple 
-                                ? color.theme == 'dark' 
-                                    ? '2px solid #28282a' 
-                                    : '2px solid rgb(229, 229, 229)'
-                                : 'none',
                             borderTop: color.isSimple 
                                 ? color.theme == 'dark' 
                                     ? '2px solid #28282a' 
