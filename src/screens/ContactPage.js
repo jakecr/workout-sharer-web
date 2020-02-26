@@ -51,10 +51,10 @@ const ContactPage = () => {
                         style={{ 
                             backgroundColor: color.secondary, 
                             borderTop: color.isSimple 
-                                ? color.theme == 'dark' ? '2px solid #28282a' : '2px solid rgb(244,244,244)' 
+                                ? color.theme == 'dark' ? '2px solid #28282a' : '2px solid rgb(229, 229, 229)' 
                                 : '2px solid ' + color.tertiary, 
                             borderBottom: color.isSimple 
-                                ? color.theme == 'dark' ? '2px solid #28282a' : '2px solid rgb(244,244,244)' 
+                                ? color.theme == 'dark' ? '2px solid #28282a' : '2px solid rgb(229, 229, 229)' 
                                 : '2px solid ' + color.tertiary 
                         }}
                     >
