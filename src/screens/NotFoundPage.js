@@ -27,7 +27,7 @@ const NotFoundPage = () => {
                 />
                 
                 <h1 
-                    className='form__header u-abs-center' 
+                    className='full-page-message' 
                     style={{ color: color.contrast }}
                 >
                     Could not find the page you are looking for, make sure the url is correct.

@@ -65,7 +65,7 @@ const SubbedPlanPage = () => {
 
                 <div className='form__container u-margin-top-medium'>
                     <div 
-                        className='form u-width-huge u-height-large' 
+                        className='form u-width-huge' 
                         style={{ 
                             backgroundColor: color.secondary, 
                             borderTop: color.isSimple 
@@ -81,7 +81,7 @@ const SubbedPlanPage = () => {
                         }}
                     >
                         <div className='section-form__group u-width-huge'>
-                            <div className='u-space-between u-height-none'>
+                            <div className='section-form__container'>
                                 <div>
                                     <button 
                                         className='section--button' 

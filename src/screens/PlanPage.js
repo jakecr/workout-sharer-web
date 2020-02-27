@@ -51,7 +51,7 @@ const PlanPage = () => {
                         }}
                     >
                         <div className='section-form__group u-width-huge'>
-                            <div className='u-space-between u-height-none'>
+                            <div className='section-form__container'>
                                 <div>
                                     <button 
                                         className='section--button' 
@@ -127,7 +127,7 @@ const PlanPage = () => {
                                             </h2>
                                         </Link>
                                         <p 
-                                            className='plan--header u-inline-block' 
+                                            className='plan--header' 
                                             style={{ color: '#777' }}
                                         >
                                             Description: {state.pagePlan.description}

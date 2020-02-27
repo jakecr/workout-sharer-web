@@ -29,4 +29,11 @@
         transform: translateY(-1.4rem);
         height: 0;
     }
+
+    
+    &-form__container {
+        display: flex;
+        justify-content: space-between; 
+        height: 0;
+    }
 }

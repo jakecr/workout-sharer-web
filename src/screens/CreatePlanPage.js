@@ -221,7 +221,7 @@ const CreatePlanPage = () => {
                         }}
                     >
                         <div className='section-form__group u-width-huge'>
-                            <div className='u-space-between u-height-none'>
+                            <div className='section-form__container'>
                                 <div>
                                     <button 
                                         className='section--button' 

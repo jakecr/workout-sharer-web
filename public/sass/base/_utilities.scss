@@ -1,6 +1,4 @@
 .u-center { text-align: center !important; }
-.u-abs-center { @include absCenter; }
-.u-align-left { text-align: left !important; }
 
 .u-space-between { 
     display: flex !important;
@@ -22,15 +20,8 @@
 .u-width-small { width: 40rem !important; }
 .u-width-tiny { width: 28rem !important; }
 
-.u-display-none { display: none !important; }
-
 .u-margin-bottom-tiny { margin-bottom: .75rem !important; }
 .u-margin-bottom-small { margin-bottom: 2rem !important; }
 .u-margin-bottom-medium { margin-bottom: 8rem !important; }
 
 .u-color-red { color: $color-red !important; }
-
-.u-inline-block { display: inline-block !important; }
-
-.u-height-none { height: 0 !important; }
-.u-height-large { min-height: 32.5rem !important; }
