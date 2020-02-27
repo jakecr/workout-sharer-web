@@ -116,7 +116,7 @@ const changeAccentColor = dispatch => ({ color }) => {
     localStorage.setItem('accentColor', color)
 
     const theme = localStorage.getItem('theme')
-    const accentColor = tertiaryColors.find((item) => item.color == color)[theme ? theme : 'dark']
+    const accentColor = tertiaryColors.find((item) => item.color == color)[theme ? theme : 'light']
 
     dispatch({ type: 'SET_ACCENT_COLOR', payload: accentColor })
 }
@@ -137,7 +137,7 @@ const changeTheme = dispatch => ({ theme }) => {
     if(theme == 'dark') {
         link.href = '/assets/light-logo.png'
         body.style.background = '#f7f7f7'
-        dispatch({ type: 'SET_THEME', payload: { theme: 'dark', primary: '#030304', secondary: '#161618', tertiary: accentColor ? accentColor[theme] : '#155eb0', contrast: '#cdd1d4' } })
+        dispatch({ type: 'SET_THEME', payload: { theme: 'dark', primary: '#030304', secondary: '#161618', tertiary: accentColor ? accentColor[theme] : '#063770', contrast: '#cdd1d4' } })
     }else {
         link.href = '/assets/dark-logo.png'
         body.style.background = '#ffffff'
