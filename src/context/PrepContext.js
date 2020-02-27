@@ -40,14 +40,14 @@ const checkIfLoggedIn = dispatch => async () => {
 
         const acccentColorName = localStorage.getItem('accentColor')
         const accentColor = tertiaryColors.find((item) => item.color == acccentColorName)
-        if(theme == 'light') {
-            link.href = '/assets/dark-logo.png'
-            body.style.background = '#ffffff'
-            dispatch({ type: 'SET_THEME', payload: { theme: 'light', primary: '#efefef', secondary: '#ffffff', tertiary: accentColor ? accentColor[theme] : '#155eb0', contrast: '#16181b' } })
-        }else {
+        if(theme == 'dark') {
             link.href = '/assets/light-logo.png'
             body.style.background = '#f7f7f7'
             dispatch({ type: 'SET_THEME', payload: { theme: 'dark', primary: '#030304', secondary: '#161618', tertiary: accentColor ? accentColor[theme] : '#043166', contrast: '#cdd1d4' } })
+        }else {
+            link.href = '/assets/dark-logo.png'
+            body.style.background = '#ffffff'
+            dispatch({ type: 'SET_THEME', payload: { theme: 'light', primary: '#efefef', secondary: '#ffffff', tertiary: accentColor ? accentColor[theme] : '#155eb0', contrast: '#16181b' } })
         }
 
         if(!token) {
@@ -81,14 +81,14 @@ const checkIfNotLoggedIn = dispatch => async () => {
 
         const acccentColorName = localStorage.getItem('accentColor')
         const accentColor = tertiaryColors.find((item) => item.color == acccentColorName)
-        if(theme == 'light') {
-            link.href = '/assets/dark-logo.png'
-            body.style.background = '#ffffff'
-            dispatch({ type: 'SET_THEME', payload: { theme: 'light', primary: '#efefef', secondary: '#ffffff', tertiary: accentColor ? accentColor[theme] : '#155eb0', contrast: '#16181b' } })
-        }else {
+        if(theme == 'dark') {
             link.href = '/assets/light-logo.png'
             body.style.background = '#f7f7f7'
             dispatch({ type: 'SET_THEME', payload: { theme: 'dark', primary: '#030304', secondary: '#161618', tertiary: accentColor ? accentColor[theme] : '#043166', contrast: '#cdd1d4' } })
+        }else {
+            link.href = '/assets/dark-logo.png'
+            body.style.background = '#ffffff'
+            dispatch({ type: 'SET_THEME', payload: { theme: 'light', primary: '#efefef', secondary: '#ffffff', tertiary: accentColor ? accentColor[theme] : '#155eb0', contrast: '#16181b' } })
         }
 
         if(!token) {
@@ -134,19 +134,19 @@ const changeTheme = dispatch => ({ theme }) => {
     
     const acccentColorName = localStorage.getItem('accentColor')
     const accentColor = tertiaryColors.find((item) => item.color == acccentColorName)
-    if(theme == 'light') {
-        link.href = '/assets/dark-logo.png'
-        body.style.background = '#ffffff'
-        dispatch({ type: 'SET_THEME', payload: { theme: 'light', primary: '#efefef', secondary: '#ffffff', tertiary: accentColor ? accentColor[theme] : '#155eb0', contrast: '#16181b' } })
-    }else {
+    if(theme == 'dark') {
         link.href = '/assets/light-logo.png'
         body.style.background = '#f7f7f7'
         dispatch({ type: 'SET_THEME', payload: { theme: 'dark', primary: '#030304', secondary: '#161618', tertiary: accentColor ? accentColor[theme] : '#155eb0', contrast: '#cdd1d4' } })
+    }else {
+        link.href = '/assets/dark-logo.png'
+        body.style.background = '#ffffff'
+        dispatch({ type: 'SET_THEME', payload: { theme: 'light', primary: '#efefef', secondary: '#ffffff', tertiary: accentColor ? accentColor[theme] : '#155eb0', contrast: '#16181b' } })
     }
 }
 
 export const { Provider, Context } = createDataContext(
     planReducer,
     { checkIfNotLoggedIn, checkIfLoggedIn, changeTheme, changeAccentColor, changeIsSimple },
-    { isSimple: true, isLoggedIn: null, theme: 'dark', primary: '#030304', secondary: '#161618', tertiary: '#043166', contrast: '#cdd1d4' }
+    { isSimple: true, isLoggedIn: null, theme: 'light', primary: '#efefef', secondary: '#ffffff', tertiary: '#155eb0', contrast: '#16181b' }
 )

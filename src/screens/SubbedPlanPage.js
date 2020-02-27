@@ -150,7 +150,7 @@ const SubbedPlanPage = () => {
                                 >
                                     {state.generalPlan.workouts.map((setItem, setIndex, setsArray) => {
                                         return (
-                                            !setsArray.find((item, index) => item.exercise == setItem.exercise && item.maxType == setItem.maxType && index < setIndex)
+                                            !setsArray.find((item, index) => item.exercise == setItem.exercise && item.maxType == setItem.maxType && item.repsForAssessment == setItem.repsForAssessment && index < setIndex)
                                             && <div key={setIndex} className='u-center'>
                                                 {setItem.maxType == 'Max weight for one rep'
                                                 ? <p 

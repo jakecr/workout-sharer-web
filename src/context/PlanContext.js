@@ -17,10 +17,6 @@ const planReducer = (state, action) => {
             return { ...state, specificPlan: action.payload }
         case 'CLEAR_ERROR_MESSAGE':
             return { ...state, errorMessage: '' }
-        case 'SET_BASIC_PLAN':
-            return { ...state, savedBasicPlan: action.payload }
-        case 'SET_COMPLEX_PLAN':
-            return { ...state, savedComplexPlan: action.payload }
         case 'SET_COMMENTS':
             return { ...state, comments: action.payload }
         case 'SET_IS_CREATOR':
@@ -88,11 +84,6 @@ const createPlan = dispatch => async ({ name, description, keyterms, workouts, t
         if(createPlanResponse.data.error) {
             return dispatch({ type: 'ADD_ERROR_MESSAGE', payload: createPlanResponse.data.error })
         }
-
-        localStorage.removeItem('basicPlan')
-        localStorage.removeItem('complexPlan')
-        dispatch({ type: 'SET_BASIC_PLAN', payload: null })
-        dispatch({ type: 'SET_COMPLEX_PLAN', payload: null })
 
         window.location.href = '/account'
     }catch(err) {
@@ -222,7 +213,7 @@ const postRecord = dispatch => async ({ record, plan }) => {
         for(let i = 0; i < plan.workouts.length; i++) {
             if(!record[i]) {
                 for(let j = 0; j < plan.workouts.length; j++) {
-                    if(plan.workouts[i].exercise == plan.workouts[j].exercise && plan.workouts[i].maxType == plan.workouts[j].maxType && record[j]) {
+                    if(plan.workouts[i].exercise == plan.workouts[j].exercise && plan.workouts[i].maxType == plan.workouts[j].maxType && plan.workouts[i].repsForAssessment == plan.workouts[j].repsForAssessment && record[j]) {
                         record[i] = record[j]
                         break
                     }
@@ -241,16 +232,6 @@ const postRecord = dispatch => async ({ record, plan }) => {
     }catch(err) {
         dispatch({ type: 'ADD_ERROR_MESSAGE', payload: 'Failed to make request, try again later.' })
     }
-}
-
-const saveBasicPlan = dispatch => (basicPlan) => {
-    localStorage.setItem('basicPlan', JSON.stringify(basicPlan))
-    localStorage.removeItem('complexPlan')
-}
-
-const saveComplexPlan = dispatch => (complexPlan) => {
-    localStorage.setItem('complexPlan', JSON.stringify(complexPlan))
-    localStorage.removeItem('basicPlan')
 }
 
 const subscribe = dispatch => async () => {
@@ -295,6 +276,6 @@ const unsubscribe = dispatch => async () => {
 
 export const { Provider, Context } = createDataContext(
     planReducer,
-    { checkIfMadePlan, clearErrorMessage, clearSearchedPlans, createPlan, deleteComment, deletePlan, getPagePlan, getSearchedPlans, getSubscribedPlan, postComment, postRecord, saveBasicPlan, saveComplexPlan, subscribe, unsubscribe },
-    { errorMessage: '', generalPlan: null, isCreator: false, ifMadePlan: false, isSubscribed: false, pagePlan: {}, savedBasicPlan: null, savedComplexPlan: null, searchedPlans: [], specificPlan: null }
+    { checkIfMadePlan, clearErrorMessage, clearSearchedPlans, createPlan, deleteComment, deletePlan, getPagePlan, getSearchedPlans, getSubscribedPlan, postComment, postRecord, subscribe, unsubscribe },
+    { errorMessage: '', generalPlan: null, isCreator: false, ifMadePlan: false, isSubscribed: false, pagePlan: {}, searchedPlans: [], specificPlan: null }
 )

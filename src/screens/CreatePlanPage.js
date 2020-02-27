@@ -14,7 +14,7 @@ const CreatePlanPage = () => {
     const savedBasicPlan = localStorage.getItem('basicPlan') ? JSON.parse(localStorage.getItem('basicPlan')) : undefined
     const savedComplexPlan = localStorage.getItem('complexPlan') ? JSON.parse(localStorage.getItem('complexPlan')) : undefined
 
-    const { state, clearErrorMessage, checkIfMadePlan, createPlan, saveBasicPlan, saveComplexPlan } = useContext(PlanContext)
+    const { state, clearErrorMessage, checkIfMadePlan, createPlan } = useContext(PlanContext)
     const { state: color, checkIfNotLoggedIn } = useContext(PrepContext)
     
     const [ basicWorkouts, setBasicWorkouts ] = useState(
@@ -57,6 +57,9 @@ const CreatePlanPage = () => {
         checkIfMadePlan()
         clearErrorMessage()
         window.scrollTo(0, 0)
+        
+        localStorage.removeItem('basicPlan')
+        localStorage.removeItem('complexPlan')
     }, [])
 
     const onAddKeyterm = () => {
@@ -134,6 +137,9 @@ const CreatePlanPage = () => {
         let nextState = [ ...basicWorkouts ]
         
         nextState[day][workout][key] = value
+        if(key == 'maxType') {
+            nextState[day][workout].repsForAssessment = ''
+        }
         
         setBasicWorkouts(nextState)
     }
@@ -150,6 +156,9 @@ const CreatePlanPage = () => {
         let nextState = [ ...workouts ]
 
         nextState[day][workout][set][key] = value
+        if(key == 'maxType') {
+            nextState[day][workout][set].repsForAssessment = ''
+        }
         
         setWorkouts(nextState)
     }
@@ -512,7 +521,10 @@ const CreatePlanPage = () => {
                                             backgroundColor: color.tertiary, 
                                             borderBottom: '.4rem solid rgba(0, 0, 0, 0.3)' 
                                         }}
-                                        onClick={() => saveBasicPlan({ name, description, keyterms, workouts: basicWorkouts })}
+                                        onClick={() => {
+                                            localStorage.setItem('basicPlan', JSON.stringify({ name, description, keyterms, workouts: basicWorkouts }))
+                                            localStorage.removeItem('complexPlan')
+                                        }}
                                     >
                                         Save for Later
                                     </button>
@@ -772,7 +784,10 @@ const CreatePlanPage = () => {
                                             backgroundColor: color.tertiary, 
                                             borderBottom: '.4rem solid rgba(0, 0, 0, 0.3)' 
                                         }}
-                                        onClick={() => saveComplexPlan({ name, description, keyterms, workouts: workouts })}
+                                        onClick={() => {
+                                            localStorage.setItem('complexPlan', JSON.stringify({ name, description, keyterms, workouts }))
+                                            localStorage.removeItem('basicPlan')
+                                        }}
                                     >
                                         Save for Later
                                     </button>
