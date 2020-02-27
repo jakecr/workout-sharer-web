@@ -89,8 +89,8 @@ const createPlan = dispatch => async ({ name, description, keyterms, workouts, t
             return dispatch({ type: 'ADD_ERROR_MESSAGE', payload: createPlanResponse.data.error })
         }
 
-        Cookies.remove('basicPlan')
-        Cookies.remove('complexPlan')
+        localStorage.removeItem('basicPlan')
+        localStorage.removeItem('complexPlan')
         dispatch({ type: 'SET_BASIC_PLAN', payload: null })
         dispatch({ type: 'SET_COMPLEX_PLAN', payload: null })
 
@@ -151,22 +151,6 @@ const getPagePlan = dispatch => async () => {
     }catch(err) {
         dispatch({ type: 'ADD_ERROR_MESSAGE', payload: 'Failed to make request, try again later.' })
     }
-}
-
-const getSavedPlans = dispatch => () => {
-    const jsonBasicPlan = Cookies.get('basicPlan')
-    const jsonComplexPlan = Cookies.get('complexPlan')
-
-    let basicPlan = null, complexPlan = null
-    if(jsonBasicPlan) {
-        basicPlan = JSON.parse(jsonBasicPlan)
-    }
-    if(jsonComplexPlan) {
-        complexPlan = JSON.parse(jsonComplexPlan)
-    }
-
-    dispatch({ type: 'SET_BASIC_PLAN', payload: basicPlan })
-    dispatch({ type: 'SET_COMPLEX_PLAN', payload: complexPlan })
 }
 
 const getSearchedPlans = dispatch => async ({ searchTerms, organization }) => {
@@ -237,7 +221,12 @@ const postRecord = dispatch => async ({ record, plan }) => {
     try {
         for(let i = 0; i < plan.workouts.length; i++) {
             if(!record[i]) {
-                record[i] = record[i - 1]
+                for(let j = 0; j < plan.workouts.length; j++) {
+                    if(plan.workouts[i].exercise == plan.workouts[j].exercise && plan.workouts[i].maxType == plan.workouts[j].maxType && record[j]) {
+                        record[i] = record[j]
+                        break
+                    }
+                }
             }
         }
         
@@ -255,11 +244,13 @@ const postRecord = dispatch => async ({ record, plan }) => {
 }
 
 const saveBasicPlan = dispatch => (basicPlan) => {
-    Cookies.set('basicPlan', JSON.stringify(basicPlan))
+    localStorage.setItem('basicPlan', JSON.stringify(basicPlan))
+    localStorage.removeItem('complexPlan')
 }
 
 const saveComplexPlan = dispatch => (complexPlan) => {
-    Cookies.set('complexPlan', JSON.stringify(complexPlan))
+    localStorage.setItem('complexPlan', JSON.stringify(complexPlan))
+    localStorage.removeItem('basicPlan')
 }
 
 const subscribe = dispatch => async () => {
@@ -304,6 +295,6 @@ const unsubscribe = dispatch => async () => {
 
 export const { Provider, Context } = createDataContext(
     planReducer,
-    { checkIfMadePlan, clearErrorMessage, clearSearchedPlans, createPlan, deleteComment, deletePlan, getPagePlan, getSearchedPlans, getSubscribedPlan, postComment, postRecord, saveBasicPlan, saveComplexPlan, subscribe, unsubscribe, getSavedPlans },
+    { checkIfMadePlan, clearErrorMessage, clearSearchedPlans, createPlan, deleteComment, deletePlan, getPagePlan, getSearchedPlans, getSubscribedPlan, postComment, postRecord, saveBasicPlan, saveComplexPlan, subscribe, unsubscribe },
     { errorMessage: '', generalPlan: null, isCreator: false, ifMadePlan: false, isSubscribed: false, pagePlan: {}, savedBasicPlan: null, savedComplexPlan: null, searchedPlans: [], specificPlan: null }
 )

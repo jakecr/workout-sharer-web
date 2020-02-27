@@ -11,39 +11,42 @@ import Input from '../components/Input'
 import Select from '../components/Select'
 
 const CreatePlanPage = () => {
-    const { state, clearErrorMessage, checkIfMadePlan, createPlan, getSavedPlans, saveBasicPlan, saveComplexPlan } = useContext(PlanContext)
-    const { state: color, checkIfNotLoggedIn } = useContext(PrepContext)
+    const savedBasicPlan = localStorage.getItem('basicPlan') ? JSON.parse(localStorage.getItem('basicPlan')) : undefined
+    const savedComplexPlan = localStorage.getItem('complexPlan') ? JSON.parse(localStorage.getItem('complexPlan')) : undefined
 
+    const { state, clearErrorMessage, checkIfMadePlan, createPlan, saveBasicPlan, saveComplexPlan } = useContext(PlanContext)
+    const { state: color, checkIfNotLoggedIn } = useContext(PrepContext)
+    
     const [ basicWorkouts, setBasicWorkouts ] = useState(
-        state.savedBasicPlan 
-        ? state.savedBasicPlan.workouts 
+        savedBasicPlan 
+        ? savedBasicPlan.workouts 
         : [[], [], [], [], [], [], []]
     )
     const [ description, setDescription ] = useState(
-        state.savedBasicPlan 
-        ? state.savedBasicPlan.description 
-        : state.savedComplexPlan
-            ? state.savedComplexPlan.description
+        savedBasicPlan 
+        ? savedBasicPlan.description 
+        : savedComplexPlan
+            ? savedComplexPlan.description
             : ''
     )
     const [ keyterms, setKeyterms ] = useState(
-        state.savedBasicPlan 
-        ? state.savedBasicPlan.keyterms 
-        : state.savedComplexPlan
-            ? state.savedComplexPlan.keyterms
+        savedBasicPlan 
+        ? savedBasicPlan.keyterms 
+        : savedComplexPlan
+            ? savedComplexPlan.keyterms
             : []
     ) 
     const [ name, setName ] = useState(
-        state.savedBasicPlan 
-        ? state.savedBasicPlan.name 
-        : state.savedComplexPlan
-            ? state.savedComplexPlan.name
+        savedBasicPlan 
+        ? savedBasicPlan.name 
+        : savedComplexPlan
+            ? savedComplexPlan.name
             : ''
     )
     const [ selectedSection, setSelectedSection ] = useState('complex')
     const [ workouts, setWorkouts ] = useState(
-        state.savedComplexPlan
-        ? state.savedComplexPlan.workouts 
+        savedComplexPlan
+        ? savedComplexPlan.workouts 
         : [[], [], [], [], [], [], []]
     )
 
@@ -51,7 +54,6 @@ const CreatePlanPage = () => {
         if(!color.isLoggedIn) {
             checkIfNotLoggedIn()
         }
-        getSavedPlans()
         checkIfMadePlan()
         clearErrorMessage()
         window.scrollTo(0, 0)
@@ -502,13 +504,28 @@ const CreatePlanPage = () => {
                                     )
                                 })}
 
-                                <div className='u-center u-margin-top-medium u-margin-bottom-small'>
+                                <div className='plan__container--submit'>
                                     <button 
                                         className='button button--tertiary' 
-                                        type='submit' 
-                                        style={{ backgroundColor: color.tertiary, borderBottom: '.4rem solid rgba(0, 0, 0, 0.3)' }}
+                                        type='button'
+                                        style={{ 
+                                            backgroundColor: color.tertiary, 
+                                            borderBottom: '.4rem solid rgba(0, 0, 0, 0.3)' 
+                                        }}
+                                        onClick={() => saveBasicPlan({ name, description, keyterms, workouts: basicWorkouts })}
                                     >
-                                        Create Plan
+                                        Save for Later
+                                    </button>
+
+                                    <button 
+                                        className='button button--tertiary u-margin-left' 
+                                        type='submit' 
+                                        style={{ 
+                                            backgroundColor: color.tertiary, 
+                                            borderBottom: '.4rem solid rgba(0, 0, 0, 0.3)' 
+                                        }}
+                                    >
+                                        Create Plan &rarr;
                                     </button>
                                 </div>
                             </form>
@@ -755,11 +772,7 @@ const CreatePlanPage = () => {
                                             backgroundColor: color.tertiary, 
                                             borderBottom: '.4rem solid rgba(0, 0, 0, 0.3)' 
                                         }}
-                                        onClick={() => {
-                                            selectedSection == 'basic'
-                                                ? saveBasicPlan({ name, description, keyterms, workouts: basicWorkouts })
-                                                : saveComplexPlan({ name, description, keyterms, workouts: workouts })
-                                        }}
+                                        onClick={() => saveComplexPlan({ name, description, keyterms, workouts: workouts })}
                                     >
                                         Save for Later
                                     </button>

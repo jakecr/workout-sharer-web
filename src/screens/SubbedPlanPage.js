@@ -150,41 +150,36 @@ const SubbedPlanPage = () => {
                                 >
                                     {state.generalPlan.workouts.map((setItem, setIndex, setsArray) => {
                                         return (
-                                            setIndex == 0
-                                            || setsArray[setIndex - 1].exercise !== setItem.exercise 
-                                            || setsArray[setIndex - 1].maxType !== setItem.maxType 
-                                            ? <div key={setIndex} className='u-center'>
-                                                {
-                                                    setItem.maxType == 'Max weight for one rep'
-                                                    ? <p 
-                                                        className='u-margin-top-none' 
-                                                        style={{ color: '#777' }}
-                                                    >
-                                                        What is the max weight you can use for 1 {setItem.exercise}?
-                                                    </p>
-                                                    : setItem.maxType == 'Max weight for multiple reps'
-                                                    ? <p 
-                                                        className='u-margin-top-none' 
-                                                        style={{ color: '#777' }}
-                                                    >
-                                                        What is the max weight you can use for {setItem.repsForAssessment} {setItem.exercise}?
-                                                    </p>
-                                                    : setItem.maxType == 'Max reps'
-                                                    ? <p 
-                                                        className='u-margin-top-none' 
-                                                        style={{ color: '#777' }}
-                                                    >
-                                                        What is the max reps you can do of {setItem.exercise}?
-                                                    </p>
-                                                    : setItem.maxType == 'Max time'
-                                                    && <p 
-                                                        className='u-margin-top-none' 
-                                                        style={{ color: '#777' }}
-                                                    >
-                                                        What is the max time you can {setItem.exercise}?
-                                                    </p>
-                                                }
-                                                
+                                            !setsArray.find((item, index) => item.exercise == setItem.exercise && item.maxType == setItem.maxType && index < setIndex)
+                                            && <div key={setIndex} className='u-center'>
+                                                {setItem.maxType == 'Max weight for one rep'
+                                                ? <p 
+                                                    className='u-margin-top-none' 
+                                                    style={{ color: '#777' }}
+                                                >
+                                                    What is the max weight you can use for 1 {setItem.exercise}?
+                                                </p>
+                                                : setItem.maxType == 'Max weight for multiple reps'
+                                                ? <p 
+                                                    className='u-margin-top-none' 
+                                                    style={{ color: '#777' }}
+                                                >
+                                                    What is the max weight you can use for {setItem.repsForAssessment} {setItem.exercise}?
+                                                </p>
+                                                : setItem.maxType == 'Max reps'
+                                                ? <p 
+                                                    className='u-margin-top-none' 
+                                                    style={{ color: '#777' }}
+                                                >
+                                                    What is the max reps you can do of {setItem.exercise}?
+                                                </p>
+                                                : setItem.maxType == 'Max time'
+                                                && <p 
+                                                    className='u-margin-top-none' 
+                                                    style={{ color: '#777' }}
+                                                >
+                                                    What is the max time you can {setItem.exercise}?
+                                                </p>}
     
                                                 <Input 
                                                     background='transparent'
@@ -207,7 +202,6 @@ const SubbedPlanPage = () => {
                                                     onChange={(e) => e.target.value.match(/^([0-9]{0,4})$/) && onSetRecord({ index: setIndex, value: e.target.value })}
                                                 />
                                             </div>
-                                            : null
                                         )
                                     })}
     
