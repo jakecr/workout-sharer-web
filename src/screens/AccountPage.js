@@ -274,7 +274,29 @@ const AccountPage = () => {
 
                                                 <button 
                                                     type='button' 
-                                                    className='clear-defaults u-color-red' 
+                                                    className='clear-defaults' 
+                                                    onClick={() => {
+                                                        let keyterms = planItem.keyterms.split(',')
+                                                        let savedPlan = { name: '', description: planItem.description, keyterms: keyterms.splice(1, keyterms.length), workouts: [[], [], [], [], [], [], []] }
+
+                                                        for(let i = 0; i < planItem.workouts.length; i++) {
+                                                            if(i == 0 || planItem.workouts[i].workout !== planItem.workouts[i - 1].workout || planItem.workouts[i].day !== planItem.workouts[i - 1].day) {
+                                                                savedPlan.workouts[planItem.workouts[i].day - 1].push([])
+                                                            }
+                                                            savedPlan.workouts[planItem.workouts[i].day - 1][planItem.workouts[i].workout - 1].push(planItem.workouts[i])
+                                                        }
+
+                                                        localStorage.setItem('complexPlan', JSON.stringify(savedPlan))
+                                                        window.location.href = 'create-plan'
+                                                    }}
+                                                    style={{ color: color.tertiary }}
+                                                >
+                                                    Make similar plan
+                                                </button>
+
+                                                <button 
+                                                    type='button' 
+                                                    className='clear-defaults u-color-red u-margin-left' 
                                                     onClick={() => setShowConfirm(planIndex)}
                                                 >
                                                     Delete plan

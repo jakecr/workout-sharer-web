@@ -157,14 +157,14 @@ const SubbedPlanPage = () => {
                                                     className='u-margin-top-none' 
                                                     style={{ color: '#777' }}
                                                 >
-                                                    What is the max weight you can use for 1 {setItem.exercise}?
+                                                    What is the max weight you can use for 1 {setItem.exercise} rep?
                                                 </p>
                                                 : setItem.maxType == 'Max weight for multiple reps'
                                                 ? <p 
                                                     className='u-margin-top-none' 
                                                     style={{ color: '#777' }}
                                                 >
-                                                    What is the max weight you can use for {setItem.repsForAssessment} {setItem.exercise}?
+                                                    What is the max weight you can use for {setItem.repsForAssessment} {setItem.exercise} reps?
                                                 </p>
                                                 : setItem.maxType == 'Max reps'
                                                 ? <p 

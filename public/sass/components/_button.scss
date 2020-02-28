@@ -4,12 +4,10 @@
     &:visited {
         text-transform: uppercase;
         text-decoration: none;
-        transition: all .2s;
         font-size: $default-font-size;
         display: inline-block;
         border: none;
         position: relative;
-        backface-visibility: hidden;
         cursor: pointer;
     }
 
@@ -36,12 +34,12 @@
 
         &:active {
             outline: none;
-            transform: translateY(-.1rem);
+            transform: translateY(0);
             box-shadow: 0 .5rem 1rem rgba($color-black, .2);
         }
 
         &:hover {
-            transform: translateY(-.1rem);
+            transform: translateY(-.05rem);
             box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
         }
         
@@ -60,12 +58,12 @@
 
         &:active {
             outline: none;
-            transform: translateY(-.1rem);
+            transform: translateY(0);
             box-shadow: 0 .5rem 1rem rgba($color-black, .2);
         }
 
         &:hover {
-            transform: translateY(-.1rem);
+            transform: translateY(-.05rem);
             box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
         }
         

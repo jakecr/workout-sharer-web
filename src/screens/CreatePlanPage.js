@@ -590,17 +590,9 @@ const CreatePlanPage = () => {
                                     >
                                         Add keyterm
                                     </button>}
-                                    {keyterms.length == 7 
-                                    ? <button 
-                                        className='button button--red' 
-                                        type='button' 
-                                        onClick={() => removeKeyterm()}
-                                    >
-                                        Remove keyterm
-                                    </button>
-                                    : keyterms.length > 0 
+                                    {keyterms.length > 0 
                                     && <button 
-                                        className='button button--red u-margin-left' 
+                                        className={keyterms.length == 7 ? 'button button--red' : 'button button--red u-margin-left'}
                                         type='button' 
                                         onClick={() => removeKeyterm()}
                                     >

@@ -59,7 +59,7 @@ router.post('/get-user', async (req, res) => {
         for(let i = 0; i < user.madePlans.length; i++) {
             let plan = await Plan.findById(user.madePlans[i])
             if(plan) {
-                madePlans.push({ name: plan.name, subscribers: plan.subscribers, _id: plan._id })
+                madePlans.push(plan)
             }
         }
 
