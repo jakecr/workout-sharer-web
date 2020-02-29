@@ -43,7 +43,9 @@ const CreatePlanPage = () => {
             ? savedComplexPlan.name
             : ''
     )
+    const [ activeDay, setActiveDay ] = useState(null)
     const [ selectedSection, setSelectedSection ] = useState('complex')
+    const [ activeWorkout, setActiveWorkout ] = useState(null)
     const [ workouts, setWorkouts ] = useState(
         savedComplexPlan
         ? savedComplexPlan.workouts 
@@ -234,6 +236,8 @@ const CreatePlanPage = () => {
                                             color: color.contrast 
                                         }} 
                                         onClick={() => {
+                                            setActiveDay(null)
+                                            setActiveWorkout(null)
                                             clearErrorMessage()
                                             setSelectedSection('basic')
                                         }}
@@ -254,6 +258,8 @@ const CreatePlanPage = () => {
                                             color: color.contrast 
                                         }} 
                                         onClick={() => {
+                                            setActiveDay(null)
+                                            setActiveWorkout(null)
                                             clearErrorMessage()
                                             setSelectedSection('complex')
                                         }}
@@ -360,24 +366,37 @@ const CreatePlanPage = () => {
                                 {basicWorkouts.map((dayItem, dayIndex) => {
                                     return (
                                         <div key={dayIndex + 80} className='day__container'>
-                                            <h2 
-                                                className='u-center u-margin-none' 
-                                                style={{ color: color.contrast }}
-                                            >
-                                                Day: {dayIndex + 1}
-                                            </h2>
+                                            <a onClick={() => {
+                                                setActiveWorkout(null)
+                                                setActiveDay(dayIndex == activeDay ? null : dayIndex)
+                                            }}>
+                                                <h2 
+                                                    className='u-center u-margin-none' 
+                                                    style={{ color: color.contrast }}
+                                                >
+                                                    {dayIndex == activeDay
+                                                    ? <span>Day: {dayIndex + 1} &#9660;</span>
+                                                    : <span>Day: {dayIndex + 1} &#9650;</span>}
+                                                </h2>
+                                            </a>
 
-                                            {dayItem.map((workoutItem, workoutIndex) => {
+                                            {activeDay == dayIndex
+                                            && dayItem.map((workoutItem, workoutIndex) => {
                                                 return (
                                                     <div key={workoutIndex + (1000000 * (dayIndex + 1))}>
-                                                        <h3 
-                                                            className='u-center u-margin-none' 
-                                                            style={{ color: color.contrast }}
-                                                        >
-                                                            Workout: {workoutIndex + 1}
-                                                        </h3>
+                                                        <a onClick={() => setActiveWorkout(workoutIndex == activeWorkout ? null : workoutIndex)}>
+                                                            <h3 
+                                                                className='u-center u-margin-none' 
+                                                                style={{ color: color.contrast }}
+                                                            >
+                                                                {workoutIndex == activeWorkout
+                                                                ? <span>Workout: {workoutIndex + 1} &#9660;</span>
+                                                                : <span>Workout: {workoutIndex + 1} &#9650;</span>}
+                                                            </h3>
+                                                        </a>
 
-                                                        <div className='create-plan__set--inputs'>
+                                                        {activeWorkout == workoutIndex
+                                                        && <div className='create-plan__set--inputs'>
                                                             <Input 
                                                                 name='Exercise' 
                                                                 type='text' 
@@ -474,41 +493,29 @@ const CreatePlanPage = () => {
                                                                 value={workoutItem.sets} 
                                                                 onChange={(e) => e.target.value.match(/^[0-9]{0,2}$/) && onChangeBasicWorkout({ day: dayIndex, workout: workoutIndex, key: 'sets', value: e.target.value })}
                                                             />
-                                                        </div>
+                                                        </div>}
                                                     </div>
                                                 )
                                             })}
                                             
-                                            {dayItem.length > 0 
-                                            ? (
-                                                <div className='u-center'>
-                                                    <button 
-                                                        className='button button--green' 
-                                                        type='button' 
-                                                        onClick={() => onAddBasicWorkout({ day: dayIndex })}
-                                                    >
-                                                        Add workout
-                                                    </button>
-                                                    <button 
-                                                        className='button button--red u-margin-left' 
-                                                        type='button' 
-                                                        onClick={() => onRemoveBasicWorkout({ day: dayIndex })}
-                                                    >
-                                                        Remove workout
-                                                    </button>
-                                                </div>
-                                            )
-                                            : (
-                                                <div className='u-center u-margin-top-medium'>
-                                                    <button 
-                                                        className='button button--green' 
-                                                        type='button' 
-                                                        onClick={() => onAddBasicWorkout({ day: dayIndex })}
-                                                    >
-                                                        Add workout
-                                                    </button>
-                                                </div>
-                                            )}
+                                            {activeDay == dayIndex
+                                            && <div className={dayItem.length == 0 || activeWorkout !== dayItem.length - 1 ? 'u-center u-margin-top-medium' : 'u-center'}>
+                                                <button 
+                                                    className='button button--green' 
+                                                    type='button' 
+                                                    onClick={() => onAddBasicWorkout({ day: dayIndex })}
+                                                >
+                                                    Add workout
+                                                </button>
+                                                {dayItem.length !== 0
+                                                && <button 
+                                                    className='button button--red u-margin-left' 
+                                                    type='button' 
+                                                    onClick={() => onRemoveBasicWorkout({ day: dayIndex })}
+                                                >
+                                                    Remove workout
+                                                </button>}
+                                            </div>}
                                         </div>
                                     )
                                 })}
@@ -603,24 +610,37 @@ const CreatePlanPage = () => {
                                 {workouts.map((dayItem, dayIndex) => {
                                     return (
                                         <div key={dayIndex + 50}  className='day__container'>
-                                            <h2 
-                                                className='u-center u-margin-none' 
-                                                style={{ color: color.contrast }}
-                                            >
-                                                Day: {dayIndex + 1}
-                                            </h2>
+                                            <a onClick={() => {
+                                                setActiveWorkout(null)
+                                                setActiveDay(dayIndex == activeDay ? null : dayIndex)
+                                            }}>
+                                                <h2 
+                                                    className='u-center u-margin-none' 
+                                                    style={{ color: color.contrast }}
+                                                >
+                                                    {dayIndex == activeDay
+                                                    ? <span>Day: {dayIndex + 1} &#9660;</span>
+                                                    : <span>Day: {dayIndex + 1} &#9650;</span>}
+                                                </h2>
+                                            </a>
 
-                                            {dayItem.map((workoutItem, workoutIndex) => {
+                                            {activeDay == dayIndex
+                                            && dayItem.map((workoutItem, workoutIndex) => {
                                                 return (
                                                     <div key={workoutIndex + (1000 * (dayIndex + 1))}>
-                                                        <h3 
-                                                            className='u-center u-margin-none' 
-                                                            style={{ color: color.contrast }}
-                                                        >
-                                                            Workout: {workoutIndex + 1}
-                                                        </h3>
+                                                        <a onClick={() => setActiveWorkout(workoutIndex == activeWorkout ? null : workoutIndex)}>
+                                                            <h3 
+                                                                className='u-center u-margin-none' 
+                                                                style={{ color: color.contrast }}
+                                                            >
+                                                                {workoutIndex == activeWorkout
+                                                                ? <span>Workout: {workoutIndex + 1} &#9660;</span>
+                                                                : <span>Workout: {workoutIndex + 1} &#9650;</span>}
+                                                            </h3>
+                                                        </a>
 
-                                                        {workoutItem.map((setItem, setIndex) => {
+                                                        {activeWorkout == workoutIndex
+                                                        && workoutItem.map((setItem, setIndex) => {
                                                             return (
                                                                 <div key={setIndex + (1000 * (workoutIndex + 1)) + (10000 * (dayIndex + 1))}>
                                                                     <h4 
@@ -726,7 +746,8 @@ const CreatePlanPage = () => {
                                                             )
                                                         })}
                                 
-                                                        <div className={workoutItem.length > 0 ? 'u-center' : 'u-center u-margin-top-medium'}>
+                                                        {activeWorkout == workoutIndex
+                                                        && <div className={workoutItem.length > 0 ? 'u-center' : 'u-center u-margin-top-medium'}>
                                                             <button 
                                                                 className='button button--green' 
                                                                 type='button' 
@@ -742,12 +763,13 @@ const CreatePlanPage = () => {
                                                             >
                                                                 Remove set
                                                             </button>}
-                                                        </div>
+                                                        </div>}
                                                     </div>
                                                 )
                                             })}
                                             
-                                            <div className={dayItem.length > 0 ? 'u-center' : 'u-center u-margin-top-medium'}>
+                                            {activeDay == dayIndex
+                                            && <div className={dayItem.length == 0 || activeWorkout !== dayItem.length - 1 ? 'u-center u-margin-top-medium' : 'u-center'}>
                                                 <button 
                                                     className='button button--green' 
                                                     type='button' 
@@ -763,7 +785,7 @@ const CreatePlanPage = () => {
                                                 >
                                                     Remove workout
                                                 </button>}
-                                            </div>
+                                            </div>}
                                         </div>
                                     )
                                 })}
@@ -857,12 +879,12 @@ const CreatePlanPage = () => {
                                 >
                                     Advanced plans allow you to make each set of a workout different from the last. Advanced plans are tedious to make, but there are some tricks you can use to make it less tedious. Every time you make a set in a workout, it copies the information from the last set. To speed up the process, you should only click “ADD SET” when you are done filling out the previous set. This way you only have to change the information that is different from the previous set.
                                 </p>
-                                <h2 
+                                <h3 
                                     className='help--heading' 
                                     style={{ color: color.contrast }}
                                 >
                                     If you have any feedback or questions, please send it to me through the "CONTACT" page and I will get back to you as soon as possible!
-                                </h2>
+                                </h3>
                             </div>
                         }
                         

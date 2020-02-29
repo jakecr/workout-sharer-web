@@ -289,14 +289,16 @@ const AccountPage = () => {
                                                         localStorage.setItem('complexPlan', JSON.stringify(savedPlan))
                                                         window.location.href = 'create-plan'
                                                     }}
-                                                    style={{ color: color.tertiary }}
+                                                    style={{ color: '#296429' }}
                                                 >
                                                     Make similar plan
                                                 </button>
 
+                                                <strong style={{ color: '#777' }}> &#183; </strong>
+ 
                                                 <button 
                                                     type='button' 
-                                                    className='clear-defaults u-color-red u-margin-left' 
+                                                    className='clear-defaults u-color-red' 
                                                     onClick={() => setShowConfirm(planIndex)}
                                                 >
                                                     Delete plan
