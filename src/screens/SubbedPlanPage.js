@@ -173,6 +173,13 @@ const SubbedPlanPage = () => {
                                                 >
                                                     What is the max reps you can do of {setItem.exercise}?
                                                 </p>
+                                                : setItem.maxType == 'Max distance'
+                                                ? <p 
+                                                    className='u-margin-top-none' 
+                                                    style={{ color: '#777' }}
+                                                >
+                                                    What is the max {setItem.staticMetric}s you can {setItem.exercise}?
+                                                </p>
                                                 : setItem.maxType == 'Max time'
                                                 && <p 
                                                     className='u-margin-top-none' 
@@ -196,6 +203,8 @@ const SubbedPlanPage = () => {
                                                         ? 'Weight (lbs)'
                                                         : setItem.maxType == 'Max reps'
                                                         ? 'Reps'
+                                                        : setItem.maxType == 'Max distance'
+                                                        ? 'Distance (' + setItem.staticMetric + 's)'
                                                         : setItem.maxType == 'Max time'
                                                         && 'Time (s)'
                                                     } 
@@ -346,6 +355,21 @@ const SubbedPlanPage = () => {
                                                         >
                                                             Reps: {setItem.reps}
                                                         </p>
+                                                        : setItem.maxType == 'Max distance'
+                                                        ? [<p 
+                                                            key={setIndex - 100000} 
+                                                            className='plan--exercise' 
+                                                            style={{ color: color.contrast }}
+                                                        >
+                                                            Distance: {setItem.distance} {setItem.staticMetric}
+                                                        </p>,
+                                                        <p 
+                                                            key={setIndex - 10000000} 
+                                                            className='plan--exercise' 
+                                                            style={{ color: color.contrast }}
+                                                        >
+                                                            Time: {Math.floor(setItem.time / 60)}minutes
+                                                        </p>]
                                                         : setItem.maxType == 'Max time'
                                                         && <p 
                                                             className='plan--exercise' 
@@ -531,6 +555,21 @@ const SubbedPlanPage = () => {
                                                 Reps: {setItem.percentMax}% of your max reps
                                             </p>
                                             
+                                            : setItem.maxType == 'Max distance'
+                                            ? [<p 
+                                                className='plan--exercise' 
+                                                key={setIndex - 1000} 
+                                                style={{ color: color.contrast }}
+                                            >
+                                                Distance: {setItem.percentMax}% of your max distance
+                                            </p>
+                                            , <p 
+                                                className='plan--exercise' 
+                                                key={setIndex - 100000} 
+                                                style={{ color: color.contrast }}
+                                            >
+                                                Minutes per {setItem.staticMetric}: {setItem.timePerRep}
+                                            </p>]
                                             : setItem.maxType == 'Max time'
                                             && <p 
                                                 className='plan--exercise' 

@@ -86,6 +86,7 @@ const CreatePlanPage = () => {
             additionalInstructions: '',
             sets: ''
         })
+        setActiveWorkout(nextState[day].length - 1)
         
         setBasicWorkouts(nextState)
     }
@@ -131,6 +132,7 @@ const CreatePlanPage = () => {
         let nextState = [ ...workouts ]
 
         nextState[day].push([])
+        setActiveWorkout(nextState[day].length - 1)
         
         setWorkouts(nextState)
     }
@@ -141,6 +143,13 @@ const CreatePlanPage = () => {
         nextState[day][workout][key] = value
         if(key == 'maxType') {
             nextState[day][workout].repsForAssessment = ''
+            nextState[day][workout].timePerRep = ''
+            
+            if(value == 'Max distance') {
+                nextState[day][workout].staticMetric = 'mile'
+            }else {
+                nextState[day][workout].staticMetric = ''
+            }
         }
         
         setBasicWorkouts(nextState)
@@ -160,6 +169,13 @@ const CreatePlanPage = () => {
         nextState[day][workout][set][key] = value
         if(key == 'maxType') {
             nextState[day][workout][set].repsForAssessment = ''
+            nextState[day][workout][set].timePerRep = ''
+            
+            if(value == 'Max distance') {
+                nextState[day][workout][set].staticMetric = 'mile'
+            }else {
+                nextState[day][workout][set].staticMetric = ''
+            }
         }
         
         setWorkouts(nextState)
@@ -413,6 +429,7 @@ const CreatePlanPage = () => {
                                                                 <option value='Max weight for multiple reps'>Max weight for multiple reps</option>
                                                                 <option value='Max reps'>Max reps</option>
                                                                 <option value='Max time'>Max time</option>
+                                                                <option value='Max distance'>Max distance</option>
                                                             </Select>
                                                             
                                                             <Input 
@@ -469,6 +486,25 @@ const CreatePlanPage = () => {
                                                                     value={workoutItem.timePerRep} 
                                                                     onChange={(e) => e.target.value.match(/^[0-9]{0,2}$/) && onChangeBasicWorkout({ day: dayIndex, workout: workoutIndex, key: 'timePerRep', value: e.target.value })} 
                                                                 />
+                                                                : workoutItem.maxType == 'Max distance'
+                                                                ? [<Select 
+                                                                    key={(dayIndex * workoutIndex + .1) * .1111}
+                                                                    name='Distance units' 
+                                                                    value={workoutItem.staticMetric} 
+                                                                    onChange={(e) => onChangeBasicWorkout({ day: dayIndex, workout: workoutIndex, key: 'staticMetric', value: e.target.value })} 
+                                                                >
+                                                                    <option value='mile'>Miles</option>
+                                                                    <option value='yard'>Yards</option>
+                                                                    <option value='kilometer'>Kilometers</option>
+                                                                    <option value='meter'>Meters</option>
+                                                                </Select>,
+                                                                <Input 
+                                                                    key={(dayIndex * workoutIndex + .1) * .11111}
+                                                                    name={'Approximate minutes per ' + workoutItem.staticMetric}
+                                                                    type='text' 
+                                                                    value={workoutItem.timePerRep} 
+                                                                    onChange={(e) => !!e.target.value.match(/^[0-9]{0,4}$/) && onChangeBasicWorkout({ day: dayIndex, workout: workoutIndex, key: 'timePerRep', value: e.target.value })} 
+                                                                />]
                                                                 : workoutItem.maxType == 'Max time'
                                                                 && null
                                                             }
@@ -668,6 +704,7 @@ const CreatePlanPage = () => {
                                                                             <option value='Max weight for multiple reps'>Max weight for multiple reps</option>
                                                                             <option value='Max reps'>Max reps</option>
                                                                             <option value='Max time'>Max time</option>
+                                                                            <option value='Max distance'>Max distance</option>
                                                                         </Select>
                                                                         
                                                                         <Input 
@@ -717,13 +754,32 @@ const CreatePlanPage = () => {
                                                                                 onChange={(e) => e.target.value.match(/^[0-9]{0,2}$/) && onChangeSet({ day: dayIndex, workout: workoutIndex, set: setIndex, key: 'timePerRep', value: e.target.value })} 
                                                                             />]
 
-                                                                            : setItem == 'Max reps'
+                                                                            : setItem.maxType == 'Max reps'
                                                                             ? <Input 
                                                                                 name='Approximate time per rep (s)' 
                                                                                 type='text' 
                                                                                 value={setItem.timePerRep} 
                                                                                 onChange={(e) => e.target.value.match(/^[0-9]{0,2}$/) && onChangeSet({ day: dayIndex, workout: workoutIndex, set: setIndex, key: 'timePerRep', value: e.target.value })} 
                                                                             />
+                                                                            : setItem.maxType == 'Max distance'
+                                                                            ? [<Select 
+                                                                                key={(dayIndex * workoutIndex + .1) * .1111}
+                                                                                name='Distance units' 
+                                                                                value={setItem.staticMetric} 
+                                                                                onChange={(e) => onChangeSet({ day: dayIndex, workout: workoutIndex, set: setIndex, key: 'staticMetric', value: e.target.value })} 
+                                                                            >
+                                                                                <option value='mile'>Miles</option>
+                                                                                <option value='yard'>Yards</option>
+                                                                                <option value='kilometer'>Kilometers</option>
+                                                                                <option value='meter'>Meters</option>
+                                                                            </Select>,
+                                                                            <Input 
+                                                                                key={(dayIndex * workoutIndex + .1) * .11111}
+                                                                                name={'Approximate minutes per ' + setItem.staticMetric}
+                                                                                type='text' 
+                                                                                value={setItem.timePerRep} 
+                                                                                onChange={(e) => e.target.value.match(/^[0-9]{0,4}$/) && onChangeSet({ day: dayIndex, workout: workoutIndex, set: setIndex, key: 'timePerRep', value: e.target.value })} 
+                                                                            />]
                                                                             : setItem == 'Max time'
                                                                             && null
                                                                         }

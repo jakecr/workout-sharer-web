@@ -275,6 +275,21 @@ const PlanPage = () => {
                                                         Reps: {setItem.percentMax}% of your max reps
                                                     </p>
                                                     
+                                                    : setItem.maxType == 'Max distance'
+                                                    ? [<p 
+                                                        className='plan--exercise' 
+                                                        key={setIndex - 1000} 
+                                                        style={{ color: color.contrast }}
+                                                    >
+                                                        Distance: {setItem.percentMax}% of your max distance
+                                                    </p>
+                                                    , <p 
+                                                        className='plan--exercise' 
+                                                        key={setIndex - 100000} 
+                                                        style={{ color: color.contrast }}
+                                                    >
+                                                        Minutes per {setItem.staticMetric}: {setItem.timePerRep}
+                                                    </p>]
                                                     : setItem.maxType == 'Max time'
                                                     && <p 
                                                         className='plan--exercise' 

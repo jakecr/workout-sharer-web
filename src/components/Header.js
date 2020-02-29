@@ -17,7 +17,7 @@ const Header = ({ theme, currentRoute, contrastColor }) => (
                             filter: 
                             theme == 'dark'
                             ? currentRoute == '/'
-                                ? 'brightness(120%)'
+                                ? 'brightness(110%)'
                                 : 'brightness(65%)'
                             : currentRoute == '/'
                                 ? 'brightness(35%)'
@@ -25,7 +25,7 @@ const Header = ({ theme, currentRoute, contrastColor }) => (
                             WebkitFilter: 
                             theme == 'dark'
                             ? currentRoute == '/'
-                                ? 'brightness(120%)'
+                                ? 'brightness(110%)'
                                 : 'brightness(65%)'
                             : currentRoute == '/'
                                 ? 'brightness(35%)'
@@ -48,18 +48,18 @@ const Header = ({ theme, currentRoute, contrastColor }) => (
                             filter: 
                             theme == 'dark'
                             ? currentRoute == '/about'
-                                ? 'brightness(120%)'
+                                ? 'brightness(110%)'
                                 : 'brightness(65%)'
                             : currentRoute == '/about'
-                                ? 'brightness(20%)'
+                                ? 'brightness(10%)'
                                 : 'brightness(35%)',
                             WebkitFilter: 
                             theme == 'dark'
                             ? currentRoute == '/about'
-                                ? 'brightness(120%)'
+                                ? 'brightness(110%)'
                                 : 'brightness(65%)'
                             : currentRoute == '/about'
-                                ? 'brightness(20%)'
+                                ? 'brightness(10%)'
                                 : 'brightness(35%)'
                         }}
                     />
@@ -79,18 +79,18 @@ const Header = ({ theme, currentRoute, contrastColor }) => (
                             filter: 
                             theme == 'dark'
                             ? currentRoute == '/contact'
-                                ? 'brightness(120%)'
+                                ? 'brightness(110%)'
                                 : 'brightness(65%)'
                             : currentRoute == '/contact'
-                                ? 'brightness(20%)'
+                                ? 'brightness(10%)'
                                 : 'brightness(35%)',
                             WebkitFilter: 
                             theme == 'dark'
                             ? currentRoute == '/contact'
-                                ? 'brightness(120%)'
+                                ? 'brightness(110%)'
                                 : 'brightness(65%)'
                             : currentRoute == '/contact'
-                                ? 'brightness(20%)'
+                                ? 'brightness(10%)'
                                 : 'brightness(35%)'
                         }}
                     />
@@ -110,18 +110,18 @@ const Header = ({ theme, currentRoute, contrastColor }) => (
                             filter: 
                             theme == 'dark'
                             ? currentRoute == '/search'
-                                ? 'brightness(120%)'
+                                ? 'brightness(110%)'
                                 : 'brightness(65%)'
                             : currentRoute == '/search'
-                                ? 'brightness(20%)'
+                                ? 'brightness(10%)'
                                 : 'brightness(35%)',
                             WebkitFilter: 
                             theme == 'dark'
                             ? currentRoute == '/search'
-                                ? 'brightness(120%)'
+                                ? 'brightness(110%)'
                                 : 'brightness(65%)'
                             : currentRoute == '/search'
-                                ? 'brightness(20%)'
+                                ? 'brightness(10%)'
                                 : 'brightness(35%)'
                         }}
                     />
@@ -141,18 +141,18 @@ const Header = ({ theme, currentRoute, contrastColor }) => (
                             filter: 
                             theme == 'dark'
                             ? currentRoute == '/subbed-plan'
-                                ? 'brightness(120%)'
+                                ? 'brightness(110%)'
                                 : 'brightness(65%)'
                             : currentRoute == '/subbed-plan'
-                                ? 'brightness(20%)'
+                                ? 'brightness(10%)'
                                 : 'brightness(35%)',
                             WebkitFilter: 
                             theme == 'dark'
                             ? currentRoute == '/subbed-plan'
-                                ? 'brightness(120%)'
+                                ? 'brightness(110%)'
                                 : 'brightness(65%)'
                             : currentRoute == '/subbed-plan'
-                                ? 'brightness(20%)'
+                                ? 'brightness(10%)'
                                 : 'brightness(35%)'
                         }}
                     />
@@ -172,18 +172,18 @@ const Header = ({ theme, currentRoute, contrastColor }) => (
                             filter: 
                             theme == 'dark'
                             ? currentRoute == '/account'
-                                ? 'brightness(120%)'
+                                ? 'brightness(110%)'
                                 : 'brightness(65%)'
                             : currentRoute == '/account'
-                                ? 'brightness(20%)'
+                                ? 'brightness(10%)'
                                 : 'brightness(35%)',
                             WebkitFilter: 
                             theme == 'dark'
                             ? currentRoute == '/account'
-                                ? 'brightness(120%)'
+                                ? 'brightness(110%)'
                                 : 'brightness(65%)'
                             : currentRoute == '/account'
-                                ? 'brightness(20%)'
+                                ? 'brightness(10%)'
                                 : 'brightness(35%)'
                         }}
                     />

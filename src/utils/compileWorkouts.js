@@ -78,6 +78,19 @@ export const compileSpecificPlan = (plan, record) => {
                         setRest: item.setRest,
                         additionalInstructions: item.additionalInstructions
                     })
+                }else if(item.maxType == 'Max distance') {
+                    return ({
+                        day: item.day,
+                        workout: item.workout,
+                        set: item.set,
+                        exercise: item.exercise,
+                        maxType: item.maxType,
+                        staticMetric: item.staticMetric,
+                        distance: Math.floor((parseFloat(item.percentMax) / 100) * parseFloat(record[index])),
+                        time: Math.floor((parseFloat(item.percentMax) / 100) * parseFloat(record[index]) * item.timePerRep * 60),
+                        setRest: item.setRest,
+                        additionalInstructions: item.additionalInstructions
+                    })
                 }
             })
         }
