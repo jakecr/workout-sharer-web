@@ -20,7 +20,7 @@ const Header = ({ theme, currentRoute, contrastColor }) => (
                                 ? 'brightness(120%)'
                                 : 'brightness(65%)'
                             : currentRoute == '/'
-                                ? 'brightness(45%)'
+                                ? 'brightness(35%)'
                                 : 'brightness(65%)',
                             WebkitFilter: 
                             theme == 'dark'
@@ -28,7 +28,7 @@ const Header = ({ theme, currentRoute, contrastColor }) => (
                                 ? 'brightness(120%)'
                                 : 'brightness(65%)'
                             : currentRoute == '/'
-                                ? 'brightness(45%)'
+                                ? 'brightness(35%)'
                                 : 'brightness(65%)'
                         }}
                     />
@@ -52,7 +52,7 @@ const Header = ({ theme, currentRoute, contrastColor }) => (
                                 : 'brightness(65%)'
                             : currentRoute == '/about'
                                 ? 'brightness(20%)'
-                                : 'brightness(45%)',
+                                : 'brightness(35%)',
                             WebkitFilter: 
                             theme == 'dark'
                             ? currentRoute == '/about'
@@ -60,7 +60,7 @@ const Header = ({ theme, currentRoute, contrastColor }) => (
                                 : 'brightness(65%)'
                             : currentRoute == '/about'
                                 ? 'brightness(20%)'
-                                : 'brightness(45%)'
+                                : 'brightness(35%)'
                         }}
                     />
                 </Link>
@@ -83,7 +83,7 @@ const Header = ({ theme, currentRoute, contrastColor }) => (
                                 : 'brightness(65%)'
                             : currentRoute == '/contact'
                                 ? 'brightness(20%)'
-                                : 'brightness(45%)',
+                                : 'brightness(35%)',
                             WebkitFilter: 
                             theme == 'dark'
                             ? currentRoute == '/contact'
@@ -91,7 +91,7 @@ const Header = ({ theme, currentRoute, contrastColor }) => (
                                 : 'brightness(65%)'
                             : currentRoute == '/contact'
                                 ? 'brightness(20%)'
-                                : 'brightness(45%)'
+                                : 'brightness(35%)'
                         }}
                     />
                 </Link>
@@ -114,7 +114,7 @@ const Header = ({ theme, currentRoute, contrastColor }) => (
                                 : 'brightness(65%)'
                             : currentRoute == '/search'
                                 ? 'brightness(20%)'
-                                : 'brightness(45%)',
+                                : 'brightness(35%)',
                             WebkitFilter: 
                             theme == 'dark'
                             ? currentRoute == '/search'
@@ -122,7 +122,7 @@ const Header = ({ theme, currentRoute, contrastColor }) => (
                                 : 'brightness(65%)'
                             : currentRoute == '/search'
                                 ? 'brightness(20%)'
-                                : 'brightness(45%)'
+                                : 'brightness(35%)'
                         }}
                     />
                 </Link>
@@ -145,7 +145,7 @@ const Header = ({ theme, currentRoute, contrastColor }) => (
                                 : 'brightness(65%)'
                             : currentRoute == '/subbed-plan'
                                 ? 'brightness(20%)'
-                                : 'brightness(45%)',
+                                : 'brightness(35%)',
                             WebkitFilter: 
                             theme == 'dark'
                             ? currentRoute == '/subbed-plan'
@@ -153,7 +153,7 @@ const Header = ({ theme, currentRoute, contrastColor }) => (
                                 : 'brightness(65%)'
                             : currentRoute == '/subbed-plan'
                                 ? 'brightness(20%)'
-                                : 'brightness(45%)'
+                                : 'brightness(35%)'
                         }}
                     />
                 </Link>
@@ -176,7 +176,7 @@ const Header = ({ theme, currentRoute, contrastColor }) => (
                                 : 'brightness(65%)'
                             : currentRoute == '/account'
                                 ? 'brightness(20%)'
-                                : 'brightness(45%)',
+                                : 'brightness(35%)',
                             WebkitFilter: 
                             theme == 'dark'
                             ? currentRoute == '/account'
@@ -184,7 +184,7 @@ const Header = ({ theme, currentRoute, contrastColor }) => (
                                 : 'brightness(65%)'
                             : currentRoute == '/account'
                                 ? 'brightness(20%)'
-                                : 'brightness(45%)'
+                                : 'brightness(35%)'
                         }}
                     />
                 </Link>
