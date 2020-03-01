@@ -126,13 +126,14 @@ const PlanPage = () => {
                                                 Creator: {state.pagePlan.creator}
                                             </h2>
                                         </Link>
-                                        <p 
-                                            className='plan--header' 
-                                            style={{ color: '#777' }}
-                                        >
-                                            Description: {state.pagePlan.description}
-                                        </p>
                                     </div>
+                                    
+                                    <p 
+                                        className='plan--header' 
+                                        style={{ color: '#777' }}
+                                    >
+                                        Description: {state.pagePlan.description}
+                                    </p>
 
                                     <div className='plan__heading--right'>
                                         {state.isSubscribed
@@ -290,7 +291,7 @@ const PlanPage = () => {
                                                     >
                                                         Minutes per {setItem.staticMetric}: {setItem.timePerRep}
                                                     </p>]
-                                                    
+
                                                     : setItem.maxType == 'Max time'
                                                     && <p 
                                                         className='plan--exercise' 
