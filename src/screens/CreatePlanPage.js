@@ -777,9 +777,9 @@ const CreatePlanPage = () => {
                                                                             <Input 
                                                                                 key={(dayIndex * workoutIndex + .1) * .11111}
                                                                                 name={'Approximate minutes per ' + setItem.staticMetric}
-                                                                                type='text' 
+                                                                                type='number' 
                                                                                 value={setItem.timePerRep} 
-                                                                                onChange={(e) => e.target.value.match(/^[0-9]{0,4}$/) && onChangeSet({ day: dayIndex, workout: workoutIndex, set: setIndex, key: 'timePerRep', value: e.target.value })} 
+                                                                                onChange={(e) => onChangeSet({ day: dayIndex, workout: workoutIndex, set: setIndex, key: 'timePerRep', value: e.target.value })} 
                                                                             />]
                                                                             
                                                                             : setItem == 'Max time'
