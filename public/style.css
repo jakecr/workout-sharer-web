@@ -164,6 +164,11 @@ a {
   position: relative;
   cursor: pointer; }
 
+.button--contrast {
+  border-radius: 4rem;
+  padding: 0 1.25rem;
+  margin-top: 1rem; }
+
 .button--tertiary {
   color: #f7f7f7;
   font-size: 1.8rem;
@@ -788,7 +793,7 @@ a {
   margin: 1rem 0; }
 
 .day__container {
-  padding: 1.5rem 0 0; }
+  padding: .5rem 0 0; }
 
 .plan__container--submit {
   margin: 2.5rem 0 2rem;

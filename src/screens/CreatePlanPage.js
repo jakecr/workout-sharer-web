@@ -372,9 +372,16 @@ const CreatePlanPage = () => {
                                     </button>}
                                 </div>
 
-                                <a onClick={() => setExpandAll(!expandAll)}>
-                                    <h3>{expandAll ? 'Collapse all' : 'Expand all'}</h3>
-                                </a>
+                                <div className='u-center'>
+                                    <div 
+                                        className='button button--contrast'
+                                        style={{ border: '1.5px solid ' + color.contrast }}
+                                    >
+                                        <a onClick={() => setExpandAll(!expandAll)}>
+                                            <h3 style={{ color: color.contrast}}>{expandAll ? 'Collapse all' : 'Expand all'}</h3>
+                                        </a>
+                                    </div>
+                                </div>
 
                                 {basicWorkouts.map((dayItem, dayIndex) => {
                                     return (
@@ -394,7 +401,7 @@ const CreatePlanPage = () => {
                                             </a>
 
                                             {expandAll || activeDay == dayIndex
-                                            && dayItem.map((workoutItem, workoutIndex) => {
+                                            ? dayItem.map((workoutItem, workoutIndex) => {
                                                 return (
                                                     <div key={workoutIndex + (1000000 * (dayIndex + 1))}>
                                                         <a onClick={() => setActiveWorkout(workoutIndex == activeWorkout ? null : workoutIndex)}>
@@ -409,7 +416,7 @@ const CreatePlanPage = () => {
                                                         </a>
 
                                                         {expandAll || activeWorkout == workoutIndex
-                                                        && <div className='create-plan__set--inputs'>
+                                                        ? <div className='create-plan__set--inputs'>
                                                             <Input 
                                                                 name='Exercise' 
                                                                 type='text' 
@@ -526,13 +533,15 @@ const CreatePlanPage = () => {
                                                                 value={workoutItem.sets} 
                                                                 onChange={(e) => e.target.value.match(/^[0-9]{0,2}$/) && onChangeBasicWorkout({ day: dayIndex, workout: workoutIndex, key: 'sets', value: e.target.value })}
                                                             />
-                                                        </div>}
+                                                        </div>
+                                                        : null}
                                                     </div>
                                                 )
-                                            })}
+                                            })
+                                            : null}
                                             
                                             {expandAll || activeDay == dayIndex
-                                            && <div className={dayItem.length == 0 || activeWorkout !== dayItem.length - 1 ? 'u-center u-margin-top-medium' : 'u-center'}>
+                                            ? <div className={dayItem.length == 0 || activeWorkout !== dayItem.length - 1 ? 'u-center u-margin-top-medium' : 'u-center'}>
                                                 <button 
                                                     className='button button--green' 
                                                     type='button' 
@@ -548,7 +557,8 @@ const CreatePlanPage = () => {
                                                 >
                                                     Remove workout
                                                 </button>}
-                                            </div>}
+                                            </div>
+                                            : null}
                                         </div>
                                     )
                                 })}
@@ -640,9 +650,16 @@ const CreatePlanPage = () => {
                                     </button>}
                                 </div>
 
-                                <a onClick={() => setExpandAll(!expandAll)}>
-                                    <h3>{expandAll ? 'Collapse all' : 'Expand all'}</h3>
-                                </a>
+                                <div className='u-center'>
+                                    <div 
+                                        className='button button--contrast'
+                                        style={{ border: '1.5px solid ' + color.contrast }}
+                                    >
+                                        <a onClick={() => setExpandAll(!expandAll)}>
+                                            <h3 style={{ color: color.contrast}}>{expandAll ? 'Collapse all' : 'Expand all'}</h3>
+                                        </a>
+                                    </div>
+                                </div>
                                 
                                 {workouts.map((dayItem, dayIndex) => {
                                     return (
@@ -662,7 +679,7 @@ const CreatePlanPage = () => {
                                             </a>
 
                                             {expandAll || activeDay == dayIndex
-                                            && dayItem.map((workoutItem, workoutIndex) => {
+                                            ? dayItem.map((workoutItem, workoutIndex) => {
                                                 return (
                                                     <div key={workoutIndex + (1000 * (dayIndex + 1))}>
                                                         <a onClick={() => setActiveWorkout(workoutIndex == activeWorkout ? null : workoutIndex)}>
@@ -677,7 +694,7 @@ const CreatePlanPage = () => {
                                                         </a>
 
                                                         {expandAll || activeWorkout == workoutIndex
-                                                        && workoutItem.map((setItem, setIndex) => {
+                                                        ? workoutItem.map((setItem, setIndex) => {
                                                             return (
                                                                 <div key={setIndex + (1000 * (workoutIndex + 1)) + (10000 * (dayIndex + 1))}>
                                                                     <h4 
@@ -803,10 +820,11 @@ const CreatePlanPage = () => {
                                                                     </div>
                                                                 </div>
                                                             )
-                                                        })}
+                                                        })
+                                                        : null}
                                 
                                                         {expandAll || activeWorkout == workoutIndex
-                                                        && <div className={workoutItem.length > 0 ? 'u-center' : 'u-center u-margin-top-medium'}>
+                                                        ? <div className={workoutItem.length > 0 ? 'u-center' : 'u-center u-margin-top-medium'}>
                                                             <button 
                                                                 className='button button--green' 
                                                                 type='button' 
@@ -822,13 +840,15 @@ const CreatePlanPage = () => {
                                                             >
                                                                 Remove set
                                                             </button>}
-                                                        </div>}
+                                                        </div>
+                                                        : null}
                                                     </div>
                                                 )
-                                            })}
+                                            })
+                                            : null}
                                             
                                             {expandAll || activeDay == dayIndex
-                                            && <div className={dayItem.length == 0 || activeWorkout !== dayItem.length - 1 ? 'u-center u-margin-top-medium' : 'u-center'}>
+                                            ? <div className={dayItem.length == 0 || activeWorkout !== dayItem.length - 1 ? 'u-center u-margin-top-medium' : 'u-center'}>
                                                 <button 
                                                     className='button button--green' 
                                                     type='button' 
@@ -844,7 +864,8 @@ const CreatePlanPage = () => {
                                                 >
                                                     Remove workout
                                                 </button>}
-                                            </div>}
+                                            </div>
+                                            : null}
                                         </div>
                                     )
                                 })}

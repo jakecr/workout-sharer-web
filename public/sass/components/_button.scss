@@ -11,6 +11,12 @@
         cursor: pointer;
     }
 
+    &--contrast {
+        border-radius: 4rem;
+        padding: 0 1.25rem;
+        margin-top: 1rem;
+    }
+
     &--tertiary {
         color: $color-grey-light-1;
         font-size: 1.8rem;
