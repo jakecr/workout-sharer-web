@@ -74,9 +74,6 @@ const createPlan = dispatch => async ({ name, description, keyterms, workouts, t
         else if(type == 'complex') {
             compiledWorkouts = compileAdvancedWorkouts(workouts)
         }
-        else {
-            return dispatch({ type: 'ADD_ERROR_MESSAGE', payload: 'Failed to make request, try again later.' })
-        }
 
         const planKeyterms = (name + ',' + keyterms.toString()).toLowerCase()
         
@@ -87,7 +84,7 @@ const createPlan = dispatch => async ({ name, description, keyterms, workouts, t
 
         window.location.href = '/account'
     }catch(err) {
-        dispatch({ type: 'ADD_ERROR_MESSAGE', payload: 'Failed to make request, try again later.' })
+        dispatch({ type: 'ADD_ERROR_MESSAGE', payload: 'Make sure you fill out every input including additional instructions.' })
     }
 }
 

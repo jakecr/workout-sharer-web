@@ -8,7 +8,7 @@ import Footer from '../components/Footer'
 import Header from '../components/Header'
 
 const AccountPage = () => {
-    const { state, clearErrorMessage, getAccount, signout } = useContext(AuthContext)
+    const { state, clearErrorMessage, getAccount, getMadePlans, signout } = useContext(AuthContext)
     const { deletePlan } = useContext(PlanContext)
     const { state: color, changeAccentColor, changeIsSimple, changeTheme, checkIfNotLoggedIn } = useContext(PrepContext)
 
@@ -241,6 +241,7 @@ const AccountPage = () => {
                                                     <form autoComplete="off" onSubmit={(e) => {
                                                         e.preventDefault()
                                                         deletePlan({ id: planItem._id })
+                                                        getMadePlans()
                                                         setShowConfirm(null)
                                                     }}>
                                                         <button type="submit" className='clear-defaults'>

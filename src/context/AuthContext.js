@@ -88,6 +88,22 @@ const getAccount = dispatch => async () => {
     }
 }
 
+const getMadePlans = dispatch => async () => {
+    const token = Cookies.get('token')
+
+    try {
+        const response = await workoutSharerApi.post('/get-made-plans', { token })
+        const { error, plans } = response.data
+        if(error) {
+            return dispatch({ type: 'ADD_ERROR_MESSAGE', payload: error})
+        }
+
+        dispatch({ type: 'ADD_MADE_PLANS', payload: plans })
+    }catch(err) {
+        dispatch({ type: 'ADD_ERROR_MESSAGE', payload: 'Failed to make request, try again later.' })
+    }
+}
+
 const getUser = dispatch => async () => {
     const urlParams = new URLSearchParams(window.location.search);
     const username = urlParams.get('username');
@@ -255,6 +271,6 @@ const verifydeleteAccount = dispatch => async ({ code }) => {
 
 export const { Provider, Context } = createDataContext(
     authReducer,
-    { changePassword, clearErrorMessage, clearHasEmailed, deleteAccount, getAccount, getUser, sendMeEmail, signin, signout, signup, verifyCreateAccount, verifyChangePassword, verifydeleteAccount },
+    { changePassword, clearErrorMessage, clearHasEmailed, deleteAccount, getAccount, getMadePlans, getUser, sendMeEmail, signin, signout, signup, verifyCreateAccount, verifyChangePassword, verifydeleteAccount },
     { account: null, errorMessage: '', hasEmailed: false, madePlans: [], usersMadePlans: [], user: null }
 )

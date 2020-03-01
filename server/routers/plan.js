@@ -202,6 +202,30 @@ router.post('/get-general-plan', async (req, res) => {
     }
 })
 
+router.post('/get-made-plans', async (req, res) => {
+    const { token } = req.body
+    
+    try {
+        const decoded = jwt.verify(token, process.env.JWT_SECRET)
+        const user = await User.findById(decoded.userId)
+        if(!user) {
+            return res.status(203).send({ error: 'Could not find user' })
+        }
+        
+        let madePlans = []
+        for(let i = 0; i < user.madePlans.length; i++) {
+            let plan = await Plan.findById(user.madePlans[i])
+            if(plan) {
+                madePlans.push(plan)
+            }
+        }
+
+        res.status(202).send({ plans: madePlans })
+    }catch(err) {
+        res.status(500).send()
+    }
+})
+
 router.post('/post-comment', async (req, res) => {
     const { token, comment, id } = req.body
 
