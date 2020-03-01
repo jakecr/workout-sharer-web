@@ -939,7 +939,7 @@ const CreatePlanPage = () => {
                                     className='help--heading' 
                                     style={{ color: color.contrast }}
                                 >
-                                    Name and search terms
+                                    Name and Search Terms
                                 </h2>
                                 <p 
                                     className='help--info' 
@@ -952,7 +952,7 @@ const CreatePlanPage = () => {
                                     className='help--heading' 
                                     style={{ color: color.contrast }}
                                 >
-                                    Set inputs
+                                    Set Inputs
                                 </h2>
                                 <p 
                                     className='help--info' 
@@ -979,7 +979,7 @@ const CreatePlanPage = () => {
                                     className='help--heading' 
                                     style={{ color: color.contrast }}
                                 >
-                                    Basic plan
+                                    Basic Plan
                                 </h2>
                                 <p 
                                     className='help--info' 
@@ -992,7 +992,7 @@ const CreatePlanPage = () => {
                                     className='help--heading' 
                                     style={{ color: color.contrast }}
                                 >
-                                    Complex plan
+                                    Complex Plan
                                 </h2>
                                 <p 
                                     className='help--info' 
@@ -1005,7 +1005,7 @@ const CreatePlanPage = () => {
                                     className='help--heading' 
                                     style={{ color: color.contrast }}
                                 >
-                                    Other tools
+                                    Other Tools
                                 </h2>
                                 <p 
                                     className='help--info' 
