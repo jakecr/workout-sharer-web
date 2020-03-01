@@ -2,14 +2,12 @@ import React, { useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Switch from 'react-switch'
 import { Context as AuthContext } from '../context/AuthContext'
-import { Context as PlanContext } from '../context/PlanContext'
 import { Context as PrepContext } from '../context/PrepContext'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
 
 const AccountPage = () => {
-    const { state, clearErrorMessage, getAccount, getMadePlans, signout } = useContext(AuthContext)
-    const { deletePlan } = useContext(PlanContext)
+    const { state, clearErrorMessage, deletePlan, getAccount, signout } = useContext(AuthContext)
     const { state: color, changeAccentColor, changeIsSimple, changeTheme, checkIfNotLoggedIn } = useContext(PrepContext)
 
     const [ accentColor, setAccentColor ] = useState(localStorage.getItem('accentColor') || 'blue')
@@ -241,7 +239,6 @@ const AccountPage = () => {
                                                     <form autoComplete="off" onSubmit={(e) => {
                                                         e.preventDefault()
                                                         deletePlan({ id: planItem._id })
-                                                        getMadePlans()
                                                         setShowConfirm(null)
                                                     }}>
                                                         <button type="submit" className='clear-defaults'>

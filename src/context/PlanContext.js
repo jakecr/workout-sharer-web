@@ -104,22 +104,6 @@ const deleteComment = dispatch => async ({ planId, commentId }) => {
     }
 }
 
-const deletePlan = dispatch => async ({ id }) => {
-    const token = Cookies.get('token')
-
-    try {
-        const response = await workoutSharerApi.post('/delete-plan', { token, id })
-        const { error, plans } = response.data
-        if(error) {
-            return dispatch({ type: 'ADD_ERROR_MESSAGE', payload: error })
-        }
-
-        dispatch({ type: 'ADD_MADE_PLANS', payload: plans })
-    }catch(err) {
-        dispatch({ type: 'ADD_ERROR_MESSAGE', payload: 'Failed to make request, try again later.' })
-    }
-}
-
 const getPagePlan = dispatch => async () => {
     const token = Cookies.get('token')
     const urlParams = new URLSearchParams(window.location.search);
@@ -273,6 +257,6 @@ const unsubscribe = dispatch => async () => {
 
 export const { Provider, Context } = createDataContext(
     planReducer,
-    { checkIfMadePlan, clearErrorMessage, clearSearchedPlans, createPlan, deleteComment, deletePlan, getPagePlan, getSearchedPlans, getSubscribedPlan, postComment, postRecord, subscribe, unsubscribe },
+    { checkIfMadePlan, clearErrorMessage, clearSearchedPlans, createPlan, deleteComment, getPagePlan, getSearchedPlans, getSubscribedPlan, postComment, postRecord, subscribe, unsubscribe },
     { errorMessage: '', generalPlan: null, isCreator: false, ifMadePlan: false, isSubscribed: false, pagePlan: {}, searchedPlans: [], specificPlan: null }
 )
