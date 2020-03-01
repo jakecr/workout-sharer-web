@@ -60,9 +60,6 @@ const CreatePlanPage = () => {
         checkIfMadePlan()
         clearErrorMessage()
         window.scrollTo(0, 0)
-        
-        localStorage.removeItem('basicPlan')
-        localStorage.removeItem('complexPlan')
     }, [])
 
     const onAddKeyterm = () => {
@@ -564,8 +561,27 @@ const CreatePlanPage = () => {
                                 })}
 
                                 <div className='plan__container--submit'>
-                                    <button 
+                                    {localStorage.getItem('basicPlan')
+                                    && <button 
                                         className='button button--tertiary' 
+                                        type='button'
+                                        style={{ 
+                                            backgroundColor: color.tertiary, 
+                                            borderBottom: '.4rem solid rgba(0, 0, 0, 0.3)' 
+                                        }}
+                                        onClick={() => {
+                                            localStorage.removeItem('basicPlan')
+                                            setName('')
+                                            setDescription('')
+                                            setKeyterms([])
+                                            setBasicWorkouts([[], [], [], [], [], [], []])
+                                        }}
+                                    >
+                                        Delete plan
+                                    </button>}
+
+                                    <button 
+                                        className={localStorage.getItem('basicPlan') ? 'button button--tertiary u-margin-left' : 'button button--tertiary'} 
                                         type='button'
                                         style={{ 
                                             backgroundColor: color.tertiary, 
@@ -871,8 +887,27 @@ const CreatePlanPage = () => {
                                 })}
 
                                 <div className='plan__container--submit'>
-                                    <button 
+                                    {localStorage.getItem('complexPlan')
+                                    && <button 
                                         className='button button--tertiary' 
+                                        type='button'
+                                        style={{ 
+                                            backgroundColor: color.tertiary, 
+                                            borderBottom: '.4rem solid rgba(0, 0, 0, 0.3)' 
+                                        }}
+                                        onClick={() => {
+                                            localStorage.removeItem('complexPlan')
+                                            setName('')
+                                            setDescription('')
+                                            setKeyterms([])
+                                            setWorkouts([[], [], [], [], [], [], []])
+                                        }}
+                                    >
+                                        Delete plan
+                                    </button>}
+
+                                    <button 
+                                        className={localStorage.getItem('complexPlan') ? 'button button--tertiary u-margin-left' : 'button button--tertiary'} 
                                         type='button'
                                         style={{ 
                                             backgroundColor: color.tertiary, 
@@ -936,7 +971,7 @@ const CreatePlanPage = () => {
                                         Ones where you do an exercise for a certain amount of time. With this option, you specify the amount of time as a percentage of the max time a user can do that exercise for. This option is best for isometric exercises and exercises like battle ropes. The set inputs are meant for users to adapt their plan to their fitness level, so if you want a user to do an isometric exercise for a set amount of time I recommend you add it to your plans description or the “Additional information” section of a set you want to superset the exercise with. You can use this option by selecting the “Max time” option in the “Assessment type” field.
                                     </li>
                                     <li style={{ color: color.contrast }}>
-                                        Lastly ones where you do an exercise for a certain distance. With this option, you specify the distance as a percentage of the max distance a user can do that exercise for. This option is best for exercises like running, and the strong man yoke walk. You can use this option by selecting the “Max distance” option in the “Assessment type” field.
+                                        Lastly, ones where you do an exercise for a certain distance. With this option, you specify the distance as a percentage of the max distance a user can do that exercise for. This option is best for exercises like running, and the strong man yoke walk. You can use this option by selecting the “Max distance” option in the “Assessment type” field.
                                     </li>
                                 </ol>
 
@@ -976,7 +1011,7 @@ const CreatePlanPage = () => {
                                     className='help--info' 
                                     style={{ color: color.contrast }}
                                 >
-                                    Sets are by default, hidden under day and workout tabs. You can either view them by opening the tabs and working on one workout at a time, or you can click the expand all button under the key-terms inputs to view all of them. If you don't have time to finish a plan, click the save for later button to save the plan to the plan creation page. If you do this than the next time you open the page, your plan will be there waiting for you. Keep in mind that when you open the page, your plan will no longer be saved, and you will have to save it again, if you don't finish it.
+                                    Sets are by default, hidden under day and workout tabs. You can either view them by opening the tabs and working on one workout at a time, or you can click the expand all button under the key-terms inputs to view all of them. If you don't have time to finish a plan, click the save for later button to save the plan to the plan creation page. If you do this than the next time you open the page, your plan will be there waiting for you. Keep in mind that if you don't finish it then you will have to save it again so you don't lose your progress.
                                 </p>
 
                                 <h3 
