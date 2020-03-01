@@ -141,6 +141,9 @@ router.post('/delete-plan', async (req, res) => {
             }
         }
 
+        user.credit--
+        await user.save()
+
         res.status(202).send({ plans: madePlans })
     } catch (err) {
         res.status(500).send()

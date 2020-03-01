@@ -99,11 +99,6 @@ const PlanPage = () => {
                         {
                             selectedSection == 'plan' 
                             ? state.pagePlan && <div>
-                                {!state.generalPlan 
-                                && <p style={{ color: color.contrast }}>
-                                    If you want to follow this plan you should subscribe to it and go to your "SUBSCRIBED PLAN" page to enter your records that are relavant to the plan. You will then get a plan specific to you. After that, if you get the Workout Sharer app then you will get a timer with all of your workouts set up for you.
-                                </p>}
-
                                 <div className='plan__heading'>
                                     <div className='plan__heading--left'>
                                         <h1 
