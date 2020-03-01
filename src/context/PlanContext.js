@@ -82,6 +82,7 @@ const createPlan = dispatch => async ({ name, description, keyterms, workouts, t
             return dispatch({ type: 'ADD_ERROR_MESSAGE', payload: createPlanResponse.data.error })
         }
 
+        localStorage.removeItem(type + 'Plan')
         window.location.href = '/account'
     }catch(err) {
         dispatch({ type: 'ADD_ERROR_MESSAGE', payload: 'Make sure you fill out every input including additional instructions.' })
