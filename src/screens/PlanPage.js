@@ -127,13 +127,6 @@ const PlanPage = () => {
                                             </h2>
                                         </Link>
                                     </div>
-                                    
-                                    <p 
-                                        className='plan--header' 
-                                        style={{ color: '#777' }}
-                                    >
-                                        Description: {state.pagePlan.description}
-                                    </p>
 
                                     <div className='plan__heading--right'>
                                         {state.isSubscribed
@@ -174,6 +167,13 @@ const PlanPage = () => {
                                         </form>}
                                     </div>
                                 </div>
+                                    
+                                <p 
+                                    className='plan--header' 
+                                    style={{ color: '#777' }}
+                                >
+                                    Description: {state.pagePlan.description}
+                                </p>
 
                                 {state.pagePlan.workouts
                                 && state.pagePlan.workouts.map((setItem, setIndex, setsArray) => {
