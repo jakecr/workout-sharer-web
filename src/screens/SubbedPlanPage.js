@@ -159,6 +159,7 @@ const SubbedPlanPage = () => {
                                                 >
                                                     What is the max weight you can use for 1 {setItem.exercise} rep?
                                                 </p>
+
                                                 : setItem.maxType == 'Max weight for multiple reps'
                                                 ? <p 
                                                     className='u-margin-top-none' 
@@ -166,6 +167,7 @@ const SubbedPlanPage = () => {
                                                 >
                                                     What is the max weight you can use for {setItem.repsForAssessment} {setItem.exercise} reps?
                                                 </p>
+
                                                 : setItem.maxType == 'Max reps'
                                                 ? <p 
                                                     className='u-margin-top-none' 
@@ -173,6 +175,7 @@ const SubbedPlanPage = () => {
                                                 >
                                                     What is the max reps you can do of {setItem.exercise}?
                                                 </p>
+
                                                 : setItem.maxType == 'Max distance'
                                                 ? <p 
                                                     className='u-margin-top-none' 
@@ -180,6 +183,7 @@ const SubbedPlanPage = () => {
                                                 >
                                                     What is the max {setItem.staticMetric}s you can {setItem.exercise}?
                                                 </p>
+
                                                 : setItem.maxType == 'Max time'
                                                 && <p 
                                                     className='u-margin-top-none' 
@@ -333,6 +337,7 @@ const SubbedPlanPage = () => {
                                                         >
                                                             Reps: {setItem.reps}
                                                         </p>]
+
                                                         : setItem.maxType == 'Max weight for multiple reps'
                                                         ? [<p 
                                                             key={setIndex - 100000} 
@@ -348,6 +353,7 @@ const SubbedPlanPage = () => {
                                                         >
                                                             Reps: {setItem.reps}
                                                         </p>]
+
                                                         : setItem.maxType == 'Max reps'
                                                         ? <p 
                                                             className='plan--exercise' 
@@ -355,6 +361,7 @@ const SubbedPlanPage = () => {
                                                         >
                                                             Reps: {setItem.reps}
                                                         </p>
+
                                                         : setItem.maxType == 'Max distance'
                                                         ? [<p 
                                                             key={setIndex - 100000} 
@@ -370,6 +377,7 @@ const SubbedPlanPage = () => {
                                                         >
                                                             Time: {Math.floor(setItem.time / 60)}minutes
                                                         </p>]
+
                                                         : setItem.maxType == 'Max time'
                                                         && <p 
                                                             className='plan--exercise' 
@@ -570,6 +578,7 @@ const SubbedPlanPage = () => {
                                             >
                                                 Minutes per {setItem.staticMetric}: {setItem.timePerRep}
                                             </p>]
+                                            
                                             : setItem.maxType == 'Max time'
                                             && <p 
                                                 className='plan--exercise' 

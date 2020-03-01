@@ -290,6 +290,7 @@ const PlanPage = () => {
                                                     >
                                                         Minutes per {setItem.staticMetric}: {setItem.timePerRep}
                                                     </p>]
+                                                    
                                                     : setItem.maxType == 'Max time'
                                                     && <p 
                                                         className='plan--exercise' 

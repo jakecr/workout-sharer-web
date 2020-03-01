@@ -761,6 +761,7 @@ const CreatePlanPage = () => {
                                                                                 value={setItem.timePerRep} 
                                                                                 onChange={(e) => e.target.value.match(/^[0-9]{0,2}$/) && onChangeSet({ day: dayIndex, workout: workoutIndex, set: setIndex, key: 'timePerRep', value: e.target.value })} 
                                                                             />
+
                                                                             : setItem.maxType == 'Max distance'
                                                                             ? [<Select 
                                                                                 key={(dayIndex * workoutIndex + .1) * .1111}
@@ -780,6 +781,7 @@ const CreatePlanPage = () => {
                                                                                 value={setItem.timePerRep} 
                                                                                 onChange={(e) => e.target.value.match(/^[0-9]{0,4}$/) && onChangeSet({ day: dayIndex, workout: workoutIndex, set: setIndex, key: 'timePerRep', value: e.target.value })} 
                                                                             />]
+                                                                            
                                                                             : setItem == 'Max time'
                                                                             && null
                                                                         }
