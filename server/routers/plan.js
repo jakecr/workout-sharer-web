@@ -111,7 +111,6 @@ router.post('/delete-plan', async (req, res) => {
         for(let i = 0; i < user.madePlans.length; i++){
             if(user.madePlans[i] == id){
                 user.madePlans.splice(i, 1)
-                await user.save()
                 break
             }
             if(i == user.madePlans.length - 1) {
