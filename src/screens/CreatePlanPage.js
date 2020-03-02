@@ -592,7 +592,7 @@ const CreatePlanPage = () => {
                                             localStorage.removeItem('complexPlan')
                                         }}
                                     >
-                                        Save for Later
+                                        {localStorage.getItem('basicPlan') ? 'Override save' : 'Save for Later'}
                                     </button>
 
                                     <button 
@@ -918,7 +918,7 @@ const CreatePlanPage = () => {
                                             localStorage.removeItem('basicPlan')
                                         }}
                                     >
-                                        Save for Later
+                                        {localStorage.getItem('complexPlan') ? 'Override save' : 'Save for Later'}
                                     </button>
 
                                     <button 
