@@ -22,6 +22,10 @@ app.use(planRouter)
 app.use(express.static(publicPath))
 
 app.get('*', (req, res) => {
+    if(window.location.hostname == 'workout-sharer-web.herokuapp.com' || window.location.protocol !== 'https:') {
+        window.location.href = 'https://www.workoutsharer.com' + window.location.pathname
+    }
+    
     res.sendFile(path.join(publicPath, 'index.html'))
 })
 
