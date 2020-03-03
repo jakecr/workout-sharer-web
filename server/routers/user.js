@@ -10,7 +10,7 @@ router.post('/change-password', async (req, res) => {
     const { email } = req.body
 
     try {
-        const ifUser = await User.findOne({ email })
+        const ifUser = await User.findOne({ email: email.toLowerCase() })
         if(!ifUser){
             return res.send({ error: 'Could not find an account with that email!' })
         }
@@ -87,9 +87,9 @@ router.post('/signin', async (req, res) => {
         let user
 
         if(account.match(/\S+@\S+\.\S+/)) {
-            user = await User.findOne({ email: account })
+            user = await User.findOne({ email: account.toLowerCase() })
         }else {
-            user = await User.findOne({ username: account })
+            user = await User.findOne({ username: account.toLowerCase() })
         }
 
         if(!user) {
@@ -112,7 +112,7 @@ router.post('/signup', async (req, res) => {
     const { username, email } = req.body
 
     try {
-        const ifSameEmail = await User.findOne({ email })
+        const ifSameEmail = await User.findOne({ email: email.toLowerCase() })
         const ifSameUsername = await User.findOne({ username: username.toLowerCase() })
 
         if(ifSameEmail) {
@@ -196,7 +196,7 @@ router.post('/verify-password', async (req, res) => {
             return res.status(203).send({ error: 'Make sure your code is correct.' })
         }
         
-        const user = await User.findOne({ email })
+        const user = await User.findOne({ email: email.toLowerCase() })
         if(!user) {
             return res.send({ error: 'Make sure your email is correct.' })
         }
@@ -219,7 +219,7 @@ router.post('/verify-user', async (req, res) => {
             return res.status(203).send({ error: 'Make sure you give the correct code.' })
         }
 
-        const user = new User({ email, password, username: username.toLowerCase() })
+        const user = new User({ email: email.toLowerCase(), password, username: username.toLowerCase() })
         await user.save()
     
         const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET)
