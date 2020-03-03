@@ -49,7 +49,7 @@ router.post('/get-user', async (req, res) => {
             const decoded = jwt.verify(token, process.env.JWT_SECRET)
             user = await User.findById(decoded.userId)
         }else if(username) {
-            user = await User.findOne({ username })
+            user = await User.findOne({ username: username.toLowerCase() })
         }
         if(!user) {
             return res.status(203).send({ error: 'Could not find user' })
@@ -113,7 +113,7 @@ router.post('/signup', async (req, res) => {
 
     try {
         const ifSameEmail = await User.findOne({ email })
-        const ifSameUsername = await User.findOne({ username })
+        const ifSameUsername = await User.findOne({ username: username.toLowerCase() })
 
         if(ifSameEmail) {
             return res.send({ error: 'There is already an account with that email!' })
@@ -219,7 +219,7 @@ router.post('/verify-user', async (req, res) => {
             return res.status(203).send({ error: 'Make sure you give the correct code.' })
         }
 
-        const user = new User({ email, password, username })
+        const user = new User({ email, password, username: username.toLowerCase() })
         await user.save()
     
         const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET)

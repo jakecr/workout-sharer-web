@@ -111,6 +111,10 @@ router.post('/delete-plan', async (req, res) => {
         for(let i = 0; i < user.madePlans.length; i++){
             if(user.madePlans[i] == id){
                 user.madePlans.splice(i, 1)
+
+                user.credit--
+                await user.save()
+                
                 break
             }
             if(i == user.madePlans.length - 1) {
@@ -139,9 +143,6 @@ router.post('/delete-plan', async (req, res) => {
                 madePlans.push({ name: plan.name, subscribers: plan.subscribers, _id: plan._id })
             }
         }
-
-        user.credit--
-        await user.save()
 
         res.status(202).send({ plans: madePlans })
     } catch (err) {
