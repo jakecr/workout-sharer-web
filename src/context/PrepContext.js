@@ -27,6 +27,10 @@ const planReducer = (state, action) => {
 }
 
 const checkIfLoggedIn = dispatch => async () => {
+    if(window.location.hostname == 'workout-sharer-web.herokuapp.com' || window.location.protocol !== 'https:') {
+        window.location.href = 'https://www.workoutsharer.com' + window.location.pathname
+    }
+
     const token = Cookies.get('token')
 
     try {
@@ -68,6 +72,10 @@ const checkIfLoggedIn = dispatch => async () => {
 }
 
 const checkIfNotLoggedIn = dispatch => async () => {
+    if(window.location.hostname == 'workout-sharer-web.herokuapp.com' || window.location.protocol !== 'https:') {
+        window.location.href = 'https://www.workoutsharer.com' + window.location.pathname
+    }
+
     const token = Cookies.get('token')
     
     try {
