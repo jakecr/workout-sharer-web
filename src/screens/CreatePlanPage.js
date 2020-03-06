@@ -962,7 +962,7 @@ const CreatePlanPage = () => {
                                 </p>
                                 <ol>
                                     <li style={{ color: color.contrast }}>
-                                        Ones based on one rep maxes or multiple rep maxes where you use a certain weight for a given amount of reps. With these plans you specify the weight with a percentage of the weight that a subscriber can use for a number of reps that you specify. This option is best for bodybuilding, powerlifting or strength training. You can use this option by selecting "Max weight for one rep" or "Max weight for multiple reps" in the “Assessment type” field.
+                                        Ones based on one rep maxes or multiple rep maxes (RPE) where you use a certain weight for a given amount of reps. With these plans you specify the weight with a percentage of the weight that a subscriber can use for a number of reps that you specify. If you want to use RPE's, just set the percentage to 100% and specify the amount of reps that the weight is assessed by and the amount of reps you want the user to do. These options are best for bodybuilding, powerlifting or strength training. You can use these options by selecting "Max weight for one rep" or "Max weight for multiple reps" in the “Assessment type” field.
                                     </li>
                                     <li style={{ color: color.contrast }}>
                                         Ones where you do a certain number of reps of an exercise. With this option you specify the amount of reps with a percentage of the subscribers max reps. This option is best for calisthenics exercises. You can use this option by selecting "Max reps" in the "Assessment type" field.
