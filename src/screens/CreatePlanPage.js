@@ -472,7 +472,7 @@ const CreatePlanPage = () => {
                                                                     name='Rate of Perceived Exertion' 
                                                                     type='text' 
                                                                     value={workoutItem.repsForAssessment} 
-                                                                    onChange={(e) => e.target.value <= 10 && e.target.value >= 4 && onChangeBasicWorkout({ day: dayIndex, workout: workoutIndex, key: 'repsForAssessment', value: e.target.value })} 
+                                                                    onChange={(e) => parseFloat(e.target.value) <= 10 && parseFloat(e.target.value) >= 4 && onChangeBasicWorkout({ day: dayIndex, workout: workoutIndex, key: 'repsForAssessment', value: e.target.value })} 
                                                                 />
                                                                 , <Input 
                                                                     key={(dayIndex * workoutIndex + .1) * .11111}
@@ -781,7 +781,7 @@ const CreatePlanPage = () => {
                                                                                 name='Rate of Perceived Exertion' 
                                                                                 type='text' 
                                                                                 value={setItem.repsForAssessment} 
-                                                                                onChange={(e) => e.target.value <= 10 && e.target.value >= 4 && onChangeSet({ day: dayIndex, workout: workoutIndex, set: setIndex, key: 'repsForAssessment', value: e.target.value })} 
+                                                                                onChange={(e) => parseFloat(e.target.value) <= 10 && parseFloat(e.target.value) >= 4 && onChangeSet({ day: dayIndex, workout: workoutIndex, set: setIndex, key: 'repsForAssessment', value: e.target.value })} 
                                                                             />
                                                                             , <Input 
                                                                                 key={(dayIndex * workoutIndex + .1) * .11111}
