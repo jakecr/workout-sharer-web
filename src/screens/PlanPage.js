@@ -253,7 +253,7 @@ const PlanPage = () => {
                                                         key={setIndex - 1000} 
                                                         style={{ color: color.contrast }}
                                                     >
-                                                        Weight: {setItem.percentMax}% of your max weight for {setItem.repsForAssessment} reps
+                                                        Weight: Your max weight for {parseFloat(setItem.staticMetric) + (10 - parseFloat(setItem.repsForAssessment))} reps
                                                     </p>
                                                     , <p 
                                                         className='plan--exercise' 

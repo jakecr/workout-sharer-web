@@ -49,7 +49,7 @@ export const compileSpecificPlan = (plan, record) => {
                         set: item.set,
                         exercise: item.exercise,
                         maxType: item.maxType,
-                        weight: Math.floor((parseFloat(item.percentMax) / 100) * parseFloat(record[index])),
+                        weight: record[index],
                         reps: item.staticMetric,
                         time: Math.floor(parseFloat(item.timePerRep) * parseFloat(item.staticMetric)),
                         setRest: item.setRest,

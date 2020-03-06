@@ -148,6 +148,10 @@ const CreatePlanPage = () => {
             }else {
                 nextState[day][workout].staticMetric = ''
             }
+            
+            if(value == 'Rate of Perceived Exertion') {
+                nextState[day][workout].percentMax = 100
+            }
         }
         
         setBasicWorkouts(nextState)
@@ -173,6 +177,10 @@ const CreatePlanPage = () => {
                 nextState[day][workout][set].staticMetric = 'mile'
             }else {
                 nextState[day][workout][set].staticMetric = ''
+            }
+            
+            if(value == 'Rate of Perceived Exertion') {
+                nextState[day][workout][set].percentMax = 100
             }
         }
         
@@ -427,7 +435,7 @@ const CreatePlanPage = () => {
                                                                 onChange={(e) => onChangeBasicWorkout({ day: dayIndex, workout: workoutIndex, key: 'maxType', value: e.target.value })} 
                                                             >
                                                                 <option value='Max weight for one rep'>Max weight for one rep</option>
-                                                                <option value='Max weight for multiple reps'>Max weight for multiple reps</option>
+                                                                <option value='Max weight for multiple reps'>Rate of perceived exertion</option>
                                                                 <option value='Max reps'>Max reps</option>
                                                                 <option value='Max time'>Max time</option>
                                                                 <option value='Max distance'>Max distance</option>
@@ -460,10 +468,10 @@ const CreatePlanPage = () => {
                                                                 : workoutItem.maxType == 'Max weight for multiple reps'
                                                                 ? [<Input 
                                                                     key={(dayIndex * workoutIndex + .1) * .1111}
-                                                                    name='Number of reps for assessment' 
+                                                                    name='Rate of Perceived Exertion' 
                                                                     type='text' 
                                                                     value={workoutItem.repsForAssessment} 
-                                                                    onChange={(e) => e.target.value.match(/^[0-9]{0,2}$/) && onChangeBasicWorkout({ day: dayIndex, workout: workoutIndex, key: 'repsForAssessment', value: e.target.value })} 
+                                                                    onChange={(e) => e.target.value.match(/^[0-9]|[1][0]$/) && onChangeBasicWorkout({ day: dayIndex, workout: workoutIndex, key: 'repsForAssessment', value: e.target.value })} 
                                                                 />
                                                                 , <Input 
                                                                     key={(dayIndex * workoutIndex + .1) * .11111}
@@ -735,7 +743,7 @@ const CreatePlanPage = () => {
                                                                             onChange={(e) => onChangeSet({ day: dayIndex, workout: workoutIndex, set: setIndex, key: 'maxType', value: e.target.value })} 
                                                                         >
                                                                             <option value='Max weight for one rep'>Max weight for one rep</option>
-                                                                            <option value='Max weight for multiple reps'>Max weight for multiple reps</option>
+                                                                            <option value='Max weight for multiple reps'>Rate of perceived exertion</option>
                                                                             <option value='Max reps'>Max reps</option>
                                                                             <option value='Max time'>Max time</option>
                                                                             <option value='Max distance'>Max distance</option>
@@ -768,10 +776,10 @@ const CreatePlanPage = () => {
                                                                             : setItem.maxType == 'Max weight for multiple reps'
                                                                             ? [<Input 
                                                                                 key={(dayIndex * workoutIndex + .1) * .1111}
-                                                                                name='Number of reps for assessment' 
+                                                                                name='Rate of Perceived Exertion' 
                                                                                 type='text' 
                                                                                 value={setItem.repsForAssessment} 
-                                                                                onChange={(e) => e.target.value.match(/^[0-9]{0,2}$/) && onChangeSet({ day: dayIndex, workout: workoutIndex, set: setIndex, key: 'repsForAssessment', value: e.target.value })} 
+                                                                                onChange={(e) => e.target.value.match(/^[0-9]|[1][0]$/) && onChangeSet({ day: dayIndex, workout: workoutIndex, set: setIndex, key: 'repsForAssessment', value: e.target.value })} 
                                                                             />
                                                                             , <Input 
                                                                                 key={(dayIndex * workoutIndex + .1) * .11111}
@@ -960,9 +968,12 @@ const CreatePlanPage = () => {
                                 >
                                     Workout plans are not meant to include injury prevention, overcoming isometrics, or stretching. I recommend you include those in your plans description or exercises additional information. There are four types of workouts that are meant to be used in workout plans.
                                 </p>
-                                <ol>
+                                <ol>Rate of perceived exertion
                                     <li style={{ color: color.contrast }}>
-                                        Ones based on one rep maxes or multiple rep maxes (RPE) where you use a certain weight for a given amount of reps. With these plans you specify the weight with a percentage of the weight that a subscriber can use for a number of reps that you specify. If you want to use RPE's, just set the percentage to 100% and specify the "Number of reps for assessment" as the number of reps you want the user to do plus the number of reps you want them to have in the tank, and the amount of reps you want the user to do. These options are best for bodybuilding, powerlifting or strength training. You can use these options by selecting "Max weight for one rep" or "Max weight for multiple reps" in the “Assessment type” field.
+                                        Ones based on one rep maxes where you use a certain weight for a given amount of reps. With these plans you specify the weight with a percentage of the weight that a subscriber can use for a number of reps that you specify. This option is best for bodybuilding or strength training. You can use this option by selecting "Max weight for one rep" in the “Assessment type” field.
+                                    </li>
+                                    <li style={{ color: color.contrast }}>
+                                        Ones based on rate of perceived exertion where you do your max weight for some amount of reps, but do less reps on that based on the sets RPE. With these plans you specify the amount of reps you want the user to do and the Rate of Perceived Exertion. This option is best for powerlifting. You can use this option by selecting "Rate of Perceived Exertion" in the “Assessment type” field.
                                     </li>
                                     <li style={{ color: color.contrast }}>
                                         Ones where you do a certain number of reps of an exercise. With this option you specify the amount of reps with a percentage of the subscribers max reps. This option is best for calisthenics exercises. You can use this option by selecting "Max reps" in the "Assessment type" field.
