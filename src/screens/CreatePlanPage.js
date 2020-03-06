@@ -441,12 +441,13 @@ const CreatePlanPage = () => {
                                                                 <option value='Max distance'>Max distance</option>
                                                             </Select>
                                                             
-                                                            <Input 
+                                                            {workoutItem.maxType !== 'Max weight for multiple reps'
+                                                            && <Input 
                                                                 name='Percent max (%)' 
                                                                 type='text' 
                                                                 value={workoutItem.percentMax} 
                                                                 onChange={(e) => e.target.value.match(/^[0-9]{0,2}$/) && onChangeBasicWorkout({ day: dayIndex, workout: workoutIndex, key: 'percentMax', value: e.target.value })}
-                                                            />
+                                                            />}
 
                                                             {
                                                                 workoutItem.maxType == 'Max weight for one rep'
@@ -749,12 +750,13 @@ const CreatePlanPage = () => {
                                                                             <option value='Max distance'>Max distance</option>
                                                                         </Select>
                                                                         
-                                                                        <Input 
+                                                                        {setItem.maxType !== 'Max weight for multiple reps'
+                                                                        && <Input 
                                                                             name='Percent max (%)' 
                                                                             type='text' 
                                                                             value={setItem.percentMax} 
                                                                             onChange={(e) => e.target.value.match(/^[0-9]{0,2}$/) && onChangeSet({ day: dayIndex, workout: workoutIndex, set: setIndex, key: 'percentMax', value: e.target.value })}
-                                                                        />
+                                                                        />}
 
                                                                         {
                                                                             setItem.maxType == 'Max weight for one rep'
