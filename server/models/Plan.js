@@ -28,7 +28,6 @@ const workoutSchema = new mongoose.Schema({
     },
     percentMax: {
         type: String,
-        required: true,
         trim: true
     },
     repsForAssessment: {
