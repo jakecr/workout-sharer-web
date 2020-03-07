@@ -467,19 +467,21 @@ const CreatePlanPage = () => {
                                                                 />]
 
                                                                 : workoutItem.maxType == 'Max weight for multiple reps'
-                                                                ? [<Input 
+                                                                ? [<Select 
                                                                     key={(dayIndex * workoutIndex + .1) * .1111}
                                                                     name='Rate of Perceived Exertion' 
                                                                     type='text' 
                                                                     value={workoutItem.repsForAssessment} 
-                                                                    onChange={(e) => 
-                                                                        parseFloat(e.target.value) <= 10 && parseFloat(e.target.value) >= 4 
-                                                                        ? onChangeBasicWorkout({ day: dayIndex, workout: workoutIndex, key: 'repsForAssessment', value: e.target.value }) 
-                                                                        : e.target.value == '' || e.target.value == 1 
-                                                                            ? onChangeBasicWorkout({ day: dayIndex, workout: workoutIndex, key: 'repsForAssessment', value: e.target.value })
-                                                                            : null
-                                                                    } 
-                                                                />
+                                                                    onChange={(e) => onChangeBasicWorkout({ day: dayIndex, workout: workoutIndex, key: 'repsForAssessment', value: e.target.value })} 
+                                                                >
+                                                                    <option value='4' />
+                                                                    <option value='5' />
+                                                                    <option value='6' />
+                                                                    <option value='7' />
+                                                                    <option value='8' />
+                                                                    <option value='9' />
+                                                                    <option value='10' />
+                                                                </Select>
                                                                 , <Input 
                                                                     key={(dayIndex * workoutIndex + .1) * .11111}
                                                                     name='Number of reps' 
@@ -782,19 +784,21 @@ const CreatePlanPage = () => {
                                                                             />]
 
                                                                             : setItem.maxType == 'Max weight for multiple reps'
-                                                                            ? [<Input 
+                                                                            ? [<Select 
                                                                                 key={(dayIndex * workoutIndex + .1) * .1111}
                                                                                 name='Rate of Perceived Exertion' 
                                                                                 type='text' 
                                                                                 value={setItem.repsForAssessment} 
-                                                                                onChange={(e) => 
-                                                                                    parseFloat(e.target.value) <= 10 && parseFloat(e.target.value) >= 4 
-                                                                                    ? onChangeSet({ day: dayIndex, workout: workoutIndex, set: setIndex, key: 'repsForAssessment', value: e.target.value }) 
-                                                                                    : e.target.value == '' || e.target.value == 1 
-                                                                                        ? onChangeSet({ day: dayIndex, workout: workoutIndex, set: setIndex, key: 'repsForAssessment', value: e.target.value })
-                                                                                        : null
-                                                                                } 
-                                                                            />
+                                                                                onChange={(e) => onChangeSet({ day: dayIndex, workout: workoutIndex, set: setIndex, key: 'repsForAssessment', value: e.target.value })} 
+                                                                            >
+                                                                                <option value='4' />
+                                                                                <option value='5' />
+                                                                                <option value='6' />
+                                                                                <option value='7' />
+                                                                                <option value='8' />
+                                                                                <option value='9' />
+                                                                                <option value='10' />
+                                                                            </Select>
                                                                             , <Input 
                                                                                 key={(dayIndex * workoutIndex + .1) * .11111}
                                                                                 name='Number of reps' 
