@@ -475,7 +475,9 @@ const CreatePlanPage = () => {
                                                                     onChange={(e) => 
                                                                         parseFloat(e.target.value) <= 10 && parseFloat(e.target.value) >= 4 
                                                                         ? onChangeBasicWorkout({ day: dayIndex, workout: workoutIndex, key: 'repsForAssessment', value: e.target.value }) 
-                                                                        : e.target.value == '' && onChangeBasicWorkout({ day: dayIndex, workout: workoutIndex, key: 'repsForAssessment', value: e.target.value })
+                                                                        : e.target.value == '' || e.target.value == 1 
+                                                                            ? onChangeBasicWorkout({ day: dayIndex, workout: workoutIndex, key: 'repsForAssessment', value: e.target.value })
+                                                                            : null
                                                                     } 
                                                                 />
                                                                 , <Input 
@@ -788,7 +790,9 @@ const CreatePlanPage = () => {
                                                                                 onChange={(e) => 
                                                                                     parseFloat(e.target.value) <= 10 && parseFloat(e.target.value) >= 4 
                                                                                     ? onChangeSet({ day: dayIndex, workout: workoutIndex, set: setIndex, key: 'repsForAssessment', value: e.target.value }) 
-                                                                                    : e.target.value == '' && onChangeSet({ day: dayIndex, workout: workoutIndex, set: setIndex, key: 'repsForAssessment', value: e.target.value })
+                                                                                    : e.target.value == '' || e.target.value == 1 
+                                                                                        ? onChangeSet({ day: dayIndex, workout: workoutIndex, set: setIndex, key: 'repsForAssessment', value: e.target.value })
+                                                                                        : null
                                                                                 } 
                                                                             />
                                                                             , <Input 
