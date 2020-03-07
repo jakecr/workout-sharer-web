@@ -149,8 +149,9 @@ const CreatePlanPage = () => {
                 nextState[day][workout].staticMetric = ''
             }
             
-            if(value == 'Rate of Perceived Exertion') {
+            if(value == 'Max weight for multiple rep') {
                 nextState[day][workout].percentMax = 100
+                nextState[day][workout][set].repsForAssessment = '10'
             }
         }
         
@@ -179,8 +180,9 @@ const CreatePlanPage = () => {
                 nextState[day][workout][set].staticMetric = ''
             }
             
-            if(value == 'Rate of Perceived Exertion') {
+            if(value == 'Max weight for multiple rep') {
                 nextState[day][workout][set].percentMax = 100
+                nextState[day][workout][set].repsForAssessment = '10'
             }
         }
         
