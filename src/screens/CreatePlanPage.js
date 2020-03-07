@@ -470,17 +470,16 @@ const CreatePlanPage = () => {
                                                                 ? [<Select 
                                                                     key={(dayIndex * workoutIndex + .1) * .1111}
                                                                     name='Rate of Perceived Exertion' 
-                                                                    type='text' 
                                                                     value={workoutItem.repsForAssessment} 
                                                                     onChange={(e) => onChangeBasicWorkout({ day: dayIndex, workout: workoutIndex, key: 'repsForAssessment', value: e.target.value })} 
                                                                 >
-                                                                    <option value='4' />
-                                                                    <option value='5' />
-                                                                    <option value='6' />
-                                                                    <option value='7' />
-                                                                    <option value='8' />
-                                                                    <option value='9' />
-                                                                    <option value='10' />
+                                                                    <option value='10'>10</option>
+                                                                    <option value='9'>9</option>
+                                                                    <option value='8'>8</option>
+                                                                    <option value='7'>7</option>
+                                                                    <option value='6'>6</option>
+                                                                    <option value='5'>5</option>
+                                                                    <option value='4'>4</option>
                                                                 </Select>
                                                                 , <Input 
                                                                     key={(dayIndex * workoutIndex + .1) * .11111}
@@ -787,17 +786,16 @@ const CreatePlanPage = () => {
                                                                             ? [<Select 
                                                                                 key={(dayIndex * workoutIndex + .1) * .1111}
                                                                                 name='Rate of Perceived Exertion' 
-                                                                                type='text' 
                                                                                 value={setItem.repsForAssessment} 
                                                                                 onChange={(e) => onChangeSet({ day: dayIndex, workout: workoutIndex, set: setIndex, key: 'repsForAssessment', value: e.target.value })} 
                                                                             >
-                                                                                <option value='4' />
-                                                                                <option value='5' />
-                                                                                <option value='6' />
-                                                                                <option value='7' />
-                                                                                <option value='8' />
-                                                                                <option value='9' />
-                                                                                <option value='10' />
+                                                                                <option value='10'>10</option>
+                                                                                <option value='9'>9</option>
+                                                                                <option value='8'>8</option>
+                                                                                <option value='7'>7</option>
+                                                                                <option value='6'>6</option>
+                                                                                <option value='5'>5</option>
+                                                                                <option value='4'>4</option>
                                                                             </Select>
                                                                             , <Input 
                                                                                 key={(dayIndex * workoutIndex + .1) * .11111}
