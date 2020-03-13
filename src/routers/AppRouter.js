@@ -16,6 +16,7 @@ import ContactPage from '../screens/ContactPage'
 import CreatePlanPage from '../screens/CreatePlanPage'
 import NotFoundPage from '../screens/NotFoundPage'
 import PlanPage from '../screens/PlanPage'
+import PrivacyPolicyPage from '../screens/PrivacyPolicyPage'
 import SearchPage from '../screens/SearchPage'
 import UserPage from '../screens/UserPage'
 import SubbedPlanPage from '../screens/SubbedPlanPage'
@@ -37,6 +38,7 @@ const AppRouter = () => (
                 <Route path='/contact' component={ContactPage} />
                 <Route path='/create-plan' component={CreatePlanPage} />
                 <Route path='/plan' component={PlanPage} />
+                <Route path='/privacy-policy' component={PrivacyPolicyPage} />
                 <Route path='/search' component={SearchPage} />
                 <Route path='/user-page' component={UserPage} />
                 <Route path='/subbed-plan' component={SubbedPlanPage} />

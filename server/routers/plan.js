@@ -86,7 +86,7 @@ router.post('/delete-comment', async (req, res) => {
                 break
             }
         }
-        if(commenter) {
+        if(commenter.username !== user.username ) {
             commenter.credit -= 5
             await commenter.save()
         }
