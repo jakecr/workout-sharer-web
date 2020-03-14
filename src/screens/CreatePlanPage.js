@@ -986,7 +986,7 @@ const CreatePlanPage = () => {
                                 >
                                     Workout plans are not meant to include injury prevention, overcoming isometrics, or stretching. I recommend you include those in your plans description or exercises additional information. There are four types of workouts that are meant to be used in workout plans.
                                 </p>
-                                <ol>Rate of perceived exertion
+                                <ol>
                                     <li style={{ color: color.contrast }}>
                                         Ones based on one rep maxes where you use a certain weight for a given amount of reps. With these plans you specify the weight with a percentage of the weight that a subscriber can use for a number of reps that you specify. This option is best for bodybuilding or strength training. You can use this option by selecting "Max weight for one rep" in the “Assessment type” field.
                                     </li>
