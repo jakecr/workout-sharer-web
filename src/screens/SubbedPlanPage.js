@@ -157,7 +157,7 @@ const SubbedPlanPage = () => {
                                                     className='u-margin-top-none' 
                                                     style={{ color: '#777' }}
                                                 >
-                                                    What is the max weight you can use for 1 {setItem.exercise} rep?
+                                                    About what is the most weight you can use for 1 {setItem.exercise} rep?
                                                 </p>
 
                                                 : setItem.maxType == 'Max weight for multiple reps'
@@ -165,7 +165,7 @@ const SubbedPlanPage = () => {
                                                     className='u-margin-top-none' 
                                                     style={{ color: '#777' }}
                                                 >
-                                                    What is the max weight you can use for {parseFloat(setItem.staticMetric) + (10 - parseFloat(setItem.repsForAssessment))} {setItem.exercise} reps?
+                                                    About what is the most weight you can use for {parseFloat(setItem.staticMetric) + (10 - parseFloat(setItem.repsForAssessment))} {setItem.exercise} reps?
                                                 </p>
 
                                                 : setItem.maxType == 'Max reps'
@@ -173,7 +173,7 @@ const SubbedPlanPage = () => {
                                                     className='u-margin-top-none' 
                                                     style={{ color: '#777' }}
                                                 >
-                                                    What is the max reps you can do of {setItem.exercise}?
+                                                    About what is the most reps you can do of {setItem.exercise}?
                                                 </p>
 
                                                 : setItem.maxType == 'Max distance'
@@ -181,7 +181,7 @@ const SubbedPlanPage = () => {
                                                     className='u-margin-top-none' 
                                                     style={{ color: '#777' }}
                                                 >
-                                                    What is the max {setItem.staticMetric}s you can {setItem.exercise}?
+                                                    About what is the most {setItem.staticMetric}s you can {setItem.exercise}?
                                                 </p>
 
                                                 : setItem.maxType == 'Max time'
@@ -189,7 +189,7 @@ const SubbedPlanPage = () => {
                                                     className='u-margin-top-none' 
                                                     style={{ color: '#777' }}
                                                 >
-                                                    What is the max time you can {setItem.exercise}?
+                                                    About what is the most time you can {setItem.exercise}?
                                                 </p>}
     
                                                 <Input 
