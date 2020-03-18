@@ -2,10 +2,10 @@ import createDataContext from './createDataContext'
 import workoutSharerApi from '../api/workoutSharer'
 import Cookies from 'js-cookie'
 const tertiaryColors = [
-    { color: 'blue', light: '#155eb0', dark: '#063770' },
+    { color: 'blue', light: '#1d63b5', dark: '#1254a1' },
     { color: 'green', light: '#539c49', dark: '#3b7534' },
     { color: 'pink', light: '#cf7a9c', dark: '#a15f79' },
-    { color: 'purple', light: '#58138f', dark: '#480f75' },
+    { color: 'purple', light: '#9c62cc', dark: '#894abd' },
     { color: 'red', light: '#cf4015', dark: '#8f3114' },
     { color: 'orange', light: '#cc7e1f', dark: '#a36315' },
     { color: 'teal', light: '#10b09c', dark: '#0e8071' }
