@@ -38,12 +38,12 @@ const changePassword = dispatch => async ({ email }) => {
 
     try {
         const response = await workoutSharerApi.post('/change-password', { email })
-        const { error, encodedCorrectCode, email: responseEmail } = response.data
+        const { error, encodedCorrectCode } = response.data
         if(error) {
             return dispatch({ type: 'ADD_ERROR_MESSAGE', payload: error})
         }
 
-        const passwordData = { encodedCorrectCode, email: responseEmail }
+        const passwordData = { encodedCorrectCode, email }
         
         Cookies.remove('passwordData')
         Cookies.set('passwordData', JSON.stringify(passwordData))

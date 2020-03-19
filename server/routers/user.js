@@ -16,7 +16,7 @@ router.post('/change-password', async (req, res) => {
         }
 
         encodedCorrectCode = await bcrypt.hash(sendChangePasswordEmail(email) + process.env.BCRYPT_SECRET, 8)
-        res.status(202).send({ encodedCorrectCode, email })
+        res.status(202).send({ encodedCorrectCode })
     }catch(err) {
         res.status(500).send()
     }
