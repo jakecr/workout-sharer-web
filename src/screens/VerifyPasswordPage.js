@@ -94,7 +94,7 @@ const VerifyPasswordPage = () => {
                                     borderBottom: '.4rem solid rgba(0, 0, 0, 0.3)' 
                                 }}
                             >
-                                Create account
+                                Set new password
                             </button>
                         </div>
                     </form>
