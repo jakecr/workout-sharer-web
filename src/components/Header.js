@@ -8,7 +8,7 @@ const Header = ({ theme, currentRoute, contrastColor }) => (
                 <label className='header__label--logo' style={{ color: contrastColor }}>APP</label>
                 <Link 
                     className='header__anker'  
-                    to='/' 
+                    to='/app' 
                 >
                     <img 
                         className='header__logo' 
@@ -39,7 +39,7 @@ const Header = ({ theme, currentRoute, contrastColor }) => (
                 <label className='header__label' style={{ color: contrastColor }}>ABOUT</label>
                 <Link 
                     className='header__anker' 
-                    to='/about'
+                    to='/'
                 >
                     <img 
                         className='header__img' 

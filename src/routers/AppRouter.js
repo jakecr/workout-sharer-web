@@ -32,8 +32,8 @@ const AppRouter = () => (
                 <Route path='/verify-password' component={VerifyPasswordPage} />
                 <Route path='/verify-user' component={VerifyAccountPage} />
 
-                <Route path='/' component={AppPage} exact={true} />
-                <Route path='/about' component={AboutPage} />
+                <Route path='/app' component={AppPage} exact={true} />
+                <Route path='/' component={AboutPage} />
                 <Route path='/account' component={AccountPage} />
                 <Route path='/contact' component={ContactPage} />
                 <Route path='/create-plan' component={CreatePlanPage} />

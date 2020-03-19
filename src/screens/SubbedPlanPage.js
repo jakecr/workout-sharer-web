@@ -514,7 +514,7 @@ const SubbedPlanPage = () => {
                                             <a 
                                                 className='u-color-white' 
                                                 target='blank' 
-                                                href={'https://www.youtube.com/results?search_query=' + setItem.exercise.replace(' ', '+')}
+                                                href={'https://www.youtube.com/results?search_query=' + setItem.exercise.replace(' ', '+') + '+perfect+form'}
                                             >
                                                 <p 
                                                     className='plan--exercise' 

@@ -69,7 +69,8 @@ p {
   text-align: left;
   padding: 0;
   font-weight: 400;
-  font-size: 1.6rem; }
+  font-size: 1.4rem;
+  text-transform: uppercase; }
   .clear-defaults:focus {
     outline: 0; }
 
@@ -168,6 +169,13 @@ a {
   border-radius: 4rem;
   padding: 0 1.25rem;
   margin-top: 1rem; }
+  .button--contrast:active {
+    outline: none;
+    transform: translateY(0);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); }
+  .button--contrast:hover {
+    transform: translateY(-0.05rem);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
 
 .button--tertiary {
   color: #f7f7f7;
@@ -798,3 +806,10 @@ a {
 .plan__container--submit {
   margin: 2.5rem 0 2rem;
   text-align: center; }
+
+.privacy--heading {
+  margin: 1rem 0;
+  font-weight: 550; }
+
+.privacy--info {
+  margin: 1rem 0; }

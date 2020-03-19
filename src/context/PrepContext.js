@@ -62,7 +62,7 @@ const checkIfLoggedIn = dispatch => async () => {
         const response = await workoutSharerApi.post('/validate-user', { token })
 
         if(response.data.isLoggedIn) {
-            window.location.href = '/about'
+            window.location.href = '/'
         }
 
         dispatch({ type: 'ADD_IS_LOGGED_IN', payload: response.data.isLoggedIn })
