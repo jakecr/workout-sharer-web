@@ -282,7 +282,7 @@ router.post('/search-plans', async (req, res) => {
         }
         
         if(requestedPlans.length == 0) {
-            return res.send({ error: 'No plans matched that search.' })
+            return res.send({ error: 'No plans match that search. Leave the search input empty to search for all plans.' })
         }
 
         if(organization == "most") {
