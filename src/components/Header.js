@@ -16,18 +16,18 @@ const Header = ({ theme, currentRoute, contrastColor }) => (
                         style={{
                             filter: 
                             theme == 'dark'
-                            ? currentRoute == '/'
+                            ? currentRoute == '/app'
                                 ? 'brightness(110%)'
                                 : 'brightness(65%)'
-                            : currentRoute == '/'
+                            : currentRoute == '/app'
                                 ? 'brightness(35%)'
                                 : 'brightness(65%)',
                             WebkitFilter: 
                             theme == 'dark'
-                            ? currentRoute == '/'
+                            ? currentRoute == '/app'
                                 ? 'brightness(110%)'
                                 : 'brightness(65%)'
-                            : currentRoute == '/'
+                            : currentRoute == '/app'
                                 ? 'brightness(35%)'
                                 : 'brightness(65%)'
                         }}
@@ -47,18 +47,18 @@ const Header = ({ theme, currentRoute, contrastColor }) => (
                         style={{
                             filter: 
                             theme == 'dark'
-                            ? currentRoute == '/about'
+                            ? currentRoute == '/'
                                 ? 'brightness(110%)'
                                 : 'brightness(65%)'
-                            : currentRoute == '/about'
+                            : currentRoute == '/'
                                 ? 'brightness(10%)'
                                 : 'brightness(35%)',
                             WebkitFilter: 
                             theme == 'dark'
-                            ? currentRoute == '/about'
+                            ? currentRoute == '/'
                                 ? 'brightness(110%)'
                                 : 'brightness(65%)'
-                            : currentRoute == '/about'
+                            : currentRoute == '/'
                                 ? 'brightness(10%)'
                                 : 'brightness(35%)'
                         }}
