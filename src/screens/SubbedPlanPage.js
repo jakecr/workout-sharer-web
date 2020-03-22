@@ -133,12 +133,12 @@ const SubbedPlanPage = () => {
                             ? <div>
                                 {state.errorMessage && <p className='error-message'>{state.errorMessage}</p>}
                                 
-                                <h3 
+                                <h2 
                                     className='form__header u-margin-bottom-small' 
                                     style={{ color: color.contrast }}
                                 >
                                     Enter your records and get your plan specified to you!
-                                </h3>
+                                </h2>
     
                                 <form 
                                     autoComplete="off" 
@@ -155,7 +155,7 @@ const SubbedPlanPage = () => {
                                                 {setItem.maxType == 'Max weight for one rep'
                                                 ? <p 
                                                     className='u-margin-top-none' 
-                                                    style={{ color: '#777' }}
+                                                    style={{ color: color.contrast }}
                                                 >
                                                     About what is the most weight you can use for 1 {setItem.exercise} rep?
                                                 </p>
@@ -163,7 +163,7 @@ const SubbedPlanPage = () => {
                                                 : setItem.maxType == 'Max weight for multiple reps'
                                                 ? <p 
                                                     className='u-margin-top-none' 
-                                                    style={{ color: '#777' }}
+                                                    style={{ color: color.contrast }}
                                                 >
                                                     About what is the most weight you can use for {parseFloat(setItem.staticMetric) + (10 - parseFloat(setItem.repsForAssessment))} {setItem.exercise} reps?
                                                 </p>
@@ -171,7 +171,7 @@ const SubbedPlanPage = () => {
                                                 : setItem.maxType == 'Max reps'
                                                 ? <p 
                                                     className='u-margin-top-none' 
-                                                    style={{ color: '#777' }}
+                                                    style={{ color: color.contrast }}
                                                 >
                                                     About what is the most reps you can do of {setItem.exercise}?
                                                 </p>
@@ -179,7 +179,7 @@ const SubbedPlanPage = () => {
                                                 : setItem.maxType == 'Max distance'
                                                 ? <p 
                                                     className='u-margin-top-none' 
-                                                    style={{ color: '#777' }}
+                                                    style={{ color: color.contrast }}
                                                 >
                                                     About what is the most {setItem.staticMetric}s you can {setItem.exercise}?
                                                 </p>
@@ -187,7 +187,7 @@ const SubbedPlanPage = () => {
                                                 : setItem.maxType == 'Max time'
                                                 && <p 
                                                     className='u-margin-top-none' 
-                                                    style={{ color: '#777' }}
+                                                    style={{ color: color.contrast }}
                                                 >
                                                     About what is the most time you can {setItem.exercise}?
                                                 </p>}
