@@ -60,7 +60,7 @@ const UserPage = () => {
                                         className='form__header' 
                                         style={{ color: color.contrast }}
                                     >
-                                        Plans they made:
+                                        User info:
                                     </h1>
 
                                     <h3 
