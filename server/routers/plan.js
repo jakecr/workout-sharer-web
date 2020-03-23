@@ -363,8 +363,10 @@ router.post('/subscribe', async (req, res) => {
         plan.subscribers++
         await plan.save()
 
-        planCreator.credit++
-        await planCreator.save()
+        if(planCreator.username !== user.username){
+            planCreator.credit++
+            await planCreator.save()
+        }
 
         res.status(200).send({ plan })
     }catch(err) {
@@ -399,8 +401,10 @@ router.post('/unsubscribe', async (req, res) => {
         plan.subscribers--
         await plan.save()
         
-        planCreator.credit--
-        await planCreator.save()
+        if(planCreator.username !== user.username){
+            planCreator.credit--
+            await planCreator.save()
+        }
 
         res.status(200).send()
     }catch(err) {
