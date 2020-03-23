@@ -1,6 +1,6 @@
 import React, { useEffect, useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { MdSpeakerNotes, MdDeleteForever } from 'react-icons/md'
+import { MdSpeakerNotes, MdDeleteForever, MdReport } from 'react-icons/md'
 import { Context as PlanContext } from '../context/PlanContext'
 import { Context as PrepContext } from '../context/PrepContext'
 import Footer from '../components/Footer'
@@ -8,7 +8,7 @@ import Header from '../components/Header'
 import IconInput from '../components/IconInput'
 
 const PlanPage = () => {
-    const { state, clearErrorMessage, deleteComment, getPagePlan, getSubscribedPlan, postComment, subscribe, unsubscribe } = useContext(PlanContext)
+    const { state, clearErrorMessage, deleteComment, getPagePlan, getSubscribedPlan, postComment, reportComment, subscribe, unsubscribe } = useContext(PlanContext)
     const { state: color, checkIfNotLoggedIn } = useContext(PrepContext)
 
     const [ activeDay, setActiveDay ] = useState(null)
@@ -346,30 +346,41 @@ const PlanPage = () => {
                                     return (
                                         <div 
                                             key={commentIndex + 10000} 
-                                            className='u-space-arround'
+                                            className='comment'
                                         >
-                                            <div>
-                                                
-                                                    <div className='u-space-between'>
-                                                        <Link 
-                                                            to={'/user-page?username=' + commentItem.user} 
-                                                            style={{ color: color.contrast }}
-                                                        >
-                                                            <strong>{commentItem.user}: </strong>
-                                                        </Link>
-                                                        {state.isCreator 
-                                                        && <a onClick={() => deleteComment({ commentId: commentItem._id, planId: state.pagePlan._id })}>
-                                                            <MdDeleteForever className='u-color-red' style={{ fontSize: '3rem' }}/>
-                                                        </a>}
-                                                    </div>
+                                            <div className='comment__info'>
+                                                <Link 
+                                                    className='comment__info--user'
+                                                    to={'/user-page?username=' + commentItem.user} 
+                                                    style={{ color: color.contrast }}
+                                                >
+                                                    <strong>{commentItem.user}: </strong>
+                                                </Link>
 
-                                                    <p 
-                                                        className='plan--comment' 
-                                                        style={{ color: color.contrast }}
-                                                    >
-                                                        {commentItem.text}
-                                                    </p>
+                                                <p 
+                                                    className='comment__info--text' 
+                                                    style={{ color: color.contrast }}
+                                                >
+                                                    {commentItem.text}
+                                                </p>
                                             </div>
+
+                                            
+                                            {state.isCreator 
+                                            && <div className='comment__options'>
+                                                <a 
+                                                    className='comment__options--delete'
+                                                    onClick={() => deleteComment({ commentId: commentItem._id, planId: state.pagePlan._id })}
+                                                >
+                                                    <MdDeleteForever className='u-color-red' style={{ fontSize: '3rem' }}/>
+                                                </a>
+                                                <a 
+                                                    className='comment__options--report'
+                                                    onClick={() => reportComment({ commentId: commentItem._id, planId: state.pagePlan._id })}
+                                                >
+                                                    <MdReport className='u-color-orange' style={{ fontSize: '3rem' }}/>
+                                                </a>
+                                            </div>}
                                         </div>
                                     )
                                 })}

@@ -86,10 +86,6 @@ router.post('/delete-comment', async (req, res) => {
                 break
             }
         }
-        if(commenter.username !== user.username ) {
-            commenter.credit -= 5
-            await commenter.save()
-        }
         await plan.save()
 
         res.status(202).send({ comments: plan.comments })
@@ -245,6 +241,42 @@ router.post('/post-record', async (req, res) => {
         res.status(200).send()
     }
     catch(err) {
+        res.status(500).send()
+    }
+})
+
+router.post('/report-comment', async (req, res) => {
+    const { planId, commentId, token } = req.body
+
+    try {
+        const decoded = jwt.verify(token, process.env.JWT_SECRET)
+        const user = await User.findById(decoded.userId)
+        if(!user) {
+            return res.status(203).send({ error: 'Could not find your account.' })
+        }
+        
+        const plan = await Plan.findById(planId)
+        if(plan.creator !== user.username) {
+            return res.status(203).send({ error: 'You didn\'t make this plan.' })
+        }
+        
+        let commenter = null
+        for(let i = 0; i < plan.comments.length; i++) {
+            if(plan.comments[i]._id.equals(commentId)) {
+                commenter = await User.findOne({ username: plan.comments[i].user })
+                plan.comments.splice(i, 1)
+                break
+            }
+        }
+        if(commenter.username !== user.username ) {
+            commenter.credit -= 5
+            await commenter.save()
+        }
+        
+        await plan.save()
+
+        res.status(202).send({ comments: plan.comments })
+    }catch(err) {
         res.status(500).send()
     }
 })
