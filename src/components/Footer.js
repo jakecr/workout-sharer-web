@@ -6,7 +6,7 @@ const Footer = ({ colorContrast, colorPrimary, colorTertiary, theme }) => (
 
         <div className='footer__group'>
             <a 
-                href='www.linkedin.com/in/jacob-rothschild-93578a192' 
+                href='https://www.linkedin.com/in/jacob-rothschild-93578a192' 
                 target='_blank' 
                 className='footer__credit' 
                 style={{ 

@@ -104,11 +104,9 @@ router.post('/delete-plan', async (req, res) => {
             return res.status(203).send({ error: 'Could not find your account.' })
         }
 
-        for(let i = 0; i < user.madePlans.length; i++){
-            if(user.madePlans[i] == id){
+        for(let i = 0; i < user.madePlans.length; i++) {
+            if(user.madePlans[i] == id) {
                 user.madePlans.splice(i, 1)
-
-                user.credit--
                 await user.save()
                 
                 break
