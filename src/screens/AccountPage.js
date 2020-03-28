@@ -154,8 +154,6 @@ const AccountPage = () => {
                                     }
                                 }} 
                                 checked={theme == 'dark'} 
-                                height='2.8rem'
-                                width='5.6rem'
                             />
                         </div>
                         
@@ -173,9 +171,7 @@ const AccountPage = () => {
                                     setIsSimple(value)
                                     changeIsSimple({ isSimple: value })
                                 }} 
-                                checked={isSimple} 
-                                height='2.8rem'
-                                width='5.6rem'
+                                checked={isSimple}
                             />
                         </div>
 
