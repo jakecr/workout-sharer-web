@@ -70,7 +70,8 @@ p {
   padding: 0;
   font-weight: 400;
   font-size: 1.4rem;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  font-weight: 550; }
   .clear-defaults:focus {
     outline: 0; }
 
