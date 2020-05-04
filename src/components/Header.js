@@ -160,7 +160,7 @@ const Header = ({ theme, currentRoute, contrastColor }) => (
             </div>
 
             <div className='header__box--img'>
-                <label className='header__label' style={{ color: contrastColor }}>ACCOUNT</label>
+                <label className='header__label' style={{ color: contrastColor }}>YOUR ACCOUNT</label>
                 <Link 
                     className='header__anker' 
                     to='/account'

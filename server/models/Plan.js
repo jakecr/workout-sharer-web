@@ -87,7 +87,7 @@ const planSchema = new mongoose.Schema({
         type: String,
         trim: true
     },
-    workouts: [workoutSchema],
+    workouts: [ workoutSchema ],
     creator: {
         type: String,
         required: true,
@@ -97,7 +97,7 @@ const planSchema = new mongoose.Schema({
         type: Number,
         default: 0
     },
-    comments: [commentSchema]
+    comments: [ commentSchema ]
 }, {
     timestamps: true
 })
