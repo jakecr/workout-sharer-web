@@ -172,7 +172,7 @@ router.post('/verify-delete-user', async (req, res) => {
                 for(let j = 0; j < users.length; j++) {
                     users[i].record = []
                     users[i].subbedPlan = null
-                    users[i].save()
+                    await users[i].save()
                 }
 
                 await plan.remove()
